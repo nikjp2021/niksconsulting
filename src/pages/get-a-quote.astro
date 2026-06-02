@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { services } from '../data/services';
+---
+
+<BaseLayout title="Get a Quote — Niks Consulting" description="Request a free quote for your project. Tell us about your business needs and we'll create a tailored proposal.">
+  <!-- Hero -->
+  <section class="relative py-20 lg:py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-hero-gradient"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(6,182,212,0.1),transparent_60%)]"></div>
+    <div class="relative container-custom section-padding !py-0 text-center">
+      <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6">
+        Get a <span class="gradient-text">Free Quote</span>
+      </h1>
+      <p class="text-lg text-dark-300 max-w-2xl mx-auto">
+        Tell us about your project and we'll create a tailored AI-powered proposal with pricing within 24 hours.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quote Form -->
+  <section class="section-padding bg-dark-900">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <!-- Form -->
+        <div class="lg:col-span-2">
+          <div class="glass-card p-8 lg:p-10">
+            <!--
+              REPLACE: Freshsales Lead Capture Form
+              Replace the form below with your actual Freshsales web form embed.
+              This form should have more fields than the contact form to capture project details.
+            -->
+            <form id="quote-form" class="space-y-6">
+              <!-- Personal Info -->
+              <div>
+                <h3 class="font-display font-semibold text-lg text-white mb-4 flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-lg bg-primary-500/20 flex items-center justify-center text-primary-400 text-sm font-bold">1</span>
+                  Your Information
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label for="q_first_name" class="block text-sm font-medium text-dark-200 mb-2">First Name *</label>
+                    <input type="text" id="q_first_name" name="first_name" required class="input-field" placeholder="John" />
+                  </div>
+                  <div>
+                    <label for="q_last_name" class="block text-sm font-medium text-dark-200 mb-2">Last Name *</label>
+                    <input type="text" id="q_last_name" name="last_name" required class="input-field" placeholder="Doe" />
+                  </div>
+                  <div>
+                    <label for="q_email" class="block text-sm font-medium text-dark-200 mb-2">Email *</label>
+                    <input type="email" id="q_email" name="email" required class="input-field" placeholder="john@example.com" />
+                  </div>
+                  <div>
+                    <label for="q_phone" class="block text-sm font-medium text-dark-200 mb-2">Phone</label>
+                    <input type="tel" id="q_phone" name="phone" class="input-field" placeholder="+1 (234) 567-890" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Business Info -->
+              <div>
+                <h3 class="font-display font-semibold text-lg text-white mb-4 flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-lg bg-accent-500/20 flex items-center justify-center text-accent-400 text-sm font-bold">2</span>
+                  Your Business
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label for="q_company" class="block text-sm font-medium text-dark-200 mb-2">Company Name</label>
+                    <input type="text" id="q_company" name="company" class="input-field" placeholder="Acme Inc." />
+                  </div>
+                  <div>
+                    <label for="q_website" class="block text-sm font-medium text-dark-200 mb-2">Current Website</label>
+                    <input type="url" id="q_website" name="website" class="input-field" placeholder="https://example.com" />
+                  </div>
+                  <div>
+                    <label for="q_industry" class="block text-sm font-medium text-dark-200 mb-2">Industry</label>
+                    <input type="text" id="q_industry" name="industry" class="input-field" placeholder="e.g., Retail, Healthcare, Finance" />
+                  </div>
+                  <div>
+                    <label for="q_location" class="block text-sm font-medium text-dark-200 mb-2">Location</label>
+                    <input type="text" id="q_location" name="location" class="input-field" placeholder="City, Country" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project Details -->
+              <div>
+                <h3 class="font-display font-semibold text-lg text-white mb-4 flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 text-sm font-bold">3</span>
+                  Project Details
+                </h3>
+                <div class="space-y-5">
+                  <div>
+                    <label for="q_service" class="block text-sm font-medium text-dark-200 mb-2">Service Needed *</label>
+                    <select id="q_service" name="service" required class="input-field">
+                      <option value="">Select a service...</option>
+                      {services.map((s) => (
+                        <option value={s.id}>{s.title}</option>
+                      ))}
+                      <option value="multiple">Multiple Services</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="q_budget" class="block text-sm font-medium text-dark-200 mb-2">Estimated Budget</label>
+                    <select id="q_budget" name="budget" class="input-field">
+                      <option value="">Select budget range...</option>
+                      <option value="under-500">Under $500</option>
+                      <option value="500-1000">$500 - $1,000</option>
+                      <option value="1000-2500">$1,000 - $2,500</option>
+                      <option value="2500-5000">$2,500 - $5,000</option>
+                      <option value="5000-plus">$5,000+</option>
+                      <option value="not-sure">Not sure yet</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="q_timeline" class="block text-sm font-medium text-dark-200 mb-2">Preferred Timeline</label>
+                    <select id="q_timeline" name="timeline" class="input-field">
+                      <option value="">Select timeline...</option>
+                      <option value="asap">ASAP</option>
+                      <option value="1-month">Within 1 month</option>
+                      <option value="1-3-months">1-3 months</option>
+                      <option value="3-6-months">3-6 months</option>
+                      <option value="flexible">Flexible</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="q_description" class="block text-sm font-medium text-dark-200 mb-2">Project Description *</label>
+                    <textarea
+                      id="q_description"
+                      name="description"
+                      rows="5"
+                      required
+                      class="input-field resize-none"
+                      placeholder="Tell us about your project goals, challenges, and any specific requirements..."
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-primary w-full text-base py-4">
+                Submit Quote Request
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="space-y-6">
+          <!-- What to Expect -->
+          <div class="glass-card p-6">
+            <h3 class="font-display font-semibold text-lg text-white mb-4">What Happens Next?</h3>
+            <div class="space-y-4">
+              {[
+                { step: '01', title: 'Review', desc: 'We review your project details within 24 hours.' },
+                { step: '02', title: 'Consultation', desc: 'We schedule a free call to discuss your needs.' },
+                { step: '03', title: 'Proposal', desc: 'You receive a detailed proposal with pricing.' },
+                { step: '04', title: 'Kickoff', desc: 'Once approved, we begin your project immediately.' },
+              ].map((item) => (
+                <div class="flex gap-3">
+                  <span class="font-display font-bold text-sm text-primary-400 shrink-0">{item.step}</span>
+                  <div>
+                    <p class="text-sm font-semibold text-white">{item.title}</p>
+                    <p class="text-xs text-dark-400">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Quick Contact -->
+          <div class="glass-card p-6">
+            <h3 class="font-display font-semibold text-lg text-white mb-4">Prefer to Talk?</h3>
+            <p class="text-sm text-dark-400 mb-4">
+              Book a free 30-minute consultation directly.
+            </p>
+            <!-- REPLACE: Your actual OnceHub link -->
+            <a
+              href="https://go.oncehub.com/nik4u"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-outline w-full text-sm mb-3"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              Schedule a Call
+            </a>
+            <!-- REPLACE: Your actual WhatsApp number -->
+            <a
+              href="https://wa.me/1234567890?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20project."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-ghost w-full text-sm text-green-400 hover:text-green-300"
+            >
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const quoteForm = document.getElementById('quote-form');
+  quoteForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // REPLACE: Add your Freshsales form submission logic
+    alert('Thank you! We\'ve received your quote request and will respond within 24 hours with a detailed proposal.');
+  });
+</script>

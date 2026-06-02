@@ -1,0 +1,81 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = 'Niks Consulting — Pioneers in AI Solutions & Innovation. We deliver AI-powered solutions, agentic workflows, digital transformation, and automation for startups and SMEs.',
+  ogImage = '/og-image.jpg',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://niksconsulting.com');
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Niks Consulting" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <title>{title}</title>
+
+    <!--
+      REPLACE: Freshdesk Widget Script
+      Add your Freshdesk widget script here for the support chat widget.
+      Example:
+      <script src="https://widget.freshworks.com/widgets/XXXXXXX.js" defer></script>
+    -->
+
+    <!-- Structured Data: LocalBusiness -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Niks Consulting",
+      "url": "https://niksconsulting.com",
+      "description": description,
+      // REPLACE: Add your actual address, phone, email
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Your City",
+        "addressCountry": "Your Country"
+      },
+      "telephone": "+1-234-567-890",
+      "email": "info@niksconsulting.com",
+      "priceRange": "$$",
+      "serviceType": ["AI Solutions", "Agentic AI", "AI Automation", "Digital Transformation", "Web Development", "AI-Powered Social Media", "Agile Project Management"]
+    })} />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Navbar />
+    <main class="flex-1 pt-16">
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppButton />
+  </body>
+</html>

@@ -1,0 +1,219 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { services } from '../data/services';
+import { caseStudies } from '../data/caseStudies';
+import { testimonials } from '../data/testimonials';
+---
+
+<BaseLayout title="Niks Consulting — AI Solutions, Agentic AI & Digital Transformation">
+  <!-- Hero Section -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-hero-gradient"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.15),transparent_50%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(6,182,212,0.1),transparent_50%)]"></div>
+
+    <!-- Grid Pattern -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+
+    <div class="relative container-custom section-padding !py-0">
+      <div class="max-w-4xl">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 mb-8">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-sm text-primary-300 font-medium">Pioneers in AI Solutions & Innovation</span>
+        </div>
+
+        <!-- Heading -->
+        <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-7xl text-white leading-[1.1] mb-6">
+          Innovate, Transform &
+          <br />
+          <span class="gradient-text">Achieve Real Results with AI</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-lg sm:text-xl text-dark-300 leading-relaxed max-w-2xl mb-10">
+          Your digital transformation partner. We deliver AI-powered solutions, agentic workflows, and lean strategies that streamline operations and accelerate growth for startups and SMEs.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/get-a-quote" class="btn-primary text-base px-8 py-4">
+            Get a Free Quote
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <a href="/services" class="btn-outline text-base px-8 py-4">
+            Explore AI Services
+          </a>
+        </div>
+
+        <!-- Trust Signals -->
+        <div class="mt-16 flex flex-wrap items-center gap-8">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span class="text-sm text-dark-400">AI-Powered Solutions</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span class="text-sm text-dark-400">Global Remote Team</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span class="text-sm text-dark-400">Guaranteed Satisfaction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section-padding bg-dark-900" id="services">
+    <div class="container-custom">
+      <SectionHeading
+        title="Incredible Services Tailored for You"
+        subtitle="AI-powered solutions and digital transformation services designed to revolutionize your business."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service) => (
+          <ServiceCard
+            title={service.title}
+            description={service.shortDesc}
+            icon={service.icon}
+            href={`/services#${service.id}`}
+            color={service.color}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Section -->
+  <section class="section-padding bg-dark-800/30">
+    <div class="container-custom">
+      <SectionHeading
+        title="Explore Our Case Studies"
+        subtitle="Real results for real businesses. See how AI-powered solutions have transformed our clients' operations."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {caseStudies.map((cs) => (
+          <CaseStudyCard
+            title={cs.title}
+            client={cs.client}
+            location={cs.location}
+            challenge={cs.challenge}
+            results={cs.results}
+            tags={cs.tags}
+            href={`/case-studies#${cs.id}`}
+          />
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="/case-studies" class="btn-outline">
+          View All Case Studies
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="section-padding bg-dark-900">
+    <div class="container-custom">
+      <SectionHeading
+        title="How We Work"
+        subtitle="A proven process enhanced by AI — from discovery to deployment, we deliver faster and smarter."
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { step: '01', title: 'Discovery', desc: 'We analyze your business, challenges, and goals. AI-powered research accelerates our understanding of your market and competition.' },
+          { step: '02', title: 'Strategy', desc: 'We create a tailored DX roadmap with AI-driven insights, clear milestones, and measurable KPIs for your business.' },
+          { step: '03', title: 'Build & Automate', desc: 'Our team builds, tests, and deploys your solution using agile sprints and AI-assisted development for faster delivery.' },
+          { step: '04', title: 'Optimize & Scale', desc: 'AI-powered analytics monitor performance. We continuously optimize and scale your solution for sustained growth.' },
+        ].map((item) => (
+          <div class="glass-card p-6 relative group">
+            <span class="font-display text-5xl font-bold text-primary-500/10 absolute top-4 right-4 group-hover:text-primary-500/20 transition-colors">
+              {item.step}
+            </span>
+            <div class="relative">
+              <h3 class="font-display font-semibold text-lg text-white mb-3">{item.title}</h3>
+              <p class="text-sm text-dark-400 leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Integrations Section -->
+  <section class="section-padding bg-dark-800/30">
+    <div class="container-custom">
+      <SectionHeading
+        title="We Work & Integrate With"
+        subtitle="Seamlessly connecting with the tools your business already uses."
+      />
+
+      <div class="flex flex-wrap justify-center gap-6">
+        {['Slack', 'WhatsApp', 'Telegram', 'Discord', 'Freshsales', 'OnceHub', 'Google Workspace', 'Zapier'].map((tool) => (
+          <div class="glass-card px-6 py-4 flex items-center gap-3">
+            <span class="text-sm font-medium text-dark-200">{tool}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section-padding bg-dark-800/30">
+    <div class="container-custom">
+      <SectionHeading
+        title="What Our Clients Say"
+        subtitle="Don't just take our word for it — hear from the businesses we've helped transform."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {testimonials.map((t) => (
+          <TestimonialCard
+            name={t.name}
+            role={t.role}
+            company={t.company}
+            content={t.content}
+            rating={t.rating}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding bg-dark-900 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.1),transparent_70%)]"></div>
+    <div class="container-custom relative text-center">
+      <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
+        Ready to Revolutionize Your Business?
+      </h2>
+      <p class="text-lg text-dark-300 max-w-2xl mx-auto mb-10">
+        Join us so that we can help you embrace AI, automate your operations, and achieve real results. Book a free consultation today.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/get-a-quote" class="btn-primary text-base px-8 py-4">
+          Get a Free Quote
+        </a>
+        <a href="/contact" class="btn-outline text-base px-8 py-4">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
