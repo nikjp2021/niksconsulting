@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 — Page Not Found | Nik's Consulting" description="The page you are looking for does not exist.">
+  <!-- Hero -->
+  <section class="relative py-24 lg:py-36 overflow-hidden">
+    <div class="absolute inset-0 bg-hero-gradient"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.15),transparent_60%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(6,182,212,0.1),transparent_50%)]"></div>
+    <!-- Decorative orbs -->
+    <div class="absolute top-20 left-[10%] w-72 h-72 rounded-full bg-brand-500/8 blur-[100px] animate-glow-pulse"></div>
+    <div class="absolute bottom-10 right-[15%] w-64 h-64 rounded-full bg-violet-500/8 blur-[100px] animate-glow-pulse" style="animation-delay: 2s;"></div>
+
+    <div class="relative container-custom section-padding !py-0 text-center">
+      <h1 class="font-display font-extrabold text-[8rem] sm:text-[10rem] lg:text-[12rem] leading-none bg-gradient-to-r from-brand-400 via-accent-cyan to-accent-violet bg-clip-text text-transparent mb-4">
+        404
+      </h1>
+      <h2 class="heading-display text-4xl sm:text-5xl text-ink-100 mb-6">
+        Page Not Found
+      </h2>
+      <p class="text-xl text-ink-300 max-w-xl mx-auto leading-relaxed mb-12">
+        The page you are looking for does not exist or has been moved. Let us help you find your way.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/" class="btn-primary text-base px-8 py-4">
+          Go Home
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        </a>
+        <a href="/services" class="btn-outline-glow text-base px-8 py-4">
+          View Services
+        </a>
+        <a href="/contact" class="btn-outline-glow text-base px-8 py-4">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

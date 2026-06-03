@@ -412,6 +412,13 @@ const audiences = [
               <div class="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-accent-amber/4 blur-[120px]"></div>
 
               <div class="relative p-8 lg:p-12">
+                <div id="training-success" class="hidden text-center py-12">
+                  <div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <h3 class="font-display font-bold text-2xl text-ink-100 mb-2">Thank You!</h3>
+                  <p class="text-ink-300">We've received your training inquiry and will reach out within 24 hours.</p>
+                </div>
                 <form id="training-form" class="space-y-6">
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
@@ -605,6 +612,7 @@ const audiences = [
   const trainingForm = document.getElementById('training-form');
   trainingForm?.addEventListener('submit', (e) => {
     e.preventDefault();
-    alert('Thank you! We\'ve received your training inquiry and will reach out within 24 hours to schedule your free consultation.');
+    trainingForm?.classList.add('hidden');
+    document.getElementById('training-success')?.classList.remove('hidden');
   });
 </script>

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import { team } from '../data/team';
+import { stats } from '../data/stats';
 
 const teamColors = [
   { gradient: 'from-brand-500 to-cyan-500', bg: 'bg-brand-500/10', text: 'text-brand-400', orb: 'rgba(20,184,166,0.15)' },
@@ -93,10 +94,10 @@ const teamColors = [
         <!-- Stats Grid -->
         <div class="grid grid-cols-2 gap-5">
           {[
-            { number: '3', label: 'Countries Served', suffix: '+', color: 'from-brand-500/15 to-cyan-500/15', border: 'border-brand-500/20', accent: 'text-brand-400' },
-            { number: '10', label: 'Projects Delivered', suffix: '+', color: 'from-violet-500/15 to-purple-500/15', border: 'border-violet-500/20', accent: 'text-violet-400' },
-            { number: '3', label: 'Years Experience', suffix: '+', color: 'from-amber-500/15 to-orange-500/15', border: 'border-amber-500/20', accent: 'text-amber-400' },
-            { number: '100', label: 'Client Satisfaction', suffix: '%', color: 'from-emerald-500/15 to-teal-500/15', border: 'border-emerald-500/20', accent: 'text-emerald-400' },
+            { number: stats.countries.replace('+', ''), label: 'Countries Served', suffix: '+', color: 'from-brand-500/15 to-cyan-500/15', border: 'border-brand-500/20', accent: 'text-brand-400' },
+            { number: stats.projects.replace('+', ''), label: 'Projects Delivered', suffix: '+', color: 'from-violet-500/15 to-purple-500/15', border: 'border-violet-500/20', accent: 'text-violet-400' },
+            { number: stats.yearsExperience.replace('+', ''), label: 'Years Experience', suffix: '+', color: 'from-amber-500/15 to-orange-500/15', border: 'border-amber-500/20', accent: 'text-amber-400' },
+            { number: stats.clientROI.replace('%', ''), label: 'Client Satisfaction', suffix: '%', color: 'from-emerald-500/15 to-teal-500/15', border: 'border-emerald-500/20', accent: 'text-emerald-400' },
           ].map((stat) => (
             <div class:list={['relative rounded-2xl border p-7 text-center overflow-hidden', stat.border]}>
               <div class:list={['absolute inset-0 bg-gradient-to-br', stat.color]}></div>
@@ -289,8 +290,8 @@ const teamColors = [
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(6,182,212,0.05),transparent_60%)]"></div>
     <div class="container-custom relative">
       <SectionHeading
-        title="Certifications & Expertise"
-        subtitle="Backed by industry-recognized certifications and methodologies."
+        title="Areas of Expertise"
+        subtitle="Deep knowledge across AI, automation, and digital transformation."
       />
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">

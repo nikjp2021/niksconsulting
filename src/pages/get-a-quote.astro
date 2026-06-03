@@ -56,6 +56,13 @@ import { services } from '../data/services';
                 Replace the form below with your actual Freshsales web form embed.
                 This form should have more fields than the contact form to capture project details.
               -->
+              <div id="quote-success" class="hidden text-center py-12">
+                <div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h3 class="font-display font-bold text-2xl text-ink-100 mb-2">Thank You!</h3>
+                <p class="text-ink-300">We've received your quote request and will respond within 24 hours.</p>
+              </div>
               <form id="quote-form" class="space-y-10">
                 <!-- Personal Info -->
                 <div>
@@ -269,6 +276,7 @@ import { services } from '../data/services';
   quoteForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     // REPLACE: Add your Freshsales form submission logic
-    alert('Thank you! We\'ve received your quote request and will respond within 24 hours with a detailed proposal.');
+    quoteForm?.classList.add('hidden');
+    document.getElementById('quote-success')?.classList.remove('hidden');
   });
 </script>

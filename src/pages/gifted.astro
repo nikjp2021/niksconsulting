@@ -450,6 +450,13 @@ import SectionHeading from '../components/SectionHeading.astro';
             <div class="absolute -bottom-32 -left-32 w-64 h-64 rounded-full bg-emerald-500/6 blur-[80px]"></div>
 
             <div class="relative p-8 lg:p-10">
+              <div id="gifted-success" class="hidden text-center py-12">
+                <div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h3 class="font-display font-bold text-2xl text-ink-100 mb-2">Thank You!</h3>
+                <p class="text-ink-300">We've received your application and will respond within 5 business days.</p>
+              </div>
               <form id="gifted-form" class="space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
@@ -535,7 +542,7 @@ import SectionHeading from '../components/SectionHeading.astro';
               <h4 class="font-display font-bold text-lg text-ink-100 mb-3">Application Timeline</h4>
               <!-- REPLACE: Update with actual cohort start date -->
               <p class="text-ink-300 text-sm leading-relaxed mb-3">
-                Next cohort starts <strong class="text-amber-300">Q3 2026</strong>. Applications are reviewed on a rolling basis.
+                Next cohort starts <strong class="text-amber-300">October 2026</strong>. Applications are reviewed on a rolling basis.
               </p>
               <p class="text-ink-400 text-xs">
                 Early applications receive priority review. Limited spots available.
@@ -639,6 +646,7 @@ import SectionHeading from '../components/SectionHeading.astro';
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     // REPLACE: Add your form submission logic (e.g., Freshsales, email API, etc.)
-    alert('Thank you for your application! We will review it and get back to you within 5 business days.');
+    form?.classList.add('hidden');
+    document.getElementById('gifted-success')?.classList.remove('hidden');
   });
 </script>

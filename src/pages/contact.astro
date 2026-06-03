@@ -165,6 +165,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 Replace the form below with your actual Freshsales web form embed code.
                 You can create a web form in Freshsales under Admin Settings > Web Forms.
               -->
+              <div id="contact-success" class="hidden text-center py-12">
+                <div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h3 class="font-display font-bold text-2xl text-ink-100 mb-2">Thank You!</h3>
+                <p class="text-ink-300">We've received your message and will respond within 24 hours.</p>
+              </div>
               <form id="contact-form" class="space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
@@ -228,6 +235,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     // REPLACE: Add your Freshsales form submission logic or redirect
-    alert('Thank you for your message! We will get back to you within 24 hours.');
+    form?.classList.add('hidden');
+    document.getElementById('contact-success')?.classList.remove('hidden');
   });
 </script>
