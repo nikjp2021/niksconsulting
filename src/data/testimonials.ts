@@ -1,3 +1,5 @@
+import { images } from './images';
+
 export interface Testimonial {
   id: string;
   name: string;
@@ -17,7 +19,7 @@ export const testimonials: Testimonial[] = [
     content:
       'Niks Consulting transformed our online presence completely. Their AI-powered social media strategy doubled our sales within the first quarter. The team truly understands how to leverage technology for business growth.',
     rating: 5,
-    avatar: '/images/avatar-1.jpg',
+    avatar: images.testimonials.sarah,
   },
   {
     id: 'testimonial-2',
@@ -27,7 +29,7 @@ export const testimonials: Testimonial[] = [
     content:
       'The digital transformation strategy they delivered was exceptional. Our online orders tripled and we now dominate local search results. Their AI-driven approach to SEO and customer engagement is game-changing.',
     rating: 5,
-    avatar: '/images/avatar-2.jpg',
+    avatar: images.testimonials.minh,
   },
   {
     id: 'testimonial-3',
@@ -37,6 +39,6 @@ export const testimonials: Testimonial[] = [
     content:
       'From zero digital presence to a thriving online business. The AI automation for our WhatsApp orders alone transformed how we operate. Nikhil and his team guided us through every step of our digital transformation.',
     rating: 5,
-    avatar: '/images/avatar-3.jpg',
+    avatar: images.testimonials.giuliana,
   },
 ];

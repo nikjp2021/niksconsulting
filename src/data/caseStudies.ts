@@ -1,3 +1,5 @@
+import { images } from './images';
+
 export interface CaseStudy {
   id: string;
   title: string;
@@ -27,7 +29,7 @@ export const caseStudies: CaseStudy[] = [
       '300% increase in online orders within 3 months',
       'AI-powered recommendations increased average order value by 25%',
     ],
-    image: '/images/case-pizza.jpg',
+    image: images.caseStudies.yodaPizza,
     tags: ['SEO', 'Digital Transformation', 'AI'],
   },
   {
@@ -45,7 +47,7 @@ export const caseStudies: CaseStudy[] = [
       'Expanded customer base to 15+ countries',
       'AI-driven social media strategy drove 40% of total traffic',
     ],
-    image: '/images/case-fashion.jpg',
+    image: images.caseStudies.ozynicDress,
     tags: ['E-commerce', 'Branding', 'AI Social Media'],
   },
   {
@@ -63,7 +65,64 @@ export const caseStudies: CaseStudy[] = [
       'WhatsApp automated ordering became 60% of total orders',
       'Local search visibility increased 4x',
     ],
-    image: '/images/case-bakery.jpg',
+    image: images.caseStudies.donaGi,
     tags: ['SEO', 'WhatsApp Automation', 'Local Marketing'],
+  },
+  {
+    id: 'health-tech-japan',
+    title: 'MediConnect Japan: AI-Powered Patient Triage',
+    client: 'MediConnect',
+    location: 'Japan',
+    category: 'Health Tech AI',
+    challenge:
+      'A telehealth startup in Japan struggled with long patient wait times and inefficient triage. Manual assessment of symptoms was creating bottlenecks, causing patients to wait hours for initial consultations.',
+    solution:
+      'Deployed an AI-powered triage agent that assesses patient symptoms in real-time, prioritizes cases by urgency, and routes patients to the appropriate specialist. Integrated with existing EHR systems and added multilingual support for international patients.',
+    results: [
+      '70% reduction in patient wait times',
+      'AI triage accuracy rate of 94%',
+      'Expanded to serve 3 additional prefectures within 6 months',
+      'Patient satisfaction score increased from 3.2 to 4.7/5',
+    ],
+    image: images.caseStudies.case4,
+    tags: ['Health Tech', 'Agentic AI', 'Japan'],
+  },
+  {
+    id: 'ecommerce-brazil',
+    title: 'ModaExpress: End-to-End E-Commerce Automation',
+    client: 'ModaExpress',
+    location: 'Brazil',
+    category: 'E-Commerce Automation',
+    challenge:
+      "A fast-growing Brazilian fashion e-commerce brand was drowning in manual operations — inventory management, customer support, order processing, and social media posting consumed 80% of the team's time.",
+    solution:
+      'Built an integrated AI automation pipeline: smart inventory forecasting, AI chatbot for customer support in Portuguese, automated order processing with fraud detection, and AI-powered social media scheduling with trend analysis.',
+    results: [
+      '80% reduction in manual operational tasks',
+      'Customer response time dropped from 4 hours to 2 minutes',
+      'AI-driven inventory forecasting reduced overstock by 35%',
+      'Social media engagement increased 250% with AI content',
+    ],
+    image: images.caseStudies.case5,
+    tags: ['E-Commerce', 'AI Automation', 'Brazil'],
+  },
+  {
+    id: 'saas-usa',
+    title: 'DataFlow Analytics: Building an AI-Native SaaS Platform',
+    client: 'DataFlow Analytics',
+    location: 'USA',
+    category: 'SaaS Development',
+    challenge:
+      'A US-based analytics startup needed to build a minimum viable product (MVP) for their AI-powered business intelligence platform. They had the vision but lacked the technical team to execute within their 4-month runway.',
+    solution:
+      'Assembled a dedicated team and built the entire SaaS platform from scratch: AI-powered data ingestion, natural language query interface, automated report generation, and a stunning dashboard UI. Delivered MVP in 12 weeks using agile sprints.',
+    results: [
+      'MVP delivered 2 weeks ahead of schedule',
+      'Secured $1.5M seed funding within 2 months of launch',
+      'Onboarded 50+ enterprise beta users in first month',
+      'Platform processes 10M+ data points daily',
+    ],
+    image: images.caseStudies.case6,
+    tags: ['SaaS', 'AI Development', 'USA'],
   },
 ];

@@ -1,63 +1,148 @@
 ---
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
-  { href: '/case-studies', label: 'Case Studies' },
+  {
+    label: 'Services',
+    children: [
+      { href: '/services', label: 'Our Services' },
+      { href: '/case-studies', label: 'Case Studies' },
+    ],
+  },
+  {
+    label: 'Training',
+    children: [
+      { href: '/training', label: 'AI Training' },
+      { href: '/gifted', label: 'Gifted Internship' },
+    ],
+  },
   { href: '/about', label: 'About' },
   { href: '/blog', label: 'Blog', external: true },
   { href: '/contact', label: 'Contact' },
 ];
 
 const currentPath = Astro.url.pathname;
+
+function isActiveLink(link: any): boolean {
+  if (link.href) return currentPath === link.href;
+  if (link.children) return link.children.some((c: any) => currentPath === c.href);
+  return false;
+}
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-dark-900/80 backdrop-blur-xl border-b border-dark-700/50">
-  <nav class="container-custom flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
-    <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 group">
-      <div class="w-9 h-9 rounded-lg bg-accent-gradient flex items-center justify-center font-display font-bold text-white text-lg">
-        N
+<header class="fixed top-0 left-0 right-0 z-50 navbar-expanded" style="">
+  {/* Gradient accent line at bottom */}
+  <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-accent-cyan/40 to-transparent"></div>
+
+  <nav class="nav-inner container-custom flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
+    {/* Logo */}
+    <a href="/" class="flex items-center gap-2.5 group">
+      <div class="relative">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-cyan via-brand-500 to-accent-violet flex items-center justify-center font-display font-extrabold text-ink-100 text-lg shadow-glow-sm group-hover:shadow-glow-md transition-shadow duration-300">
+          N
+        </div>
+        <div class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-accent-amber opacity-80 group-hover:opacity-100 transition-opacity"></div>
       </div>
-      <span class="font-display font-bold text-lg text-white group-hover:text-primary-300 transition-colors">
-        Niks<span class="text-primary-400">Consulting</span>
+      <span class="font-display font-bold text-lg text-ink-100 group-hover:text-ink-100 transition-colors">
+        Niks<span class="bg-gradient-to-r from-accent-cyan to-accent-violet bg-clip-text text-transparent">Consulting</span>
       </span>
     </a>
 
-    <!-- Desktop Nav -->
+    {/* Desktop Nav */}
     <div class="hidden md:flex items-center gap-1">
-      {navLinks.map((link) => (
-        <a
-          href={link.external ? 'https://blog.niksconsulting.com' : link.href}
-          target={link.external ? '_blank' : undefined}
-          rel={link.external ? 'noopener noreferrer' : undefined}
-          class:list={[
-            'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300',
-            currentPath === link.href
-              ? 'text-white bg-primary-500/20'
-              : 'text-dark-300 hover:text-white hover:bg-dark-800',
-          ]}
-        >
-          {link.label}
-          {link.external && (
-            <svg class="inline-block w-3 h-3 ml-1 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          )}
-        </a>
-      ))}
+      {navLinks.map((link) => {
+        const active = isActiveLink(link);
+
+        if (link.children) {
+          return (
+            <div class="relative group/dropdown">
+              <button
+                class:list={[
+                  'relative flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300',
+                  active ? 'text-ink-100' : 'text-ink-400 hover:text-ink-100',
+                ]}
+              >
+                {active && (
+                  <span class="absolute inset-0 rounded-lg bg-brand-500/10 border border-brand-500/15"></span>
+                )}
+                <span class="relative z-10 flex items-center gap-1">
+                  {link.label}
+                  <svg class="w-3.5 h-3.5 opacity-50 transition-transform duration-200 group-hover/dropdown:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </span>
+              </button>
+
+              {/* Dropdown menu */}
+              <div class="absolute top-full left-0 pt-1 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-200 translate-y-1 group-hover/dropdown:translate-y-0">
+                <div class="w-48 py-2 rounded-xl border border-surface-4/50 shadow-xl" style="background: var(--mobile-menu-bg); backdrop-filter: blur(24px);">
+                  {link.children.map((child: any) => (
+                    <a
+                      href={child.href}
+                      class:list={[
+                        'block px-4 py-2.5 text-sm font-medium transition-all duration-200',
+                        currentPath === child.href
+                          ? 'text-brand-400 bg-brand-500/10'
+                          : 'text-ink-300 hover:text-ink-100 hover:bg-surface-3',
+                      ]}
+                    >
+                      {child.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          );
+        }
+
+        return (
+          <a
+            href={link.external ? 'https://blog.niksconsulting.com' : link.href}
+            target={link.external ? '_blank' : undefined}
+            rel={link.external ? 'noopener noreferrer' : undefined}
+            class:list={[
+              'relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300',
+              active ? 'text-ink-100' : 'text-ink-400 hover:text-ink-100',
+            ]}
+          >
+            {active && (
+              <span class="absolute inset-0 rounded-lg bg-brand-500/10 border border-brand-500/15"></span>
+            )}
+            <span class="relative z-10">
+              {link.label}
+              {link.external && (
+                <svg class="inline-block w-3 h-3 ml-1 -mt-0.5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              )}
+            </span>
+          </a>
+        );
+      })}
     </div>
 
-    <!-- CTA -->
+    {/* CTA + Theme Toggle */}
     <div class="hidden md:flex items-center gap-3">
-      <a href="/get-a-quote" class="btn-primary text-sm">
+      <button
+        id="theme-toggle"
+        class="p-2 rounded-lg text-ink-400 hover:text-ink-100 hover:bg-surface-3 transition-all duration-200"
+        aria-label="Toggle theme"
+      >
+        <svg id="icon-sun" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+        <svg id="icon-moon" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+        </svg>
+      </button>
+      <a href="/get-a-quote" class="btn-primary text-sm shadow-glow-sm hover:shadow-glow-md">
         Get a Quote
       </a>
     </div>
 
-    <!-- Mobile Menu Button -->
+    {/* Mobile Menu Button */}
     <button
       id="mobile-menu-btn"
-      class="md:hidden p-2 text-dark-300 hover:text-white"
+      class="md:hidden p-2 text-ink-400 hover:text-ink-100 transition-colors"
       aria-label="Toggle menu"
     >
       <svg id="menu-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -69,26 +154,68 @@ const currentPath = Astro.url.pathname;
     </button>
   </nav>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-dark-800/95 backdrop-blur-xl border-b border-dark-700/50">
+  {/* Mobile Menu */}
+  <div id="mobile-menu" class="hidden md:hidden" style="background: var(--mobile-menu-bg); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(var(--card-border), 0.4);">
     <div class="container-custom px-4 py-4 space-y-1">
-      {navLinks.map((link) => (
-        <a
-          href={link.external ? 'https://blog.niksconsulting.com' : link.href}
-          target={link.external ? '_blank' : undefined}
-          rel={link.external ? 'noopener noreferrer' : undefined}
-          class:list={[
-            'block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300',
-            currentPath === link.href
-              ? 'text-white bg-primary-500/20'
-              : 'text-dark-300 hover:text-white hover:bg-dark-700',
-          ]}
+      {navLinks.map((link) => {
+        const active = isActiveLink(link);
+
+        if (link.children) {
+          return (
+            <div class="space-y-0.5">
+              <div class:list={[
+                'px-4 py-2 text-xs font-semibold uppercase tracking-wider',
+                active ? 'text-brand-400' : 'text-ink-500',
+              ]}>
+                {link.label}
+              </div>
+              {link.children.map((child: any) => (
+                <a
+                  href={child.href}
+                  class:list={[
+                    'block px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-300',
+                    currentPath === child.href
+                      ? 'text-ink-100 bg-brand-500/15 border-l-2 border-accent-cyan'
+                      : 'text-ink-400 hover:text-ink-100 hover:bg-surface-3',
+                  ]}
+                >
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          );
+        }
+
+        return (
+          <a
+            href={link.external ? 'https://blog.niksconsulting.com' : link.href}
+            target={link.external ? '_blank' : undefined}
+            rel={link.external ? 'noopener noreferrer' : undefined}
+            class:list={[
+              'block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300',
+              active
+                ? 'text-ink-100 bg-brand-500/15 border-l-2 border-accent-cyan'
+                : 'text-ink-400 hover:text-ink-100 hover:bg-surface-3',
+            ]}
+          >
+            {link.label}
+          </a>
+        );
+      })}
+      <div class="flex items-center gap-3 pt-3">
+        <button
+          id="theme-toggle-mobile"
+          class="p-2 rounded-lg text-ink-400 hover:text-ink-100 hover:bg-surface-3 transition-all duration-200"
+          aria-label="Toggle theme"
         >
-          {link.label}
-        </a>
-      ))}
-      <div class="pt-3">
-        <a href="/get-a-quote" class="btn-primary w-full text-sm">
+          <svg id="icon-sun-mobile" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+          <svg id="icon-moon-mobile" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+        </button>
+        <a href="/get-a-quote" class="btn-primary flex-1 text-sm text-center">
           Get a Quote
         </a>
       </div>
@@ -97,6 +224,7 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <script>
+  // Mobile menu toggle
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
   const menuIcon = document.getElementById('menu-icon');
@@ -107,5 +235,40 @@ const currentPath = Astro.url.pathname;
     menu?.classList.toggle('hidden');
     menuIcon?.classList.toggle('hidden');
     closeIcon?.classList.toggle('hidden');
+  });
+
+  // Theme toggle
+  function updateThemeIcons(isLight: boolean) {
+    const sun = document.getElementById('icon-sun');
+    const moon = document.getElementById('icon-moon');
+    const sunMobile = document.getElementById('icon-sun-mobile');
+    const moonMobile = document.getElementById('icon-moon-mobile');
+
+    if (isLight) {
+      sun?.classList.add('hidden');
+      moon?.classList.remove('hidden');
+      sunMobile?.classList.add('hidden');
+      moonMobile?.classList.remove('hidden');
+    } else {
+      sun?.classList.remove('hidden');
+      moon?.classList.add('hidden');
+      sunMobile?.classList.remove('hidden');
+      moonMobile?.classList.add('hidden');
+    }
+  }
+
+  const currentIsLight = document.documentElement.classList.contains('light');
+  updateThemeIcons(currentIsLight);
+
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const isLight = document.documentElement.classList.toggle('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    updateThemeIcons(isLight);
+  });
+
+  document.getElementById('theme-toggle-mobile')?.addEventListener('click', () => {
+    const isLight = document.documentElement.classList.toggle('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    updateThemeIcons(isLight);
   });
 </script>

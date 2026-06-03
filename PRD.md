@@ -1,7 +1,7 @@
 # Product Requirements Document (PRD)
 ## niksconsulting.com — Website Redesign
-**Version:** 1.0
-**Date:** 2025-07-18
+**Version:** 2.0
+**Date:** 2026-06-03
 **Owner:** Nikhil "Nik" Tiwari, Founder — Niks Consulting
 
 ---
@@ -93,8 +93,10 @@ npm run preview  # Preview production build locally
 niksconsulting.com
 ├── / (Home)              — Hero, services grid, case studies, process, integrations, testimonials, CTA
 ├── /services             — Full service descriptions with features
+├── /training             — AI Training: workshops, small groups, 1:1 coaching, onboarding [NEW v2.0]
 ├── /about                — Company story, "Meet Nik the Founder" section, team, certifications
-├── /case-studies         — Portfolio of client work with results
+├── /case-studies         — Portfolio of 6 client projects with results [EXPANDED v2.0]
+├── /gifted               — Gifted Internship Program: 5 years, 8 countries, success stories [NEW v2.0]
 ├── /contact              — Contact form, phone, WhatsApp, scheduling widget
 ├── /get-a-quote          — Detailed quote request form with project details
 └── blog.niksconsulting.com — WordPress blog (separate subdomain)
@@ -133,9 +135,9 @@ niksconsulting.com
 - Certifications & Awards section
 
 #### `/case-studies` — Case Studies Page
-- Grid of case study cards
+- Grid of case study cards (6 total)
 - Each card: title, client, location, challenge, solution, results, tags
-- Studies: Yoda Pizza Vietnam, OzynicDress USA, Dona Gi Bolos Brazil
+- Studies: Yoda Pizza Vietnam, OzynicDress USA, Dona Gi Bolos Brazil, MediConnect Japan, ModaExpress Brazil, DataFlow Analytics USA
 
 #### `/contact` — Contact Page
 - Contact information sidebar (email, phone, WhatsApp, address)
@@ -147,6 +149,28 @@ niksconsulting.com
 - Detailed multi-section form (personal info, business info, project details)
 - **Freshsales lead capture form** (PLACEHOLDER)
 - Sidebar: "What Happens Next" steps + scheduling/WhatsApp quick links
+
+#### `/training` — AI Training Page [NEW v2.0]
+- Hero: "Master AI with Hands-On Training"
+- 3 training format cards:
+  - **AI Workshops**: Half-day/full-day for teams of 10-30, starting ¥150,000
+  - **Small Group Cohorts**: 4-week intensive for 3-8 people, starting ¥280,000
+  - **1:1 AI Coaching**: Personalized sessions, starting ¥50,000/session
+- AI Onboarding section for businesses
+- "Who It's For" target audience cards
+- Contact form (name, email, company, role, training format, team size, message)
+- Sidebar: OnceHub booking, WhatsApp link, "What to Expect" steps
+
+#### `/gifted` — Gifted Internship Program [NEW v2.0]
+- Hero: "The Gifted Internship Program" with "Since 2020 • Japan" badge
+- Program overview with stats: 5 years, 8 countries, 20+ graduates, 100% employment
+- How It Works: 4-step process (Apply → Match → Build → Graduate)
+- Success Stories: Ebele Egbuna (Nigeria → UI/UX Designer) and Pierre Lisboa de Carvalho (Brazil → DX Officer)
+- Video Testimonials section (4 placeholder slots for YouTube embeds)
+- Program Benefits: real projects, mentorship, portfolio, cross-cultural, connections, certificate
+- Who Should Apply: students, graduates, career changers
+- Application form (name, email, country, university, year of study, area of interest, motivation, portfolio link)
+- Sidebar: application timeline, requirements, WhatsApp link
 
 ---
 
@@ -1680,9 +1704,107 @@ niksconsulting/
 **Photos (place in `public/images/`):**
 - Team: `team-nikhil.jpg`, `team-pierre.jpg`, `team-ebele.jpg`, `team-bintang.jpg`
 - Testimonials: `avatar-1.jpg`, `avatar-2.jpg`, `avatar-3.jpg`
-- Case studies: `case-pizza.jpg`, `case-fashion.jpg`, `case-bakery.jpg`
+- Case studies: `case-pizza.jpg`, `case-fashion.jpg`, `case-bakery.jpg`, `case-study-4.jpg`, `case-study-5.jpg`, `case-study-6.jpg`
+- Graduates: `graduate-ebele.jpg`, `graduate-pierre.jpg`
 - OG image: `public/og-image.jpg` (1200×630px)
+- Banners: `banner-training.jpg`, `banner-internship.jpg`
 
 ---
 
-*Document generated during initial site build. Update as placeholders are filled.*
+## 17. Version 2.0 — Changelog (June 2026)
+
+### 17.1 New Pages
+
+| Page | Route | Description |
+|------|-------|-------------|
+| AI Training | `/training` | Workshops, small groups, 1:1 coaching, onboarding with contact form |
+| Gifted Internship | `/gifted` | 5-year program, success stories, video testimonials, application form |
+
+### 17.2 Expanded Content
+
+| Feature | Change |
+|---------|--------|
+| Case Studies | Expanded from 3 to 6 (added MediConnect Japan, ModaExpress Brazil, DataFlow USA) |
+| Navigation | Added Training and Gifted links to navbar and footer |
+
+### 17.3 Design System v2.0
+
+**Dark/Light Theme Toggle:**
+- Toggle button in navbar (sun/moon icon)
+- CSS custom properties for all surface and ink colors
+- `.light` class on `<html>` switches palette
+- Persisted in localStorage, no flash on load
+- All components adapt automatically via CSS variables
+
+**Animation System:**
+- Scroll reveal system with 7 animation types (fade-up, fade-down, fade-left, fade-right, scale-up, scale-in, blur-in)
+- Stagger system: parent containers auto-stagger children with 100ms incremental delays
+- Parallax: elements with `data-parallax` shift on scroll (desktop only)
+- Counter animation: numbers count up from 0 with easeOutExpo easing
+- Magnetic button effect: buttons follow cursor on hover
+- Card tilt effect: glass cards get 3D perspective rotation on hover
+- Micro-interactions: service card glow, case study image zoom, testimonial star stagger, navbar shrink on scroll
+- Scroll progress bar: 3px gradient bar at top of page
+- All animations respect `prefers-reduced-motion`
+
+**Hero Illustrations:**
+- 6 unique animated SVG hero illustrations (one per page)
+- Themes: AI neural network, service ecosystem, global team, growth graph, communication, blueprint planning
+- Self-contained SVGs with embedded CSS animations
+- Blended at 25% opacity with gradient backgrounds
+
+### 17.4 Image Placeholder System
+
+Centralized config at `src/data/images.ts` with all image paths organized by category:
+- Heroes, team, case studies, banners, logos, testimonials, graduates
+- Each placeholder has recommended dimensions and replacement instructions
+- To replace: add image to `public/images/`, update path in `images.ts`
+
+### 17.5 Tech Stack Updates
+
+| Addition | Purpose |
+|----------|---------|
+| CSS custom properties | Theme switching (dark/light) |
+| `animations.js` | Scroll reveal, stagger, parallax, counters, magnetic buttons, card tilt |
+| `interactions.js` | Navbar scroll effects, button shine, progress bar, page transitions |
+| `images.ts` | Centralized image path management |
+| 6 SVG hero illustrations | Animated hero backgrounds per page |
+
+### 17.6 Files Added/Modified
+
+**New files:**
+- `src/pages/training.astro`
+- `src/pages/gifted.astro`
+- `src/data/images.ts`
+- `src/scripts/animations.js`
+- `src/scripts/interactions.js`
+- `public/images/hero-home.svg`
+- `public/images/hero-services.svg`
+- `public/images/hero-about.svg`
+- `public/images/hero-case-studies.svg`
+- `public/images/hero-contact.svg`
+- `public/images/hero-quote.svg`
+
+**Modified files:**
+- `tailwind.config.mjs` — darkMode, CSS variables, new animations, new colors
+- `src/styles/global.css` — theme variables, animation keyframes, micro-interactions
+- `src/layouts/BaseLayout.astro` — theme script, animation imports, progress bar
+- `src/components/Navbar.astro` — theme toggle, Training/Gifted links, scroll effects
+- `src/components/Footer.astro` — Training/Gifted links, CSS variables
+- `src/components/ServiceCard.astro` — CSS variables, animation props
+- `src/components/CaseStudyCard.astro` — CSS variables, animation props
+- `src/components/TestimonialCard.astro` — CSS variables, animation props
+- `src/components/SectionHeading.astro` — animation props
+- `src/pages/index.astro` — hero SVG, animation attributes, 6 case studies
+- `src/pages/services.astro` — hero SVG
+- `src/pages/about.astro` — hero SVG
+- `src/pages/case-studies.astro` — hero SVG, 6 case studies
+- `src/pages/contact.astro` — hero SVG
+- `src/pages/get-a-quote.astro` — hero SVG
+- `src/data/caseStudies.ts` — 3 new case studies, image config
+- `src/data/team.ts` — image config
+- `src/data/testimonials.ts` — image config
+
+---
+
+*Document updated for v2.0 — June 2026. Update as placeholders are filled.*

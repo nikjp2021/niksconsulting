@@ -1,0 +1,270 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
+  <defs>
+    <radialGradient id="bg-mesh" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.6"/>
+      <stop offset="40%" stop-color="#0f172a" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#030712" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="hub-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#030712" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="line-violet" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="line-amber" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-strong">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="viewport">
+      <rect x="0" y="0" width="1200" height="600" rx="0"/>
+    </clipPath>
+  </defs>
+  <style>
+    @keyframes pulse-node { 0%,100%{opacity:0.4;r:6} 50%{opacity:1;r:9} }
+    @keyframes pulse-ring { 0%{opacity:0.6;r:40;stroke-width:1.5} 100%{opacity:0;r:80;stroke-width:0} }
+    @keyframes pulse-ring2 { 0%{opacity:0.4;r:60;stroke-width:1} 100%{opacity:0;r:110;stroke-width:0} }
+    @keyframes orbit { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
+    @keyframes orbit-reverse { 0%{transform:rotate(0deg)} 100%{transform:rotate(-360deg)} }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    @keyframes float-delay { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    @keyframes dash-flow { 0%{stroke-dashoffset:40} 100%{stroke-dashoffset:0} }
+    @keyframes dash-flow-reverse { 0%{stroke-dashoffset:0} 100%{stroke-dashoffset:-40} }
+    @keyframes shimmer { 0%{opacity:0.2} 50%{opacity:0.6} 100%{opacity:0.2} }
+    @keyframes particle-move { 0%{offset-distance:0%;opacity:0} 10%{opacity:1} 90%{opacity:1} 100%{offset-distance:100%;opacity:0} }
+    @keyframes card-float { 0%,100%{transform:translateY(0) rotate(-2deg)} 50%{transform:translateY(-8px) rotate(0deg)} }
+    @keyframes card-float2 { 0%,100%{transform:translateY(0) rotate(1deg)} 50%{transform:translateY(-10px) rotate(-1deg)} }
+    @keyframes circuit-pulse { 0%,100%{opacity:0.05} 50%{opacity:0.15} }
+    .node-pulse { animation: pulse-node 3s ease-in-out infinite; }
+    .ring-pulse { animation: pulse-ring 3s ease-out infinite; }
+    .ring-pulse2 { animation: pulse-ring2 4s ease-out infinite; }
+    .orbit-slow { animation: orbit 30s linear infinite; transform-origin: 600px 300px; }
+    .orbit-slow-rev { animation: orbit-reverse 25s linear infinite; transform-origin: 600px 300px; }
+    .orbit-med { animation: orbit 20s linear infinite; transform-origin: 600px 300px; }
+    .float-anim { animation: float 6s ease-in-out infinite; }
+    .float-anim-d { animation: float-delay 7s ease-in-out infinite; }
+    .dash-anim { animation: dash-flow 2s linear infinite; stroke-dasharray: 8 12; }
+    .dash-anim-r { animation: dash-flow-reverse 2.5s linear infinite; stroke-dasharray: 6 14; }
+    .shimmer-anim { animation: shimmer 4s ease-in-out infinite; }
+    .card-float { animation: card-float 8s ease-in-out infinite; }
+    .card-float2 { animation: card-float2 9s ease-in-out infinite; }
+    .circuit-bg { animation: circuit-pulse 6s ease-in-out infinite; }
+  </style>
+  <g clip-path="url(#viewport)">
+    <!-- Background mesh -->
+    <rect width="1200" height="600" fill="#030712"/>
+    <rect width="1200" height="600" fill="url(#bg-mesh)"/>
+
+    <!-- Circuit board pattern -->
+    <g class="circuit-bg" opacity="0.08">
+      <path d="M50 100 H200 V200 H350" stroke="#06b6d4" stroke-width="1" fill="none"/>
+      <path d="M100 50 V150 H250 V300" stroke="#8b5cf6" stroke-width="0.8" fill="none"/>
+      <path d="M900 80 H1050 V200 H1150" stroke="#06b6d4" stroke-width="1" fill="none"/>
+      <path d="M950 500 V350 H1100 V250" stroke="#8b5cf6" stroke-width="0.8" fill="none"/>
+      <path d="M80 450 H200 V350 H350" stroke="#f59e0b" stroke-width="0.8" fill="none"/>
+      <path d="M850 520 H1000 V420" stroke="#14b8a6" stroke-width="0.8" fill="none"/>
+      <rect x="195" y="195" width="10" height="10" rx="2" fill="#06b6d4" opacity="0.3"/>
+      <rect x="345" y="195" width="10" height="10" rx="2" fill="#8b5cf6" opacity="0.3"/>
+      <rect x="1045" y="195" width="10" height="10" rx="2" fill="#06b6d4" opacity="0.3"/>
+      <rect x="345" y="345" width="10" height="10" rx="2" fill="#f59e0b" opacity="0.3"/>
+      <circle cx="200" cy="200" r="3" fill="#06b6d4" opacity="0.5"/>
+      <circle cx="350" cy="200" r="3" fill="#8b5cf6" opacity="0.5"/>
+      <circle cx="1050" cy="200" r="3" fill="#06b6d4" opacity="0.5"/>
+      <path d="M60 300 H160" stroke="#14b8a6" stroke-width="0.6" fill="none"/>
+      <path d="M1040 400 H1140" stroke="#f59e0b" stroke-width="0.6" fill="none"/>
+      <rect x="155" y="295" width="10" height="10" rx="2" fill="#14b8a6" opacity="0.2"/>
+      <rect x="1035" y="395" width="10" height="10" rx="2" fill="#f59e0b" opacity="0.2"/>
+    </g>
+
+    <!-- Central hub glow -->
+    <circle cx="600" cy="300" r="200" fill="url(#hub-glow)" opacity="0.6"/>
+    <circle cx="600" cy="300" r="120" fill="url(#hub-glow)" opacity="0.4"/>
+
+    <!-- Concentric rings -->
+    <circle cx="600" cy="300" r="100" stroke="#8b5cf6" stroke-width="0.8" fill="none" opacity="0.3"/>
+    <circle cx="600" cy="300" r="140" stroke="#06b6d4" stroke-width="0.6" fill="none" opacity="0.2" stroke-dasharray="4 8"/>
+    <circle cx="600" cy="300" r="180" stroke="#8b5cf6" stroke-width="0.5" fill="none" opacity="0.15" stroke-dasharray="6 10"/>
+    <circle cx="600" cy="300" r="220" stroke="#06b6d4" stroke-width="0.4" fill="none" opacity="0.1" stroke-dasharray="3 12"/>
+
+    <!-- Pulsing rings -->
+    <circle cx="600" cy="300" r="40" stroke="#8b5cf6" fill="none" class="ring-pulse"/>
+    <circle cx="600" cy="300" r="60" stroke="#06b6d4" fill="none" class="ring-pulse2" style="animation-delay: 1.5s;"/>
+
+    <!-- Orbiting connection lines -->
+    <g class="orbit-slow">
+      <line x1="600" y1="300" x2="780" y2="200" stroke="url(#line-cyan)" stroke-width="1" class="dash-anim" opacity="0.6"/>
+      <line x1="600" y1="300" x2="420" y2="200" stroke="url(#line-violet)" stroke-width="1" class="dash-anim-r" opacity="0.5"/>
+      <line x1="600" y1="300" x2="750" y2="420" stroke="url(#line-amber)" stroke-width="0.8" class="dash-anim" opacity="0.4" style="animation-delay: 0.5s;"/>
+    </g>
+    <g class="orbit-slow-rev">
+      <line x1="600" y1="300" x2="450" y2="420" stroke="url(#line-cyan)" stroke-width="0.8" class="dash-anim-r" opacity="0.5"/>
+      <line x1="600" y1="300" x2="700" y2="150" stroke="url(#line-violet)" stroke-width="0.8" class="dash-anim" opacity="0.4" style="animation-delay: 1s;"/>
+    </g>
+
+    <!-- Fixed connection lines to outer nodes -->
+    <line x1="600" y1="300" x2="280" y2="160" stroke="#8b5cf6" stroke-width="0.8" opacity="0.3" stroke-dasharray="4 8"/>
+    <line x1="600" y1="300" x2="920" y2="160" stroke="#06b6d4" stroke-width="0.8" opacity="0.3" stroke-dasharray="4 8"/>
+    <line x1="600" y1="300" x2="250" y2="440" stroke="#f59e0b" stroke-width="0.8" opacity="0.25" stroke-dasharray="4 8"/>
+    <line x1="600" y1="300" x2="950" y2="440" stroke="#14b8a6" stroke-width="0.8" opacity="0.25" stroke-dasharray="4 8"/>
+    <line x1="600" y1="300" x2="600" y2="80" stroke="#06b6d4" stroke-width="0.6" opacity="0.2" stroke-dasharray="3 9"/>
+    <line x1="600" y1="300" x2="600" y2="520" stroke="#8b5cf6" stroke-width="0.6" opacity="0.2" stroke-dasharray="3 9"/>
+    <line x1="600" y1="300" x2="180" y2="300" stroke="#f59e0b" stroke-width="0.6" opacity="0.2" stroke-dasharray="3 9"/>
+    <line x1="600" y1="300" x2="1020" y2="300" stroke="#14b8a6" stroke-width="0.6" opacity="0.2" stroke-dasharray="3 9"/>
+
+    <!-- Cross-connections between outer nodes -->
+    <line x1="280" y1="160" x2="600" y2="80" stroke="#06b6d4" stroke-width="0.4" opacity="0.15" stroke-dasharray="3 7"/>
+    <line x1="920" y1="160" x2="600" y2="80" stroke="#8b5cf6" stroke-width="0.4" opacity="0.15" stroke-dasharray="3 7"/>
+    <line x1="250" y1="440" x2="180" y2="300" stroke="#f59e0b" stroke-width="0.4" opacity="0.12" stroke-dasharray="3 7"/>
+    <line x1="950" y1="440" x2="1020" y2="300" stroke="#14b8a6" stroke-width="0.4" opacity="0.12" stroke-dasharray="3 7"/>
+
+    <!-- Central hub -->
+    <circle cx="600" cy="300" r="35" fill="#0f172a" stroke="#8b5cf6" stroke-width="2" opacity="0.9"/>
+    <circle cx="600" cy="300" r="28" fill="url(#hub-glow)" opacity="0.8"/>
+    <circle cx="600" cy="300" r="18" fill="#8b5cf6" opacity="0.3" filter="url(#glow)"/>
+    <circle cx="600" cy="300" r="8" fill="#06b6d4" opacity="0.9" filter="url(#glow)"/>
+
+    <!-- Agent nodes - orbiting -->
+    <g class="orbit-slow">
+      <!-- Node 1 - top right -->
+      <circle cx="780" cy="200" r="20" fill="#0f172a" stroke="#06b6d4" stroke-width="1.5" opacity="0.8"/>
+      <circle cx="780" cy="200" r="6" fill="#06b6d4" class="node-pulse" filter="url(#glow)"/>
+      <circle cx="780" cy="200" r="12" stroke="#06b6d4" fill="none" opacity="0.2" class="ring-pulse" style="animation-delay: 0.5s;"/>
+    </g>
+    <g class="orbit-slow-rev">
+      <!-- Node 2 - top left -->
+      <circle cx="420" cy="200" r="18" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5" opacity="0.8"/>
+      <circle cx="420" cy="200" r="5" fill="#8b5cf6" class="node-pulse" style="animation-delay: 1s;" filter="url(#glow)"/>
+      <circle cx="420" cy="200" r="10" stroke="#8b5cf6" fill="none" opacity="0.2" class="ring-pulse" style="animation-delay: 1.5s;"/>
+    </g>
+    <g class="orbit-slow">
+      <!-- Node 3 - bottom right -->
+      <circle cx="750" cy="420" r="16" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5" opacity="0.7"/>
+      <circle cx="750" cy="420" r="5" fill="#f59e0b" class="node-pulse" style="animation-delay: 2s;" filter="url(#glow)"/>
+    </g>
+    <g class="orbit-slow-rev">
+      <!-- Node 4 - bottom left -->
+      <circle cx="450" cy="420" r="15" fill="#0f172a" stroke="#14b8a6" stroke-width="1.5" opacity="0.7"/>
+      <circle cx="450" cy="420" r="4.5" fill="#14b8a6" class="node-pulse" style="animation-delay: 0.7s;" filter="url(#glow)"/>
+    </g>
+
+    <!-- Fixed outer nodes -->
+    <circle cx="280" cy="160" r="14" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.2" opacity="0.6"/>
+    <circle cx="280" cy="160" r="4" fill="#8b5cf6" class="node-pulse" style="animation-delay: 1.2s;" filter="url(#glow)"/>
+
+    <circle cx="920" cy="160" r="14" fill="#0f172a" stroke="#06b6d4" stroke-width="1.2" opacity="0.6"/>
+    <circle cx="920" cy="160" r="4" fill="#06b6d4" class="node-pulse" style="animation-delay: 0.3s;" filter="url(#glow)"/>
+
+    <circle cx="250" cy="440" r="12" fill="#0f172a" stroke="#f59e0b" stroke-width="1.2" opacity="0.5"/>
+    <circle cx="250" cy="440" r="3.5" fill="#f59e0b" class="node-pulse" style="animation-delay: 2.5s;" filter="url(#glow)"/>
+
+    <circle cx="950" cy="440" r="12" fill="#0f172a" stroke="#14b8a6" stroke-width="1.2" opacity="0.5"/>
+    <circle cx="950" cy="440" r="3.5" fill="#14b8a6" class="node-pulse" style="animation-delay: 1.8s;" filter="url(#glow)"/>
+
+    <circle cx="600" cy="80" r="10" fill="#0f172a" stroke="#06b6d4" stroke-width="1" opacity="0.4"/>
+    <circle cx="600" cy="80" r="3" fill="#06b6d4" class="node-pulse" style="animation-delay: 3s;" filter="url(#glow)"/>
+
+    <circle cx="180" cy="300" r="10" fill="#0f172a" stroke="#f59e0b" stroke-width="1" opacity="0.4"/>
+    <circle cx="180" cy="300" r="3" fill="#f59e0b" class="node-pulse" style="animation-delay: 2.2s;" filter="url(#glow)"/>
+
+    <circle cx="1020" cy="300" r="10" fill="#0f172a" stroke="#14b8a6" stroke-width="1" opacity="0.4"/>
+    <circle cx="1020" cy="300" r="3" fill="#14b8a6" class="node-pulse" style="animation-delay: 0.9s;" filter="url(#glow)"/>
+
+    <circle cx="600" cy="520" r="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.4"/>
+    <circle cx="600" cy="520" r="3" fill="#8b5cf6" class="node-pulse" style="animation-delay: 1.6s;" filter="url(#glow)"/>
+
+    <!-- Floating UI cards -->
+    <g class="card-float" opacity="0.7">
+      <rect x="140" y="80" width="120" height="70" rx="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.8"/>
+      <rect x="150" y="92" width="60" height="4" rx="2" fill="#8b5cf6" opacity="0.4"/>
+      <rect x="150" y="102" width="40" height="4" rx="2" fill="#8b5cf6" opacity="0.2"/>
+      <rect x="150" y="115" width="100" height="3" rx="1.5" fill="#06b6d4" opacity="0.15"/>
+      <rect x="150" y="123" width="80" height="3" rx="1.5" fill="#06b6d4" opacity="0.1"/>
+      <rect x="150" y="135" width="25" height="10" rx="5" fill="#8b5cf6" opacity="0.3"/>
+    </g>
+
+    <g class="card-float2" opacity="0.6">
+      <rect x="920" y="380" width="130" height="80" rx="10" fill="#0f172a" stroke="#06b6d4" stroke-width="1" opacity="0.8"/>
+      <rect x="932" y="394" width="50" height="4" rx="2" fill="#06b6d4" opacity="0.4"/>
+      <rect x="932" y="404" width="35" height="4" rx="2" fill="#06b6d4" opacity="0.2"/>
+      <rect x="932" y="418" width="108" height="3" rx="1.5" fill="#f59e0b" opacity="0.15"/>
+      <rect x="932" y="426" width="90" height="3" rx="1.5" fill="#f59e0b" opacity="0.1"/>
+      <circle cx="950" cy="444" r="4" fill="#14b8a6" opacity="0.3"/>
+      <rect x="960" y="440" width="40" height="8" rx="4" fill="#14b8a6" opacity="0.15"/>
+    </g>
+
+    <g class="card-float" style="animation-delay: 3s;" opacity="0.5">
+      <rect x="70" y="380" width="110" height="65" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1" opacity="0.7"/>
+      <rect x="82" y="394" width="45" height="4" rx="2" fill="#f59e0b" opacity="0.35"/>
+      <rect x="82" y="404" width="30" height="4" rx="2" fill="#f59e0b" opacity="0.2"/>
+      <rect x="82" y="416" width="86" height="3" rx="1.5" fill="#14b8a6" opacity="0.12"/>
+      <rect x="82" y="424" width="70" height="3" rx="1.5" fill="#14b8a6" opacity="0.08"/>
+    </g>
+
+    <g class="card-float2" style="animation-delay: 2s;" opacity="0.55">
+      <rect x="1000" y="100" width="115" height="60" rx="8" fill="#0f172a" stroke="#14b8a6" stroke-width="1" opacity="0.7"/>
+      <rect x="1012" y="112" width="55" height="4" rx="2" fill="#14b8a6" opacity="0.35"/>
+      <rect x="1012" y="122" width="38" height="4" rx="2" fill="#14b8a6" opacity="0.2"/>
+      <rect x="1012" y="134" width="91" height="3" rx="1.5" fill="#8b5cf6" opacity="0.12"/>
+      <rect x="1012" y="142" width="75" height="3" rx="1.5" fill="#8b5cf6" opacity="0.08"/>
+    </g>
+
+    <!-- Data flow particles along connection lines -->
+    <circle r="3" fill="#06b6d4" opacity="0.8" filter="url(#glow)">
+      <animateMotion dur="4s" repeatCount="indefinite" path="M600,300 L780,200"/>
+      <animate attributeName="opacity" values="0;0.8;0.8;0" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2.5" fill="#8b5cf6" opacity="0.7" filter="url(#glow)">
+      <animateMotion dur="5s" repeatCount="indefinite" path="M600,300 L420,200" begin="1s"/>
+      <animate attributeName="opacity" values="0;0.7;0.7;0" dur="5s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <circle r="2" fill="#f59e0b" opacity="0.6" filter="url(#glow)">
+      <animateMotion dur="4.5s" repeatCount="indefinite" path="M600,300 L750,420" begin="0.5s"/>
+      <animate attributeName="opacity" values="0;0.6;0.6;0" dur="4.5s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <circle r="2" fill="#14b8a6" opacity="0.6" filter="url(#glow)">
+      <animateMotion dur="5.5s" repeatCount="indefinite" path="M600,300 L450,420" begin="2s"/>
+      <animate attributeName="opacity" values="0;0.6;0.6;0" dur="5.5s" repeatCount="indefinite" begin="2s"/>
+    </circle>
+    <circle r="2" fill="#06b6d4" opacity="0.5" filter="url(#glow)">
+      <animateMotion dur="6s" repeatCount="indefinite" path="M600,300 L280,160" begin="1.5s"/>
+      <animate attributeName="opacity" values="0;0.5;0.5;0" dur="6s" repeatCount="indefinite" begin="1.5s"/>
+    </circle>
+    <circle r="2" fill="#8b5cf6" opacity="0.5" filter="url(#glow)">
+      <animateMotion dur="6s" repeatCount="indefinite" path="M600,300 L920,160" begin="3s"/>
+      <animate attributeName="opacity" values="0;0.5;0.5;0" dur="6s" repeatCount="indefinite" begin="3s"/>
+    </circle>
+    <circle r="1.5" fill="#f59e0b" opacity="0.4" filter="url(#glow)">
+      <animateMotion dur="7s" repeatCount="indefinite" path="M600,300 L250,440" begin="2.5s"/>
+      <animate attributeName="opacity" values="0;0.4;0.4;0" dur="7s" repeatCount="indefinite" begin="2.5s"/>
+    </circle>
+    <circle r="1.5" fill="#14b8a6" opacity="0.4" filter="url(#glow)">
+      <animateMotion dur="7s" repeatCount="indefinite" path="M600,300 L950,440" begin="4s"/>
+      <animate attributeName="opacity" values="0;0.4;0.4;0" dur="7s" repeatCount="indefinite" begin="4s"/>
+    </circle>
+
+    <!-- Additional ambient particles -->
+    <circle cx="150" cy="250" r="2" fill="#8b5cf6" opacity="0.3" class="shimmer-anim" style="animation-delay: 0s;"/>
+    <circle cx="1050" cy="250" r="2" fill="#06b6d4" opacity="0.3" class="shimmer-anim" style="animation-delay: 1s;"/>
+    <circle cx="350" cy="500" r="1.5" fill="#f59e0b" opacity="0.2" class="shimmer-anim" style="animation-delay: 2s;"/>
+    <circle cx="850" cy="100" r="1.5" fill="#14b8a6" opacity="0.2" class="shimmer-anim" style="animation-delay: 3s;"/>
+    <circle cx="500" cy="50" r="1" fill="#06b6d4" opacity="0.15" class="shimmer-anim" style="animation-delay: 1.5s;"/>
+    <circle cx="700" cy="550" r="1" fill="#8b5cf6" opacity="0.15" class="shimmer-anim" style="animation-delay: 2.5s;"/>
+  </g>
+</svg>

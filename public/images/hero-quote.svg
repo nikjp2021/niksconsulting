@@ -1,0 +1,238 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
+  <defs>
+    <radialGradient id="qt-bg" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#030712" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="doc-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="rocket-trail" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.4"/>
+      <stop offset="40%" stop-color="#ef4444" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="progress-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <filter id="qt-glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="rocket-glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <style>
+    @keyframes grid-pulse { 0%,100%{opacity:0.04} 50%{opacity:0.08} }
+    @keyframes rocket-launch { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
+    @keyframes check-appear { 0%,100%{opacity:0.4;transform:scale(0.95)} 50%{opacity:0.8;transform:scale(1.05)} }
+    @keyframes progress-fill { 0%{width:0} 50%{width:70%} 100%{width:70%} }
+    @keyframes sparkle { 0%,100%{opacity:0;transform:scale(0.5)} 50%{opacity:1;transform:scale(1)} }
+    @keyframes doc-float { 0%,100%{transform:translateY(0) rotate(-1deg)} 50%{transform:translateY(-8px) rotate(0.5deg)} }
+    @keyframes trail-glow { 0%,100%{opacity:0.3} 50%{opacity:0.6} }
+    @keyframes line-draw { 0%{stroke-dashoffset:100} 100%{stroke-dashoffset:0} }
+    .grid-bg { animation: grid-pulse 5s ease-in-out infinite; }
+    .rocket-anim { animation: rocket-launch 4s ease-in-out infinite; }
+    .check-anim { animation: check-appear 3s ease-in-out infinite; }
+    .doc-anim { animation: doc-float 7s ease-in-out infinite; transform-origin: 600px 300px; }
+    .sparkle-anim { animation: sparkle 2s ease-in-out infinite; }
+    .trail-anim { animation: trail-glow 3s ease-in-out infinite; }
+    .line-anim { animation: line-draw 3s ease-out forwards; stroke-dasharray: 100; stroke-dashoffset: 100; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#030712"/>
+  <rect width="1200" height="600" fill="url(#qt-bg)"/>
+
+  <!-- Blueprint grid pattern -->
+  <g class="grid-bg" opacity="0.05">
+    <pattern id="bp-grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#06b6d4" stroke-width="0.4"/>
+    </pattern>
+    <rect width="1200" height="600" fill="url(#bp-grid)"/>
+  </g>
+  <!-- Larger grid overlay -->
+  <g opacity="0.03">
+    <pattern id="bp-grid-lg" width="120" height="120" patternUnits="userSpaceOnUse">
+      <path d="M 120 0 L 0 0 0 120" fill="none" stroke="#8b5cf6" stroke-width="0.6"/>
+    </pattern>
+    <rect width="1200" height="600" fill="url(#bp-grid-lg)"/>
+  </g>
+
+  <!-- Blueprint measurement lines -->
+  <g opacity="0.08">
+    <line x1="300" y1="80" x2="300" y2="520" stroke="#06b6d4" stroke-width="0.5" stroke-dasharray="2 6"/>
+    <line x1="900" y1="80" x2="900" y2="520" stroke="#06b6d4" stroke-width="0.5" stroke-dasharray="2 6"/>
+    <line x1="150" y1="150" x2="1050" y2="150" stroke="#8b5cf6" stroke-width="0.5" stroke-dasharray="2 6"/>
+    <line x1="150" y1="450" x2="1050" y2="450" stroke="#8b5cf6" stroke-width="0.5" stroke-dasharray="2 6"/>
+    <!-- Measurement ticks -->
+    <line x1="298" y1="150" x2="302" y2="150" stroke="#06b6d4" stroke-width="1"/>
+    <line x1="298" y1="450" x2="302" y2="450" stroke="#06b6d4" stroke-width="1"/>
+    <line x1="898" y1="150" x2="902" y2="150" stroke="#06b6d4" stroke-width="1"/>
+    <line x1="898" y1="450" x2="902" y2="450" stroke="#06b6d4" stroke-width="1"/>
+  </g>
+
+  <!-- Central document/form shape -->
+  <g class="doc-anim">
+    <!-- Document shadow -->
+    <rect x="448" y="158" width="304" height="384" rx="16" fill="#030712" opacity="0.4"/>
+    <!-- Document body -->
+    <rect x="440" y="150" width="300" height="380" rx="14" fill="#0f172a" stroke="url(#doc-border)" stroke-width="1.5" opacity="0.85"/>
+    <!-- Inner content area -->
+    <rect x="460" y="180" width="260" height="320" rx="8" fill="#0f172a" opacity="0.5"/>
+
+    <!-- Document header -->
+    <rect x="475" y="195" width="100" height="6" rx="3" fill="#06b6d4" opacity="0.4"/>
+    <rect x="475" y="210" width="70" height="4" rx="2" fill="#06b6d4" opacity="0.2"/>
+
+    <!-- Form lines -->
+    <g opacity="0.3">
+      <rect x="475" y="235" width="230" height="3" rx="1.5" fill="#8b5cf6" opacity="0.15"/>
+      <rect x="475" y="245" width="180" height="3" rx="1.5" fill="#8b5cf6" opacity="0.1"/>
+    </g>
+
+    <!-- Checkboxes -->
+    <g class="check-anim" style="animation-delay: 0s;">
+      <rect x="475" y="265" width="14" height="14" rx="3" stroke="#10b981" stroke-width="1.5" fill="#10b981" fill-opacity="0.15"/>
+      <path d="M479 272 L481 275 L486 269" stroke="#10b981" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <rect x="498" y="268" width="120" height="3" rx="1.5" fill="#10b981" opacity="0.15"/>
+    <rect x="498" y="276" width="80" height="2.5" rx="1.25" fill="#10b981" opacity="0.08"/>
+
+    <g class="check-anim" style="animation-delay: 0.5s;">
+      <rect x="475" y="295" width="14" height="14" rx="3" stroke="#06b6d4" stroke-width="1.5" fill="#06b6d4" fill-opacity="0.15"/>
+      <path d="M479 302 L481 305 L486 299" stroke="#06b6d4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <rect x="498" y="298" width="140" height="3" rx="1.5" fill="#06b6d4" opacity="0.15"/>
+    <rect x="498" y="306" width="100" height="2.5" rx="1.25" fill="#06b6d4" opacity="0.08"/>
+
+    <g class="check-anim" style="animation-delay: 1s;">
+      <rect x="475" y="325" width="14" height="14" rx="3" stroke="#8b5cf6" stroke-width="1.5" fill="#8b5cf6" fill-opacity="0.15"/>
+      <path d="M479 332 L481 335 L486 329" stroke="#8b5cf6" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <rect x="498" y="328" width="110" height="3" rx="1.5" fill="#8b5cf6" opacity="0.15"/>
+    <rect x="498" y="336" width="90" height="2.5" rx="1.25" fill="#8b5cf6" opacity="0.08"/>
+
+    <!-- Unchecked -->
+    <rect x="475" y="355" width="14" height="14" rx="3" stroke="#f59e0b" stroke-width="1" fill="none" opacity="0.3"/>
+    <rect x="498" y="358" width="130" height="3" rx="1.5" fill="#f59e0b" opacity="0.1"/>
+    <rect x="498" y="366" width="95" height="2.5" rx="1.25" fill="#f59e0b" opacity="0.06"/>
+
+    <!-- Progress bars -->
+    <g opacity="0.5">
+      <text x="475" y="400" fill="#06b6d4" font-family="system-ui" font-size="9" opacity="0.5">Discovery</text>
+      <rect x="475" y="405" width="230" height="6" rx="3" fill="#1e293b" opacity="0.5"/>
+      <rect x="475" y="405" width="230" height="6" rx="3" fill="url(#progress-grad)" opacity="0.4"/>
+
+      <text x="475" y="428" fill="#8b5cf6" font-family="system-ui" font-size="9" opacity="0.5">Strategy</text>
+      <rect x="475" y="433" width="230" height="6" rx="3" fill="#1e293b" opacity="0.5"/>
+      <rect x="475" y="433" width="170" height="6" rx="3" fill="url(#progress-grad)" opacity="0.35"/>
+
+      <text x="475" y="456" fill="#f59e0b" font-family="system-ui" font-size="9" opacity="0.5">Execution</text>
+      <rect x="475" y="461" width="230" height="6" rx="3" fill="#1e293b" opacity="0.5"/>
+      <rect x="475" y="461" width="100" height="6" rx="3" fill="url(#progress-grad)" opacity="0.25"/>
+    </g>
+
+    <!-- Completion indicator -->
+    <g opacity="0.6">
+      <circle cx="670" cy="195" r="14" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1.5"/>
+      <path d="M664 195 L668 199 L677 190" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <!-- Rocket emerging from document -->
+  <g class="rocket-anim">
+    <g transform="translate(600, 120)">
+      <!-- Rocket trail -->
+      <g class="trail-anim">
+        <path d="M-8 20 Q-15 45 -20 70 Q-10 60 0 55 Q10 60 20 70 Q15 45 8 20Z" fill="url(#rocket-trail)" opacity="0.5"/>
+        <path d="M-4 25 Q-8 40 -12 55 Q-5 48 0 45 Q5 48 12 55 Q8 40 4 25Z" fill="#f59e0b" opacity="0.2"/>
+      </g>
+      <!-- Rocket body -->
+      <path d="M0 -25 C-8 -25 -12 -10 -12 5 C-12 15 -8 20 0 25 C8 20 12 15 12 5 C12 -10 8 -25 0 -25Z" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5" opacity="0.8"/>
+      <!-- Rocket nose -->
+      <path d="M0 -25 C-3 -20 -4 -15 0 -10 C4 -15 3 -20 0 -25Z" fill="#f59e0b" opacity="0.4"/>
+      <!-- Rocket window -->
+      <circle cx="0" cy="-5" r="4" stroke="#06b6d4" stroke-width="1.2" fill="#06b6d4" fill-opacity="0.2"/>
+      <!-- Rocket fins -->
+      <path d="M-12 10 L-18 20 L-10 18Z" fill="#8b5cf6" opacity="0.4"/>
+      <path d="M12 10 L18 20 L10 18Z" fill="#8b5cf6" opacity="0.4"/>
+    </g>
+  </g>
+
+  <!-- Sparkle effects around launch point -->
+  <g>
+    <circle cx="580" cy="145" r="2" fill="#f59e0b" class="sparkle-anim" style="animation-delay: 0s;"/>
+    <circle cx="620" cy="140" r="1.5" fill="#06b6d4" class="sparkle-anim" style="animation-delay: 0.5s;"/>
+    <circle cx="570" cy="130" r="1.5" fill="#8b5cf6" class="sparkle-anim" style="animation-delay: 1s;"/>
+    <circle cx="630" cy="135" r="2" fill="#f59e0b" class="sparkle-anim" style="animation-delay: 1.5s;"/>
+    <circle cx="590" cy="120" r="1" fill="#10b981" class="sparkle-anim" style="animation-delay: 0.3s;"/>
+    <circle cx="610" cy="125" r="1" fill="#06b6d4" class="sparkle-anim" style="animation-delay: 0.8s;"/>
+  </g>
+
+  <!-- Star sparkles -->
+  <g opacity="0.5">
+    <g class="sparkle-anim" style="animation-delay: 0.2s;" transform="translate(575, 135)">
+      <line x1="-4" y1="0" x2="4" y2="0" stroke="#f59e0b" stroke-width="1.2"/>
+      <line x1="0" y1="-4" x2="0" y2="4" stroke="#f59e0b" stroke-width="1.2"/>
+    </g>
+    <g class="sparkle-anim" style="animation-delay: 1.2s;" transform="translate(625, 130)">
+      <line x1="-3" y1="0" x2="3" y2="0" stroke="#06b6d4" stroke-width="1"/>
+      <line x1="0" y1="-3" x2="0" y2="3" stroke="#06b6d4" stroke-width="1"/>
+    </g>
+  </g>
+
+  <!-- Floating blueprint elements around document -->
+  <!-- Dimension line left -->
+  <g opacity="0.12">
+    <line x1="420" y1="150" x2="420" y2="530" stroke="#06b6d4" stroke-width="0.8"/>
+    <line x1="415" y1="150" x2="425" y2="150" stroke="#06b6d4" stroke-width="0.8"/>
+    <line x1="415" y1="530" x2="425" y2="530" stroke="#06b6d4" stroke-width="0.8"/>
+    <text x="410" y="345" fill="#06b6d4" font-family="monospace" font-size="8" transform="rotate(-90 410 345)" opacity="0.5">380px</text>
+  </g>
+
+  <!-- Dimension line top -->
+  <g opacity="0.12">
+    <line x1="440" y1="130" x2="740" y2="130" stroke="#8b5cf6" stroke-width="0.8"/>
+    <line x1="440" y1="125" x2="440" y2="135" stroke="#8b5cf6" stroke-width="0.8"/>
+    <line x1="740" y1="125" x2="740" y2="135" stroke="#8b5cf6" stroke-width="0.8"/>
+    <text x="570" y="126" fill="#8b5cf6" font-family="monospace" font-size="8" text-anchor="middle" opacity="0.5">300px</text>
+  </g>
+
+  <!-- Scattered floating elements -->
+  <g opacity="0.2">
+    <!-- Floating checkbox -->
+    <g class="check-anim" style="animation-delay: 2s;" transform="translate(200, 200)">
+      <rect x="-10" y="-10" width="20" height="20" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+      <path d="M-5 0 L-2 4 L6 -4" stroke="#10b981" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </g>
+    <!-- Floating progress -->
+    <g transform="translate(980, 250)">
+      <rect x="-30" y="-4" width="60" height="8" rx="4" fill="#1e293b" opacity="0.5"/>
+      <rect x="-30" y="-4" width="40" height="8" rx="4" fill="url(#progress-grad)" opacity="0.3"/>
+    </g>
+    <!-- Floating checkmark -->
+    <g class="check-anim" style="animation-delay: 3s;" transform="translate(180, 400)">
+      <circle r="12" fill="#0f172a" stroke="#06b6d4" stroke-width="1.2"/>
+      <path d="M-5 0 L-1 4 L6 -4" stroke="#06b6d4" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </g>
+    <!-- Floating progress 2 -->
+    <g transform="translate(1020, 380)">
+      <rect x="-25" y="-4" width="50" height="8" rx="4" fill="#1e293b" opacity="0.5"/>
+      <rect x="-25" y="-4" width="30" height="8" rx="4" fill="url(#progress-grad)" opacity="0.25"/>
+    </g>
+  </g>
+
+  <!-- Ambient particles -->
+  <circle cx="100" cy="100" r="1.5" fill="#06b6d4" opacity="0.15">
+    <animate attributeName="opacity" values="0.08;0.2;0.08" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1100" cy="100" r="1.5" fill="#8b5cf6" opacity="0.15">
+    <animate attributeName="opacity" values="0.08;0.2;0.08" dur="5s" repeatCount="indefinite" begin="1s"/>
+  </circle>
+  <circle cx="100" cy="500" r="1" fill="#f59e0b" opacity="0.1">
+    <animate attributeName="opacity" values="0.05;0.15;0.05" dur="3.5s" repeatCount="indefinite" begin="2s"/>
+  </circle>
+  <circle cx="1100" cy="500" r="1" fill="#10b981" opacity="0.1">
+    <animate attributeName="opacity" values="0.05;0.15;0.05" dur="4.5s" repeatCount="indefinite" begin="0.5s"/>
+  </circle>
+</svg>

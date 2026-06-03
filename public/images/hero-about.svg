@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
+  <defs>
+    <radialGradient id="about-bg" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#0f172a" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#030712" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aurora" cx="50%" cy="40%" r="45%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.2"/>
+      <stop offset="30%" stop-color="#06b6d4" stop-opacity="0.1"/>
+      <stop offset="60%" stop-color="#14b8a6" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#030712" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="globe-fill" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.03"/>
+    </radialGradient>
+    <linearGradient id="team1-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="team2-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <linearGradient id="team3-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <linearGradient id="team4-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#14b8a6"/>
+    </linearGradient>
+    <filter id="about-glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="aurora-blur"><feGaussianBlur stdDeviation="30"/></filter>
+  </defs>
+  <style>
+    @keyframes globe-rotate { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
+    @keyframes globe-rotate-r { 0%{transform:rotate(0deg)} 100%{transform:rotate(-360deg)} }
+    @keyframes team-orbit1 { 0%{transform:rotate(0deg) translateX(180px) rotate(0deg)} 100%{transform:rotate(360deg) translateX(180px) rotate(-360deg)} }
+    @keyframes team-orbit2 { 0%{transform:rotate(90deg) translateX(190px) rotate(-90deg)} 100%{transform:rotate(450deg) translateX(190px) rotate(-450deg)} }
+    @keyframes team-orbit3 { 0%{transform:rotate(180deg) translateX(170px) rotate(-180deg)} 100%{transform:rotate(540deg) translateX(170px) rotate(-540deg)} }
+    @keyframes team-orbit4 { 0%{transform:rotate(270deg) translateX(185px) rotate(-270deg)} 100%{transform:rotate(630deg) translateX(185px) rotate(-630deg)} }
+    @keyframes aurora-shift { 0%,100%{opacity:0.4;transform:translateX(0)} 50%{opacity:0.6;transform:translateX(20px)} }
+    @keyframes badge-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    @keyframes particle-drift { 0%{opacity:0;transform:translateY(10px)} 20%{opacity:0.3} 80%{opacity:0.3} 100%{opacity:0;transform:translateY(-10px)} }
+    @keyframes arc-pulse { 0%,100%{opacity:0.15} 50%{opacity:0.35} }
+    .globe-spin { animation: globe-rotate 40s linear infinite; transform-origin: 600px 280px; }
+    .globe-spin-r { animation: globe-rotate-r 35s linear infinite; transform-origin: 600px 280px; }
+    .team1-orbit { animation: team-orbit1 20s linear infinite; transform-origin: 600px 280px; }
+    .team2-orbit { animation: team-orbit2 25s linear infinite; transform-origin: 600px 280px; }
+    .team3-orbit { animation: team-orbit3 22s linear infinite; transform-origin: 600px 280px; }
+    .team4-orbit { animation: team-orbit4 28s linear infinite; transform-origin: 600px 280px; }
+    .aurora-anim { animation: aurora-shift 8s ease-in-out infinite; }
+    .badge-anim { animation: badge-float 6s ease-in-out infinite; }
+    .particle-anim { animation: particle-drift 5s ease-in-out infinite; }
+    .arc-anim { animation: arc-pulse 4s ease-in-out infinite; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#030712"/>
+  <rect width="1200" height="600" fill="url(#about-bg)"/>
+
+  <!-- Aurora effect -->
+  <g filter="url(#aurora-blur)" class="aurora-anim">
+    <ellipse cx="550" cy="250" rx="350" ry="150" fill="#8b5cf6" opacity="0.08"/>
+    <ellipse cx="650" cy="280" rx="300" ry="120" fill="#06b6d4" opacity="0.06"/>
+    <ellipse cx="600" cy="300" rx="250" ry="100" fill="#14b8a6" opacity="0.04"/>
+  </g>
+
+  <!-- Globe wireframe -->
+  <g class="globe-spin" opacity="0.25">
+    <!-- Latitude lines -->
+    <ellipse cx="600" cy="280" rx="160" ry="160" stroke="#06b6d4" stroke-width="0.8" fill="none"/>
+    <ellipse cx="600" cy="280" rx="160" ry="120" stroke="#06b6d4" stroke-width="0.6" fill="none"/>
+    <ellipse cx="600" cy="280" rx="160" ry="80" stroke="#06b6d4" stroke-width="0.5" fill="none"/>
+    <ellipse cx="600" cy="280" rx="160" ry="40" stroke="#06b6d4" stroke-width="0.4" fill="none"/>
+  </g>
+  <g class="globe-spin-r" opacity="0.2">
+    <!-- Longitude lines -->
+    <ellipse cx="600" cy="280" rx="40" ry="160" stroke="#8b5cf6" stroke-width="0.7" fill="none"/>
+    <ellipse cx="600" cy="280" rx="80" ry="160" stroke="#8b5cf6" stroke-width="0.6" fill="none"/>
+    <ellipse cx="600" cy="280" rx="120" ry="160" stroke="#8b5cf6" stroke-width="0.5" fill="none"/>
+    <ellipse cx="600" cy="280" rx="160" ry="160" stroke="#8b5cf6" stroke-width="0.8" fill="none"/>
+  </g>
+
+  <!-- Globe fill -->
+  <circle cx="600" cy="280" r="160" fill="url(#globe-fill)"/>
+
+  <!-- Simplified continent outlines -->
+  <g opacity="0.12">
+    <path d="M540 220 Q560 200 580 210 Q600 195 620 205 Q640 200 650 215 Q645 230 630 235 Q620 250 600 245 Q580 250 565 240 Q550 235 540 220Z" stroke="#06b6d4" stroke-width="1" fill="#06b6d4" fill-opacity="0.05"/>
+    <path d="M660 250 Q680 240 700 250 Q710 265 705 280 Q695 290 680 285 Q665 280 660 265Z" stroke="#8b5cf6" stroke-width="0.8" fill="#8b5cf6" fill-opacity="0.04"/>
+    <path d="M520 280 Q530 265 545 270 Q555 280 550 295 Q540 305 525 300 Q515 295 520 280Z" stroke="#14b8a6" stroke-width="0.8" fill="#14b8a6" fill-opacity="0.04"/>
+    <path d="M580 310 Q600 300 620 310 Q630 325 620 340 Q600 345 585 335 Q575 325 580 310Z" stroke="#f59e0b" stroke-width="0.7" fill="#f59e0b" fill-opacity="0.03"/>
+  </g>
+
+  <!-- Connection arcs between team members -->
+  <g class="arc-anim">
+    <path d="M480 200 Q540 160 600 130" stroke="#14b8a6" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="4 6"/>
+    <path d="M600 130 Q660 160 720 200" stroke="#8b5cf6" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="4 6" style="animation-delay: 1s;"/>
+    <path d="M720 200 Q750 280 720 360" stroke="#f59e0b" stroke-width="1" fill="none" opacity="0.25" stroke-dasharray="4 6" style="animation-delay: 2s;"/>
+    <path d="M480 200 Q450 280 480 360" stroke="#06b6d4" stroke-width="1" fill="none" opacity="0.25" stroke-dasharray="4 6" style="animation-delay: 0.5s;"/>
+    <path d="M480 360 Q540 400 600 420" stroke="#10b981" stroke-width="0.8" fill="none" opacity="0.2" stroke-dasharray="3 7"/>
+    <path d="M720 360 Q660 400 600 420" stroke="#ec4899" stroke-width="0.8" fill="none" opacity="0.2" stroke-dasharray="3 7"/>
+  </g>
+
+  <!-- Team member avatars (orbiting positions) -->
+  <g class="team1-orbit">
+    <g transform="translate(600,280)">
+      <circle r="28" fill="#0f172a" stroke="url(#team1-grad)" stroke-width="2.5"/>
+      <circle r="22" fill="url(#team1-grad)" opacity="0.15"/>
+      <text x="0" y="5" text-anchor="middle" fill="#14b8a6" font-family="system-ui" font-size="14" font-weight="bold">NT</text>
+    </g>
+  </g>
+  <g class="team2-orbit">
+    <g transform="translate(600,280)">
+      <circle r="24" fill="#0f172a" stroke="url(#team2-grad)" stroke-width="2"/>
+      <circle r="18" fill="url(#team2-grad)" opacity="0.15"/>
+      <text x="0" y="4" text-anchor="middle" fill="#8b5cf6" font-family="system-ui" font-size="12" font-weight="bold">SA</text>
+    </g>
+  </g>
+  <g class="team3-orbit">
+    <g transform="translate(600,280)">
+      <circle r="22" fill="#0f172a" stroke="url(#team3-grad)" stroke-width="2"/>
+      <circle r="16" fill="url(#team3-grad)" opacity="0.15"/>
+      <text x="0" y="4" text-anchor="middle" fill="#f59e0b" font-family="system-ui" font-size="11" font-weight="bold">MK</text>
+    </g>
+  </g>
+  <g class="team4-orbit">
+    <g transform="translate(600,280)">
+      <circle r="20" fill="#0f172a" stroke="url(#team4-grad)" stroke-width="2"/>
+      <circle r="14" fill="url(#team4-grad)" opacity="0.15"/>
+      <text x="0" y="4" text-anchor="middle" fill="#10b981" font-family="system-ui" font-size="10" font-weight="bold">JL</text>
+    </g>
+  </g>
+
+  <!-- Achievement badges floating -->
+  <g class="badge-anim" opacity="0.5">
+    <g transform="translate(180, 150)">
+      <circle r="18" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+      <polygon points="0,-8 2.5,-3 8,-3 3.5,1 5.5,7 0,3.5 -5.5,7 -3.5,1 -8,-3 -2.5,-3" fill="#f59e0b" opacity="0.6"/>
+    </g>
+  </g>
+  <g class="badge-anim" style="animation-delay: 2s;" opacity="0.45">
+    <g transform="translate(1020, 180)">
+      <circle r="16" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5"/>
+      <rect x="-6" y="-8" width="12" height="10" rx="1.5" fill="none" stroke="#8b5cf6" stroke-width="1.2" opacity="0.6"/>
+      <path d="M-4 -1 L4 -1 M-4 2 L2 2" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
+    </g>
+  </g>
+  <g class="badge-anim" style="animation-delay: 4s;" opacity="0.4">
+    <g transform="translate(150, 420)">
+      <circle r="14" fill="#0f172a" stroke="#06b6d4" stroke-width="1.5"/>
+      <path d="M0 -6 L4 -1 L8 -1 L5 2 L6 7 L0 4 L-6 7 L-5 2 L-8 -1 L-4 -1Z" fill="none" stroke="#06b6d4" stroke-width="1.2" opacity="0.5"/>
+    </g>
+  </g>
+  <g class="badge-anim" style="animation-delay: 1s;" opacity="0.4">
+    <g transform="translate(1050, 400)">
+      <circle r="15" fill="#0f172a" stroke="#14b8a6" stroke-width="1.5"/>
+      <path d="M-5 -5 L5 -5 L5 5 L-5 5Z" fill="none" stroke="#14b8a6" stroke-width="1.2" opacity="0.5"/>
+      <path d="M-3 0 L-1 3 L4 -3" stroke="#14b8a6" stroke-width="1.5" fill="none" opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- Particle field -->
+  <g opacity="0.3">
+    <circle cx="200" cy="280" r="1.5" fill="#06b6d4" class="particle-anim" style="animation-delay: 0s;"/>
+    <circle cx="1000" cy="280" r="1.5" fill="#8b5cf6" class="particle-anim" style="animation-delay: 1s;"/>
+    <circle cx="400" cy="150" r="1" fill="#f59e0b" class="particle-anim" style="animation-delay: 2s;"/>
+    <circle cx="800" cy="150" r="1" fill="#14b8a6" class="particle-anim" style="animation-delay: 3s;"/>
+    <circle cx="350" cy="430" r="1.2" fill="#8b5cf6" class="particle-anim" style="animation-delay: 1.5s;"/>
+    <circle cx="850" cy="430" r="1.2" fill="#06b6d4" class="particle-anim" style="animation-delay: 2.5s;"/>
+    <circle cx="250" cy="350" r="0.8" fill="#10b981" class="particle-anim" style="animation-delay: 0.5s;"/>
+    <circle cx="950" cy="350" r="0.8" fill="#f59e0b" class="particle-anim" style="animation-delay: 3.5s;"/>
+    <circle cx="500" cy="500" r="1" fill="#ec4899" class="particle-anim" style="animation-delay: 4s;"/>
+    <circle cx="700" cy="500" r="1" fill="#6366f1" class="particle-anim" style="animation-delay: 2s;"/>
+  </g>
+
+  <!-- Ambient glow dots -->
+  <circle cx="300" cy="200" r="2" fill="#14b8a6" opacity="0.2">
+    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="900" cy="200" r="2" fill="#8b5cf6" opacity="0.2">
+    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="5s" repeatCount="indefinite" begin="1s"/>
+  </circle>
+  <circle cx="200" cy="500" r="1.5" fill="#f59e0b" opacity="0.15">
+    <animate attributeName="opacity" values="0.08;0.2;0.08" dur="3.5s" repeatCount="indefinite" begin="2s"/>
+  </circle>
+  <circle cx="1000" cy="500" r="1.5" fill="#06b6d4" opacity="0.15">
+    <animate attributeName="opacity" values="0.08;0.2;0.08" dur="4.5s" repeatCount="indefinite" begin="0.5s"/>
+  </circle>
+</svg>

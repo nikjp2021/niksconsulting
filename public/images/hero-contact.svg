@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
+  <defs>
+    <radialGradient id="ct-bg" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#0f172a" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#030712" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ct-center-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.15"/>
+      <stop offset="40%" stop-color="#06b6d4" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#030712" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="envelope-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="wave-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="ct-glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <style>
+    @keyframes wave-pulse1 { 0%{opacity:0.4;r:80;stroke-width:2} 100%{opacity:0;r:200;stroke-width:0.5} }
+    @keyframes wave-pulse2 { 0%{opacity:0.3;r:100;stroke-width:1.5} 100%{opacity:0;r:240;stroke-width:0.3} }
+    @keyframes wave-pulse3 { 0%{opacity:0.25;r:120;stroke-width:1} 100%{opacity:0;r:280;stroke-width:0.2} }
+    @keyframes icon-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    @keyframes icon-float2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+    @keyframes envelope-breathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
+    @keyframes conn-dash { 0%{stroke-dashoffset:20} 100%{stroke-dashoffset:0} }
+    @keyframes mesh-shift { 0%,100%{opacity:0.3} 50%{opacity:0.5} }
+    @keyframes dot-glow { 0%,100%{opacity:0.2;r:3} 50%{opacity:0.6;r:5} }
+    .wave1 { animation: wave-pulse1 4s ease-out infinite; }
+    .wave2 { animation: wave-pulse2 4s ease-out infinite; animation-delay: 1.3s; }
+    .wave3 { animation: wave-pulse3 4s ease-out infinite; animation-delay: 2.6s; }
+    .icon-float { animation: icon-float 6s ease-in-out infinite; }
+    .icon-float2 { animation: icon-float2 7s ease-in-out infinite; }
+    .envelope-anim { animation: envelope-breathe 5s ease-in-out infinite; transform-origin: 600px 300px; }
+    .conn-anim { animation: conn-dash 2s linear infinite; stroke-dasharray: 5 8; }
+    .mesh-anim { animation: mesh-shift 6s ease-in-out infinite; }
+    .dot-glow { animation: dot-glow 3s ease-in-out infinite; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#030712"/>
+  <rect width="1200" height="600" fill="url(#ct-bg)"/>
+
+  <!-- Warm mesh gradient -->
+  <g class="mesh-anim" opacity="0.3">
+    <ellipse cx="500" cy="300" rx="400" ry="250" fill="#f59e0b" opacity="0.04" filter="url(#ct-glow)"/>
+    <ellipse cx="700" cy="280" rx="350" ry="200" fill="#06b6d4" opacity="0.03" filter="url(#ct-glow)"/>
+  </g>
+
+  <!-- Center glow -->
+  <circle cx="600" cy="300" r="180" fill="url(#ct-center-glow)" opacity="0.6"/>
+
+  <!-- Concentric communication waves -->
+  <circle cx="600" cy="300" r="80" stroke="#f59e0b" fill="none" class="wave1"/>
+  <circle cx="600" cy="300" r="100" stroke="#06b6d4" fill="none" class="wave2"/>
+  <circle cx="600" cy="300" r="120" stroke="#f59e0b" fill="none" class="wave3"/>
+
+  <!-- Static rings -->
+  <circle cx="600" cy="300" r="60" stroke="#f59e0b" stroke-width="0.5" fill="none" opacity="0.15"/>
+  <circle cx="600" cy="300" r="140" stroke="#06b6d4" stroke-width="0.4" fill="none" opacity="0.1" stroke-dasharray="4 8"/>
+  <circle cx="600" cy="300" r="200" stroke="#8b5cf6" stroke-width="0.3" fill="none" opacity="0.08" stroke-dasharray="3 10"/>
+
+  <!-- Central envelope/message shape -->
+  <g class="envelope-anim">
+    <!-- Envelope body -->
+    <rect x="555" y="265" width="90" height="65" rx="10" fill="#0f172a" stroke="url(#envelope-grad)" stroke-width="2"/>
+    <!-- Envelope flap -->
+    <path d="M555 275 L600 305 L645 275" stroke="#f59e0b" stroke-width="1.5" fill="none" opacity="0.5" stroke-linejoin="round"/>
+    <!-- Inner glow -->
+    <rect x="565" y="280" width="70" height="40" rx="6" fill="#f59e0b" opacity="0.06"/>
+    <!-- Message lines -->
+    <rect x="575" y="290" width="30" height="3" rx="1.5" fill="#f59e0b" opacity="0.3"/>
+    <rect x="575" y="298" width="50" height="2.5" rx="1.25" fill="#06b6d4" opacity="0.2"/>
+    <rect x="575" y="305" width="40" height="2.5" rx="1.25" fill="#06b6d4" opacity="0.15"/>
+  </g>
+
+  <!-- Connection lines to center -->
+  <g opacity="0.35">
+    <!-- Phone icon connection -->
+    <line x1="300" y1="180" x2="555" y2="280" stroke="#8b5cf6" stroke-width="0.8" class="conn-anim"/>
+    <!-- Email icon connection -->
+    <line x1="900" y1="180" x2="645" y2="280" stroke="#06b6d4" stroke-width="0.8" class="conn-anim" style="animation-delay: 0.5s;"/>
+    <!-- Chat icon connection -->
+    <line x1="280" y1="420" x2="555" y2="320" stroke="#14b8a6" stroke-width="0.8" class="conn-anim" style="animation-delay: 1s;"/>
+    <!-- Calendar icon connection -->
+    <line x1="920" y1="420" x2="645" y2="320" stroke="#f59e0b" stroke-width="0.8" class="conn-anim" style="animation-delay: 1.5s;"/>
+  </g>
+
+  <!-- Phone icon (abstract geometric) -->
+  <g class="icon-float" opacity="0.6">
+    <g transform="translate(300, 180)">
+      <circle r="30" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5"/>
+      <circle r="22" fill="#8b5cf6" opacity="0.08"/>
+      <!-- Phone shape -->
+      <rect x="-8" y="-14" width="16" height="28" rx="3" stroke="#8b5cf6" stroke-width="1.5" fill="none"/>
+      <circle cx="0" cy="8" r="2.5" stroke="#8b5cf6" stroke-width="1" fill="none"/>
+      <line x1="-4" y1="-8" x2="4" y2="-8" stroke="#8b5cf6" stroke-width="1" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Email icon (abstract geometric) -->
+  <g class="icon-float2" style="animation-delay: 1s;" opacity="0.55">
+    <g transform="translate(900, 180)">
+      <circle r="28" fill="#0f172a" stroke="#06b6d4" stroke-width="1.5"/>
+      <circle r="20" fill="#06b6d4" opacity="0.08"/>
+      <!-- Envelope shape -->
+      <rect x="-10" y="-7" width="20" height="14" rx="2" stroke="#06b6d4" stroke-width="1.3" fill="none"/>
+      <path d="M-10 -7 L0 3 L10 -7" stroke="#06b6d4" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <!-- Chat icon (abstract geometric) -->
+  <g class="icon-float" style="animation-delay: 2s;" opacity="0.5">
+    <g transform="translate(280, 420)">
+      <circle r="26" fill="#0f172a" stroke="#14b8a6" stroke-width="1.5"/>
+      <circle r="18" fill="#14b8a6" opacity="0.08"/>
+      <!-- Chat bubble -->
+      <rect x="-10" y="-8" width="20" height="14" rx="4" stroke="#14b8a6" stroke-width="1.3" fill="none"/>
+      <path d="M-3 6 L0 12 L3 6" stroke="#14b8a6" stroke-width="1.2" fill="none"/>
+      <circle cx="-3" cy="-1" r="1.2" fill="#14b8a6" opacity="0.5"/>
+      <circle cx="3" cy="-1" r="1.2" fill="#14b8a6" opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- Calendar icon (abstract geometric) -->
+  <g class="icon-float2" style="animation-delay: 3s;" opacity="0.5">
+    <g transform="translate(920, 420)">
+      <circle r="26" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+      <circle r="18" fill="#f59e0b" opacity="0.08"/>
+      <!-- Calendar shape -->
+      <rect x="-9" y="-6" width="18" height="16" rx="2" stroke="#f59e0b" stroke-width="1.3" fill="none"/>
+      <line x1="-9" y1="-1" x2="9" y2="-1" stroke="#f59e0b" stroke-width="1"/>
+      <line x1="-4" y1="-9" x2="-4" y2="-4" stroke="#f59e0b" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="4" y1="-9" x2="4" y2="-4" stroke="#f59e0b" stroke-width="1.3" stroke-linecap="round"/>
+      <circle cx="-3" cy="4" r="1.5" fill="#f59e0b" opacity="0.4"/>
+      <circle cx="3" cy="4" r="1.5" fill="#f59e0b" opacity="0.4"/>
+    </g>
+  </g>
+
+  <!-- Additional floating communication icons -->
+  <!-- Location pin -->
+  <g class="icon-float" style="animation-delay: 1.5s;" opacity="0.3">
+    <g transform="translate(180, 300)">
+      <circle r="16" fill="#0f172a" stroke="#8b5cf6" stroke-width="1"/>
+      <path d="M0 -6 C-4 -6 -6 -3 -6 0 C-6 5 0 10 0 10 C0 10 6 5 6 0 C6 -3 4 -6 0 -6Z" stroke="#8b5cf6" stroke-width="1" fill="none"/>
+      <circle cx="0" cy="-1" r="2" fill="#8b5cf6" opacity="0.4"/>
+    </g>
+  </g>
+
+  <!-- Send/paper plane -->
+  <g class="icon-float2" style="animation-delay: 0.5s;" opacity="0.3">
+    <g transform="translate(1020, 300)">
+      <circle r="16" fill="#0f172a" stroke="#06b6d4" stroke-width="1"/>
+      <path d="M-6 2 L6 -4 L-2 4 L-4 8 Z" stroke="#06b6d4" stroke-width="1" fill="none"/>
+      <line x1="6" y1="-4" x2="-2" y2="4" stroke="#06b6d4" stroke-width="0.8"/>
+    </g>
+  </g>
+
+  <!-- Connection dots along lines -->
+  <circle cx="420" cy="230" r="3" fill="#8b5cf6" class="dot-glow"/>
+  <circle cx="780" cy="230" r="3" fill="#06b6d4" class="dot-glow" style="animation-delay: 1s;"/>
+  <circle cx="400" cy="370" r="2.5" fill="#14b8a6" class="dot-glow" style="animation-delay: 2s;"/>
+  <circle cx="800" cy="370" r="2.5" fill="#f59e0b" class="dot-glow" style="animation-delay: 0.5s;"/>
+
+  <!-- Ambient particles -->
+  <circle cx="150" cy="150" r="1.5" fill="#f59e0b" opacity="0.2">
+    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1050" cy="150" r="1.5" fill="#06b6d4" opacity="0.2">
+    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="5s" repeatCount="indefinite" begin="1s"/>
+  </circle>
+  <circle cx="150" cy="480" r="1" fill="#8b5cf6" opacity="0.15">
+    <animate attributeName="opacity" values="0.08;0.2;0.08" dur="3.5s" repeatCount="indefinite" begin="2s"/>
+  </circle>
+  <circle cx="1050" cy="480" r="1" fill="#14b8a6" opacity="0.15">
+    <animate attributeName="opacity" values="0.08;0.2;0.08" dur="4.5s" repeatCount="indefinite" begin="0.5s"/>
+  </circle>
+  <circle cx="600" cy="80" r="1" fill="#f59e0b" opacity="0.1">
+    <animate attributeName="opacity" values="0.05;0.15;0.05" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+  </circle>
+  <circle cx="600" cy="520" r="1" fill="#06b6d4" opacity="0.1">
+    <animate attributeName="opacity" values="0.05;0.15;0.05" dur="4s" repeatCount="indefinite" begin="2.5s"/>
+  </circle>
+</svg>

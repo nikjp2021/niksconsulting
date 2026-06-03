@@ -1,0 +1,596 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const trainingFormats = [
+  {
+    icon: 'users',
+    title: 'AI Workshops',
+    subtitle: 'Half-day or full-day sessions for teams of 10-30',
+    description: 'Interactive, hands-on workshops where your team learns to use AI tools relevant to their roles. We cover prompt engineering, AI workflow automation, and practical implementation. Each participant leaves with actionable skills they can apply the next day.',
+    features: [
+      'Customized to your industry and tools',
+      'Hands-on exercises with real data',
+      'Take-home playbook and resources',
+      'Follow-up Q&A session (1 week later)',
+      'Group size: 10-30 participants',
+      'Duration: Half-day (4h) or Full-day (8h)',
+    ],
+    price: 'Starting from ¥150,000',
+    accent: {
+      bg: 'bg-violet-500/10',
+      border: 'border-violet-500/20',
+      text: 'text-violet-400',
+      ring: 'bg-violet-500/20',
+      gradient: 'from-violet-500 to-purple-600',
+      orb: 'rgba(139,92,246,0.12)',
+      badge: 'bg-violet-500/15 text-violet-300 border-violet-500/20',
+    },
+  },
+  {
+    icon: 'group',
+    title: 'Small Group Cohorts',
+    subtitle: '4-week intensive for teams of 3-8',
+    description: 'A structured 4-week program where small teams deep-dive into AI implementation. Weekly sessions cover theory, practical exercises, and real project work. Perfect for teams building AI-powered products or automating workflows.',
+    features: [
+      '4 weekly sessions (2 hours each)',
+      'Real project work between sessions',
+      'Personalized feedback and guidance',
+      'Slack channel for ongoing support',
+      'Certificate of completion',
+      'Group size: 3-8 participants',
+    ],
+    price: 'Starting from ¥280,000 per group',
+    accent: {
+      bg: 'bg-cyan-500/10',
+      border: 'border-cyan-500/20',
+      text: 'text-cyan-400',
+      ring: 'bg-cyan-500/20',
+      gradient: 'from-cyan-500 to-blue-600',
+      orb: 'rgba(6,182,212,0.12)',
+      badge: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/20',
+    },
+  },
+  {
+    icon: 'user',
+    title: '1:1 AI Coaching',
+    subtitle: 'Personalized training for founders and leaders',
+    description: 'One-on-one sessions tailored to your specific goals. Whether you\'re a founder looking to integrate AI into your product, a product manager wanting to leverage AI for better decisions, or an executive exploring AI strategy — we build a custom curriculum for you.',
+    features: [
+      'Personalized curriculum design',
+      'Flexible scheduling (weekly or bi-weekly)',
+      'Real-time project collaboration',
+      'Access to exclusive AI tool recommendations',
+      'Ongoing support between sessions',
+      'Duration: 60-90 min per session',
+    ],
+    price: 'Starting from ¥50,000 per session',
+    accent: {
+      bg: 'bg-amber-500/10',
+      border: 'border-amber-500/20',
+      text: 'text-amber-400',
+      ring: 'bg-amber-500/20',
+      gradient: 'from-amber-500 to-orange-600',
+      orb: 'rgba(245,158,11,0.12)',
+      badge: 'bg-amber-500/15 text-amber-300 border-amber-500/20',
+    },
+  },
+];
+
+const audiences = [
+  { icon: 'rocket', title: 'Startup Founders', desc: 'Building AI products from the ground up', color: 'text-violet-400 bg-violet-500/10 border-violet-500/20' },
+  { icon: 'kanban', title: 'Product Managers', desc: 'Leveraging AI for smarter product decisions', color: 'text-cyan-400 bg-cyan-500/10 border-cyan-500/20' },
+  { icon: 'code', title: 'Development Teams', desc: 'Implementing AI features and integrations', color: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' },
+  { icon: 'share-2', title: 'Marketing Teams', desc: 'Using AI for content creation and automation', color: 'text-amber-400 bg-amber-500/10 border-amber-500/20' },
+  { icon: 'trending-up', title: 'Executives', desc: 'Exploring AI strategy and digital transformation', color: 'text-pink-400 bg-pink-500/10 border-pink-500/20' },
+];
+---
+
+<BaseLayout title="AI Training — Niks Consulting" description="Hands-on AI training workshops, small group programs, and 1:1 coaching for teams and individuals. Master AI with practical, ship-ready skills.">
+  <!-- Hero -->
+  <section class="relative py-24 lg:py-36 overflow-hidden">
+    <div class="absolute inset-0 bg-hero-gradient"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.15),transparent_60%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(6,182,212,0.1),transparent_50%)]"></div>
+    <!-- Decorative orbs -->
+    <div class="absolute top-20 left-[10%] w-72 h-72 rounded-full bg-violet-500/8 blur-[100px] animate-glow-pulse"></div>
+    <div class="absolute bottom-10 right-[15%] w-64 h-64 rounded-full bg-cyan-500/8 blur-[100px] animate-glow-pulse" style="animation-delay: 2s;"></div>
+    <!-- Decorative SVG shapes -->
+    <svg class="absolute top-16 right-[20%] w-16 h-16 text-violet-500/10 animate-float" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 24v-4a8 8 0 0116 0v4"/><rect x="12" y="24" width="40" height="24" rx="4"/><circle cx="32" cy="36" r="4"/></svg>
+    <svg class="absolute bottom-24 left-[25%] w-12 h-12 text-cyan-500/10 animate-float" style="animation-delay: 3s;" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><rect x="12" y="12" width="40" height="40" rx="8" transform="rotate(15 32 32)"/></svg>
+    <!-- Hero illustration background -->
+    <img src="/images/hero-services.svg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none" loading="eager" />
+    <div class="relative container-custom section-padding !py-0 text-center">
+      <span class="badge-brand mb-6 inline-flex">AI Training &amp; Onboarding</span>
+      <h1 class="heading-display text-5xl sm:text-6xl lg:text-7xl text-ink-100 mb-8">
+        Master AI with <span class="gradient-text">Hands-On Training</span>
+      </h1>
+      <p class="text-xl text-ink-300 max-w-3xl mx-auto leading-relaxed">
+        From workshops to 1:1 coaching &mdash; practical AI training for teams and individuals who want to <span class="text-ink-100 font-medium">ship, not just learn</span>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Angled divider -->
+  <div class="relative -mt-1">
+    <svg class="w-full h-20 lg:h-28" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 0L1440 80L1440 100L0 100Z" fill="#09090b"/>
+    </svg>
+  </div>
+
+  <!-- Training Formats Section -->
+  <section class="pb-20 lg:pb-28 bg-surface-0 relative">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(6,182,212,0.04),transparent_50%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(139,92,246,0.04),transparent_50%)]"></div>
+    <div class="container-custom relative">
+      <SectionHeading
+        tag="Training Formats"
+        title="Choose Your Learning Path"
+        subtitle="Three distinct training formats designed to fit your team's size, goals, and schedule."
+        light
+      />
+
+      <div class="space-y-20">
+        {trainingFormats.map((format, index) => (
+          <div
+            class:list={[
+              'relative scroll-mt-24',
+            ]}
+            data-reveal="fade-up"
+            data-delay={String(index * 100)}
+          >
+            <!-- Decorative background orb -->
+            <div class:list={[
+              'absolute -top-20 w-[500px] h-[500px] rounded-full blur-[140px] opacity-30 pointer-events-none',
+              index % 2 === 0 ? '-right-40' : '-left-40',
+            ]} style={`background: ${format.accent.orb};`}></div>
+
+            <div class:list={[
+              'grid grid-cols-1 lg:grid-cols-2 gap-16 items-center',
+            ]}>
+              {/* Content */}
+              <div class:list={[index % 2 === 1 && 'lg:order-2']}>
+                <!-- Badge & number -->
+                <div class="flex items-center gap-4 mb-6">
+                  <span class:list={['inline-flex items-center justify-center w-10 h-10 rounded-xl text-sm font-bold border', format.accent.bg, format.accent.border, format.accent.text]}>
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span class:list={['inline-flex items-center px-3 py-1 text-xs font-medium rounded-full border', format.accent.badge]}>
+                    {format.title.split(' ')[0]}
+                  </span>
+                </div>
+
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-ink-100 mb-3 leading-tight">
+                  {format.title}
+                </h2>
+                <p class:list={['text-lg font-medium mb-5', format.accent.text]}>
+                  {format.subtitle}
+                </p>
+                <p class="text-ink-300 text-lg leading-relaxed mb-8">
+                  {format.description}
+                </p>
+
+                <!-- Features list -->
+                <div class:list={['rounded-2xl border p-6 mb-6', format.accent.bg, format.accent.border]}>
+                  <h4 class:list={['text-sm font-semibold uppercase tracking-wider mb-4', format.accent.text]}>What's Included</h4>
+                  <ul class="space-y-3">
+                    {format.features.map((feature) => (
+                      <li class="flex items-start gap-3">
+                        <svg class:list={['w-5 h-5 mt-0.5 shrink-0', format.accent.text]} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span class="text-ink-200 text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <!-- Price indicator -->
+                <div class:list={['inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border text-sm font-bold', format.accent.bg, format.accent.border, format.accent.text]}>
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  {format.price}
+                </div>
+              </div>
+
+              {/* Visual Card */}
+              <div class:list={[index % 2 === 1 && 'lg:order-1']}>
+                <div class:list={['relative rounded-3xl overflow-hidden border', format.accent.border]}>
+                  <!-- Gradient mesh background -->
+                  <div class:list={['absolute inset-0 bg-gradient-to-br opacity-10', format.accent.gradient]}></div>
+                  <div class:list={['absolute top-0 right-0 w-48 h-48 rounded-full blur-[80px] opacity-20', format.accent.bg]} style={`background: ${format.accent.orb};`}></div>
+
+                  <div class="relative p-10 lg:p-14">
+                    <!-- Large icon -->
+                    <div class:list={['w-24 h-24 rounded-3xl bg-gradient-to-br flex items-center justify-center mb-10 shadow-lg', format.accent.gradient]}>
+                      {format.icon === 'users' && (
+                        <svg class="w-12 h-12 text-ink-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                      )}
+                      {format.icon === 'group' && (
+                        <svg class="w-12 h-12 text-ink-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                      )}
+                      {format.icon === 'user' && (
+                        <svg class="w-12 h-12 text-ink-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                      )}
+                    </div>
+
+                    <h3 class="font-display font-bold text-2xl text-ink-100 mb-8">
+                      Why Choose {format.title}?
+                    </h3>
+                    <div class="space-y-5">
+                      {format.features.slice(0, 4).map((f, i) => (
+                        <div class="flex items-center gap-4">
+                          <div class:list={['w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold shrink-0', format.accent.ring, format.accent.text]}>
+                            {String(i + 1).padStart(2, '0')}
+                          </div>
+                          <span class="text-ink-200">{f}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <!-- Decorative dots pattern -->
+                    <div class="absolute bottom-6 right-6 grid grid-cols-3 gap-2 opacity-20">
+                      {[...Array(9)].map(() => (
+                        <div class:list={['w-1.5 h-1.5 rounded-full', format.accent.bg.replace('/10', '/40')]}></div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section divider -->
+            {index < trainingFormats.length - 1 && (
+              <div class="flex justify-center mt-20">
+                <div class:list={['w-24 h-0.5 rounded-full bg-gradient-to-r', format.accent.gradient, 'opacity-30']}></div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Onboarding Section -->
+  <section class="relative overflow-hidden">
+    <svg class="w-full h-20 lg:h-28 -mb-1" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 100L1440 20L1440 0L0 0Z" fill="#09090b"/>
+    </svg>
+    <div class="bg-surface-1 pb-24 lg:pb-32 pt-4 relative">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.08),transparent_60%)]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(6,182,212,0.06),transparent_50%)]"></div>
+      <!-- Floating orbs -->
+      <div class="absolute top-0 left-[20%] w-60 h-60 rounded-full bg-violet-500/6 blur-[100px] animate-glow-pulse"></div>
+      <div class="absolute bottom-0 right-[20%] w-60 h-60 rounded-full bg-cyan-500/6 blur-[100px] animate-glow-pulse" style="animation-delay: 2s;"></div>
+
+      <div class="container-custom relative section-padding !py-0">
+        <SectionHeading
+          tag="Team Onboarding"
+          title="AI-Powered Team Onboarding"
+          subtitle="We help your new hires become productive faster by training them on your AI tools and workflows from day one. Custom onboarding programs that reduce ramp-up time by 60%."
+          light
+        />
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-reveal="fade-up">
+          {[
+            { icon: 'brain', title: 'AI Tool Orientation', desc: 'Hands-on walkthrough of your team\'s AI stack', color: 'text-violet-400 bg-violet-500/10 border-violet-500/20' },
+            { icon: 'kanban', title: 'Workflow Documentation', desc: 'Clear guides for AI-enhanced processes', color: 'text-cyan-400 bg-cyan-500/10 border-cyan-500/20' },
+            { icon: 'zap', title: 'Hands-on Practice', desc: 'Real exercises with your actual tools and data', color: 'text-amber-400 bg-amber-500/10 border-amber-500/20' },
+            { icon: 'headphones', title: '30-Day Support', desc: 'Ongoing help as new hires ramp up', color: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' },
+          ].map((item) => (
+            <div class:list={['relative rounded-2xl border p-8 overflow-hidden group', item.color.split(' ').filter(c => c.startsWith('border-')).join(' ') ]}>
+              <div class="absolute inset-0 bg-gradient-to-br from-violet-500/[0.03] via-transparent to-cyan-500/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div class="relative">
+                <div class:list={['w-14 h-14 rounded-2xl flex items-center justify-center mb-5', item.color.split(' ').filter(c => c.startsWith('bg-')).join(' ')]}>
+                  {item.icon === 'brain' && (
+                    <svg class:list={['w-7 h-7', item.color.split(' ').filter(c => c.startsWith('text-')).join(' ')]} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                    </svg>
+                  )}
+                  {item.icon === 'kanban' && (
+                    <svg class:list={['w-7 h-7', item.color.split(' ').filter(c => c.startsWith('text-')).join(' ')]} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>
+                    </svg>
+                  )}
+                  {item.icon === 'zap' && (
+                    <svg class:list={['w-7 h-7', item.color.split(' ').filter(c => c.startsWith('text-')).join(' ')]} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                  )}
+                  {item.icon === 'headphones' && (
+                    <svg class:list={['w-7 h-7', item.color.split(' ').filter(c => c.startsWith('text-')).join(' ')]} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                    </svg>
+                  )}
+                </div>
+                <h3 class="font-display font-bold text-lg text-ink-100 mb-2">{item.title}</h3>
+                <p class="text-sm text-ink-400 leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For Section -->
+  <section class="pb-20 lg:pb-28 bg-surface-0 relative">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(6,182,212,0.04),transparent_50%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(139,92,246,0.04),transparent_50%)]"></div>
+    <div class="container-custom relative">
+      <SectionHeading
+        tag="Target Audience"
+        title="Who It's For"
+        subtitle="Whether you're a solo founder or an enterprise team, we tailor our AI training to your context."
+        light
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5" data-reveal="fade-up">
+        {audiences.map((item) => (
+          <div class:list={['relative rounded-2xl border p-6 text-center overflow-hidden group transition-all duration-300 hover:-translate-y-1', item.color.split(' ').filter(c => c.startsWith('border-')).join(' ')]}>
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-500/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative">
+              <div class:list={['w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4', item.color.split(' ').filter(c => c.startsWith('bg-')).join(' ')]}>
+                {item.icon === 'rocket' && (
+                  <svg class:list={['w-6 h-6', item.color.split(' ').filter(c => c.startsWith('text-')).join(' ')]} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+                  </svg>
+                )}
+                {item.icon === 'kanban' && (
+                  <svg class:list={['w-6 h-6', item.color.split(' ').filter(c => c.startsWith('text-')).join(' ')]} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>
+                  </svg>
+                )}
+                {item.icon === 'code' && (
+                  <svg class:list={['w-6 h-6', item.color.split(' ').filter(c => c.startsWith('text-')).join(' ')]} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                  </svg>
+                )}
+                {item.icon === 'share-2' && (
+                  <svg class:list={['w-6 h-6', item.color.split(' ').filter(c => c.startsWith('text-')).join(' ')]} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+                  </svg>
+                )}
+                {item.icon === 'trending-up' && (
+                  <svg class:list={['w-6 h-6', item.color.split(' ').filter(c => c.startsWith('text-')).join(' ')]} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                  </svg>
+                )}
+              </div>
+              <h3 class="font-display font-bold text-sm text-ink-100 mb-1.5">{item.title}</h3>
+              <p class="text-xs text-ink-400 leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Booking Form Section -->
+  <section class="relative overflow-hidden">
+    <svg class="w-full h-20 lg:h-28 -mb-1" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 100L1440 20L1440 0L0 0Z" fill="#09090b"/>
+    </svg>
+    <div class="bg-surface-1 pb-24 lg:pb-32 pt-4 relative">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(6,182,212,0.04),transparent_50%)]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(139,92,246,0.04),transparent_50%)]"></div>
+      <div class="container-custom relative">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <!-- Form -->
+          <div class="lg:col-span-2">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-sm font-medium mb-5">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Book Training
+            </span>
+            <h2 class="font-display font-extrabold text-3xl text-ink-100 mb-8">Book a Free Consultation</h2>
+
+            <div class="relative rounded-3xl border border-brand-500/20 overflow-hidden">
+              <!-- Gradient mesh background -->
+              <div class="absolute inset-0 bg-gradient-to-br from-brand-500/[0.03] via-transparent to-violet-500/[0.03]"></div>
+              <div class="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-brand-500/6 blur-[120px]"></div>
+              <div class="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-violet-500/4 blur-[120px]"></div>
+
+              <div class="relative p-8 lg:p-12">
+                <form id="training-form" class="space-y-6">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label for="t_name" class="block text-sm font-semibold text-ink-200 mb-2.5">Name *</label>
+                      <input type="text" id="t_name" name="name" required class="input-field" placeholder="John Doe" />
+                    </div>
+                    <div>
+                      <label for="t_email" class="block text-sm font-semibold text-ink-200 mb-2.5">Email *</label>
+                      <input type="email" id="t_email" name="email" required class="input-field" placeholder="john@example.com" />
+                    </div>
+                    <div>
+                      <label for="t_company" class="block text-sm font-semibold text-ink-200 mb-2.5">Company</label>
+                      <input type="text" id="t_company" name="company" class="input-field" placeholder="Acme Inc." />
+                    </div>
+                    <div>
+                      <label for="t_role" class="block text-sm font-semibold text-ink-200 mb-2.5">Role</label>
+                      <input type="text" id="t_role" name="role" class="input-field" placeholder="e.g., CTO, Product Manager" />
+                    </div>
+                    <div>
+                      <label for="t_format" class="block text-sm font-semibold text-ink-200 mb-2.5">Training Format *</label>
+                      <select id="t_format" name="format" required class="input-field">
+                        <option value="">Select a format...</option>
+                        <option value="workshop">Workshop (Group)</option>
+                        <option value="small-group">Small Group Cohort</option>
+                        <option value="one-on-one">1:1 AI Coaching</option>
+                        <option value="onboarding">Team Onboarding</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="t_team_size" class="block text-sm font-semibold text-ink-200 mb-2.5">Team Size</label>
+                      <input type="number" id="t_team_size" name="team_size" min="1" max="100" class="input-field" placeholder="e.g., 10" />
+                    </div>
+                  </div>
+                  <div>
+                    <label for="t_message" class="block text-sm font-semibold text-ink-200 mb-2.5">Message / Specific Needs</label>
+                    <textarea
+                      id="t_message"
+                      name="message"
+                      rows="5"
+                      class="input-field resize-none"
+                      placeholder="Tell us about your team's goals, current AI experience level, specific tools you want to learn, or any other requirements..."
+                    ></textarea>
+                  </div>
+                  <button type="submit" class="btn-primary w-full text-lg py-5">
+                    Book a Free Consultation
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="space-y-8">
+            <!-- OnceHub Scheduling -->
+            <div class="relative rounded-2xl border border-amber-500/20 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent"></div>
+              <div class="absolute -top-20 -right-20 w-48 h-48 rounded-full bg-amber-500/8 blur-[60px]"></div>
+              <div class="relative p-8">
+                <h3 class="font-display font-bold text-xl text-ink-100 mb-4">Schedule Directly</h3>
+                <p class="text-sm text-ink-400 mb-6">
+                  Book a free 30-minute consultation at a time that works for you.
+                </p>
+                <a
+                  href="https://go.oncehub.com/nik4u"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-outline w-full text-sm mb-3"
+                >
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                  </svg>
+                  Open Scheduling Page
+                </a>
+                <a
+                  href="https://wa.me/1234567890?text=Hi%2C%20I%27m%20interested%20in%20AI%20training."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-ghost w-full text-sm text-emerald-400 hover:text-emerald-300"
+                >
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
+                  Chat on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- What to Expect -->
+            <div class="relative rounded-2xl border border-cyan-500/20 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent"></div>
+              <div class="absolute -bottom-20 -left-20 w-48 h-48 rounded-full bg-cyan-500/8 blur-[60px]"></div>
+              <div class="relative p-8">
+                <h3 class="font-display font-bold text-xl text-ink-100 mb-6">What to Expect</h3>
+                <div class="space-y-5">
+                  {[
+                    { step: '01', title: 'Discovery Call', desc: 'We discuss your goals, team size, and current AI maturity.', color: 'text-brand-400 bg-brand-500/15' },
+                    { step: '02', title: 'Custom Curriculum', desc: 'We design a training plan tailored to your needs.', color: 'text-violet-400 bg-violet-500/15' },
+                    { step: '03', title: 'Hands-On Training', desc: 'Interactive sessions with real tools and real data.', color: 'text-amber-400 bg-amber-500/15' },
+                    { step: '04', title: 'Ongoing Support', desc: 'Follow-up Q&A and resources to reinforce learning.', color: 'text-emerald-400 bg-emerald-500/15' },
+                  ].map((item) => (
+                    <div class="flex gap-4">
+                      <span class:list={['font-display font-bold text-xs w-8 h-8 rounded-lg flex items-center justify-center shrink-0', item.color]}>
+                        {item.step}
+                      </span>
+                      <div>
+                        <p class="text-sm font-bold text-ink-100">{item.title}</p>
+                        <p class="text-xs text-ink-400 mt-0.5">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <!-- Trust badge -->
+            <div class="relative rounded-2xl border border-emerald-500/20 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent"></div>
+              <div class="relative p-8 text-center">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-500/15 flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-7 h-7 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                  </svg>
+                </div>
+                <p class="text-sm font-bold text-ink-100 mb-1">Free Consultation</p>
+                <p class="text-xs text-ink-400">No obligations. We respond within 24 hours.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Gifted Internship hint */}
+  <section class="section-padding">
+    <div class="container-custom">
+      <a href="/gifted" class="group glass-card-hover p-8 flex flex-col sm:flex-row items-center gap-6 block">
+        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shrink-0">
+          <svg class="w-8 h-8 !text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
+        </div>
+        <div class="text-center sm:text-left flex-1">
+          <h3 class="font-display font-bold text-xl text-ink-100 mb-2 group-hover:text-amber-400 transition-colors">
+            Explore the Gifted Internship Program
+          </h3>
+          <p class="text-ink-400 leading-relaxed">
+            5 years running from Japan. Real-world projects, 8 countries represented, 100% employment rate. See how our graduates became industry leaders.
+          </p>
+        </div>
+        <svg class="w-6 h-6 text-ink-400 group-hover:text-amber-400 group-hover:translate-x-1 transition-all shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="relative overflow-hidden">
+    <svg class="w-full h-20 lg:h-28 -mb-1" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 100L1440 20L1440 0L0 0Z" fill="#0f0f13"/>
+    </svg>
+    <div class="bg-surface-0 pb-24 lg:pb-32 pt-4 relative">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.08),transparent_60%)]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(6,182,212,0.06),transparent_50%)]"></div>
+      <div class="absolute top-0 left-[20%] w-60 h-60 rounded-full bg-violet-500/6 blur-[100px] animate-glow-pulse"></div>
+      <div class="absolute bottom-0 right-[20%] w-60 h-60 rounded-full bg-cyan-500/6 blur-[100px] animate-glow-pulse" style="animation-delay: 2s;"></div>
+
+      <div class="container-custom relative text-center section-padding !py-0">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-sm font-medium mb-6">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          Ready to Start?
+        </span>
+        <h2 class="heading-display text-4xl sm:text-5xl lg:text-6xl text-ink-100 mb-8">
+          Stop Reading About AI. <span class="gradient-text">Start Using It.</span>
+        </h2>
+        <p class="text-xl text-ink-300 max-w-2xl mx-auto mb-12 leading-relaxed">
+          Book a free consultation and let us design the perfect training program for your team.
+        </p>
+        <a href="#training-form" class="btn-primary text-lg px-10 py-5">
+          Book a Free Consultation
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const trainingForm = document.getElementById('training-form');
+  trainingForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Thank you! We\'ve received your training inquiry and will reach out within 24 hours to schedule your free consultation.');
+  });
+</script>

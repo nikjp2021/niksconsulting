@@ -23,6 +23,11 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://niksconsulting.com');
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
+    {/* Prevent flash of wrong theme — runs before first paint */}
+    <script is:inline>
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') document.documentElement.classList.add('light');
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
@@ -71,11 +76,16 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://niksconsulting.com');
     })} />
   </head>
   <body class="min-h-screen flex flex-col">
+    <div class="scroll-progress" aria-hidden="true"></div>
     <Navbar />
     <main class="flex-1 pt-16">
       <slot />
     </main>
     <Footer />
     <WhatsAppButton />
+    <script>
+      import '../scripts/animations.js';
+      import '../scripts/interactions.js';
+    </script>
   </body>
 </html>

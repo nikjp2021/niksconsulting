@@ -2,60 +2,91 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import { team } from '../data/team';
+
+const teamColors = [
+  { gradient: 'from-brand-500 to-cyan-500', bg: 'bg-brand-500/10', text: 'text-brand-400', orb: 'rgba(20,184,166,0.15)' },
+  { gradient: 'from-violet-500 to-purple-600', bg: 'bg-violet-500/10', text: 'text-violet-400', orb: 'rgba(139,92,246,0.15)' },
+  { gradient: 'from-amber-500 to-orange-500', bg: 'bg-amber-500/10', text: 'text-amber-400', orb: 'rgba(245,158,11,0.15)' },
+  { gradient: 'from-emerald-500 to-teal-500', bg: 'bg-emerald-500/10', text: 'text-emerald-400', orb: 'rgba(16,185,129,0.15)' },
+];
 ---
 
 <BaseLayout title="About Us — Niks Consulting" description="Learn about Niks Consulting — our mission, story, and commitment to helping businesses thrive through digital transformation.">
   <!-- Hero -->
-  <section class="relative py-20 lg:py-28 overflow-hidden">
+  <section class="relative py-24 lg:py-36 overflow-hidden">
     <div class="absolute inset-0 bg-hero-gradient"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.15),transparent_60%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(139,92,246,0.15),transparent_60%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(6,182,212,0.1),transparent_50%)]"></div>
+    <!-- Decorative orbs -->
+    <div class="absolute top-20 right-[10%] w-80 h-80 rounded-full bg-brand-500/8 blur-[120px] animate-glow-pulse"></div>
+    <div class="absolute bottom-10 left-[15%] w-64 h-64 rounded-full bg-violet-500/8 blur-[100px] animate-glow-pulse" style="animation-delay: 2s;"></div>
+    <!-- Decorative shapes -->
+    <svg class="absolute top-24 left-[15%] w-14 h-14 text-brand-500/10 animate-float" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="32,4 60,52 4,52"/></svg>
+    <svg class="absolute bottom-20 right-[20%] w-10 h-10 text-violet-500/10 animate-float" style="animation-delay: 2s;" viewBox="0 0 64 64" fill="currentColor"><circle cx="32" cy="32" r="10"/></svg>
+    <!-- Hero illustration background -->
+    <img src="/images/hero-about.svg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none" loading="eager" />
+
     <div class="relative container-custom section-padding !py-0 text-center">
-      <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6">
+      <span class="badge-brand mb-6 inline-flex">Our Story</span>
+      <h1 class="heading-display text-5xl sm:text-6xl lg:text-7xl text-ink-100 mb-8">
         About <span class="gradient-text">Niks Consulting</span>
       </h1>
-      <p class="text-lg text-dark-300 max-w-2xl mx-auto">
-        Pioneers in AI Solutions & Innovation — empowering businesses worldwide with agentic AI, automation, and digital transformation.
+      <p class="text-xl text-ink-300 max-w-3xl mx-auto leading-relaxed">
+        Pioneers in <span class="text-ink-100 font-medium">AI Solutions & Innovation</span> — empowering businesses worldwide with agentic AI, automation, and digital transformation.
       </p>
     </div>
   </section>
 
+  <!-- Angled divider -->
+  <div class="relative -mt-1">
+    <svg class="w-full h-20 lg:h-28" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 0L1440 80L1440 100L0 100Z" fill="#09090b"/>
+    </svg>
+  </div>
+
   <!-- Story Section -->
-  <section class="section-padding bg-dark-900">
-    <div class="container-custom">
+  <section class="pb-20 lg:pb-28 bg-surface-0 relative">
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-brand-500/4 blur-[160px] pointer-events-none"></div>
+    <div class="container-custom relative">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mb-6">
-            Empowering Businesses Through AI & Technology
+          <span class="badge-brand mb-6 inline-flex">Who We Are</span>
+          <h2 class="heading-display text-4xl sm:text-5xl text-ink-100 mb-8 leading-tight">
+            Empowering Businesses Through <span class="gradient-text">AI & Technology</span>
           </h2>
-          <div class="space-y-4 text-dark-300 leading-relaxed">
+          <div class="space-y-5 text-ink-300 text-lg leading-relaxed">
             <p>
-              At Niks Consulting, we believe that every business — regardless of size — deserves access to AI-powered solutions and modern digital strategy. Founded by Nikhil Tiwari, our consulting firm specializes in helping businesses navigate the complex landscape of AI, agentic workflows, and digital transformation.
+              At Niks Consulting, we believe that every business — regardless of size — deserves access to <strong class="text-ink-100">AI-powered solutions</strong> and modern digital strategy. Founded by Nikhil Tiwari, our consulting firm specializes in helping businesses navigate the complex landscape of AI, agentic workflows, and digital transformation.
             </p>
             <p>
-              From building AI-powered applications and intelligent automation to crafting data-driven social media strategies and implementing agile project management, we provide end-to-end solutions that drive real business results.
+              From building AI-powered applications and intelligent automation to crafting data-driven social media strategies and implementing agile project management, we provide <strong class="text-ink-100">end-to-end solutions</strong> that drive real business results.
             </p>
             <p>
-              Our approach is simple: we listen, strategize, execute, and optimize with AI at the core. We don't just build technology — we build intelligent systems and partnerships that help your business grow.
+              Our approach is simple: we listen, strategize, execute, and optimize with AI at the core. We don't just build technology — we build <strong class="text-ink-100">intelligent systems and partnerships</strong> that help your business grow.
             </p>
           </div>
-          <a href="/contact" class="btn-primary mt-8">
+          <a href="/contact" class="btn-primary mt-10 text-base">
             Get in Touch
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
 
         <!-- Stats Grid -->
-        <div class="grid grid-cols-2 gap-6">
+        <div class="grid grid-cols-2 gap-5">
           {[
-            { number: '3', label: 'Countries Served', suffix: '+' },
-            { number: '10', label: 'Projects Delivered', suffix: '+' },
-            { number: '3', label: 'Years Experience', suffix: '+' },
-            { number: '100', label: 'Client Satisfaction', suffix: '%' },
+            { number: '3', label: 'Countries Served', suffix: '+', color: 'from-brand-500/15 to-cyan-500/15', border: 'border-brand-500/20', accent: 'text-brand-400' },
+            { number: '10', label: 'Projects Delivered', suffix: '+', color: 'from-violet-500/15 to-purple-500/15', border: 'border-violet-500/20', accent: 'text-violet-400' },
+            { number: '3', label: 'Years Experience', suffix: '+', color: 'from-amber-500/15 to-orange-500/15', border: 'border-amber-500/20', accent: 'text-amber-400' },
+            { number: '100', label: 'Client Satisfaction', suffix: '%', color: 'from-emerald-500/15 to-teal-500/15', border: 'border-emerald-500/20', accent: 'text-emerald-400' },
           ].map((stat) => (
-            <div class="glass-card p-6 text-center">
-              <div class="font-display font-bold text-4xl gradient-text mb-2">
-                {stat.number}<span class="text-2xl">{stat.suffix}</span>
+            <div class:list={['relative rounded-2xl border p-7 text-center overflow-hidden', stat.border]}>
+              <div class:list={['absolute inset-0 bg-gradient-to-br', stat.color]}></div>
+              <div class="relative">
+                <div class:list={['font-display font-extrabold text-4xl mb-2', stat.accent]}>
+                  {stat.number}<span class="text-2xl">{stat.suffix}</span>
+                </div>
+                <p class="text-sm text-ink-400 font-medium">{stat.label}</p>
               </div>
-              <p class="text-sm text-dark-400">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -63,82 +94,121 @@ import { team } from '../data/team';
     </div>
   </section>
 
+  <!-- Curved divider -->
+  <div class="relative -mt-1">
+    <svg class="w-full h-20 lg:h-28" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 0C360 80 1080 80 1440 0L1440 100L0 100Z" fill="#0f0f13"/>
+    </svg>
+  </div>
+
   <!-- Mission & Vision -->
-  <section class="section-padding bg-dark-800/30">
-    <div class="container-custom">
+  <section class="pb-20 lg:pb-28 bg-surface-1 relative">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.06),transparent_60%)]"></div>
+    <div class="container-custom relative">
       <SectionHeading
         title="Our Mission & Vision"
         subtitle="What drives us every day."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="glass-card p-8">
-          <div class="w-12 h-12 rounded-xl bg-primary-500/20 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-            </svg>
+        <div class="relative rounded-2xl border border-violet-500/20 overflow-hidden group hover:border-violet-500/40 transition-all duration-300">
+          <div class="absolute inset-0 bg-gradient-to-br from-violet-500/8 to-purple-500/5"></div>
+          <div class="absolute -top-20 -right-20 w-48 h-48 rounded-full bg-violet-500/10 blur-[80px] group-hover:bg-violet-500/15 transition-colors"></div>
+          <div class="relative p-10">
+            <div class="w-14 h-14 rounded-2xl bg-violet-500/15 flex items-center justify-center mb-7">
+              <svg class="w-7 h-7 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-ink-100 mb-5">Our Vision</h3>
+            <p class="text-ink-300 leading-relaxed text-lg">
+              To be the trusted AI and technology partner for small and medium businesses worldwide, making cutting-edge AI solutions, agentic workflows, and digital transformation accessible and affordable.
+            </p>
           </div>
-          <h3 class="font-display font-semibold text-xl text-white mb-4">Our Vision</h3>
-          <p class="text-dark-300 leading-relaxed">
-            To be the trusted AI and technology partner for small and medium businesses worldwide, making cutting-edge AI solutions, agentic workflows, and digital transformation accessible and affordable. We envision a world where every business can compete in the AI-powered marketplace.
-          </p>
         </div>
 
-        <div class="glass-card p-8">
-          <div class="w-12 h-12 rounded-xl bg-accent-500/20 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
+        <div class="relative rounded-2xl border border-brand-500/20 overflow-hidden group hover:border-brand-500/40 transition-all duration-300">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-500/8 to-cyan-500/5"></div>
+          <div class="absolute -top-20 -left-20 w-48 h-48 rounded-full bg-brand-500/10 blur-[80px] group-hover:bg-brand-500/15 transition-colors"></div>
+          <div class="relative p-10">
+            <div class="w-14 h-14 rounded-2xl bg-brand-500/15 flex items-center justify-center mb-7">
+              <svg class="w-7 h-7 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-ink-100 mb-5">Our Mission</h3>
+            <p class="text-ink-300 leading-relaxed text-lg">
+              To empower businesses with AI-powered solutions, intelligent automation, and strategic digital consulting. We combine technical expertise with business acumen to deliver agentic workflows and intelligent systems that drive growth.
+            </p>
           </div>
-          <h3 class="font-display font-semibold text-xl text-white mb-4">Our Mission</h3>
-          <p class="text-dark-300 leading-relaxed">
-            To empower businesses with AI-powered solutions, intelligent automation, and strategic digital consulting. We combine technical expertise with business acumen to deliver agentic workflows and intelligent systems that drive growth, efficiency, and competitive advantage.
-          </p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Angled divider -->
+  <div class="relative -mt-1">
+    <svg class="w-full h-20 lg:h-28" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 80L1440 0L1440 100L0 100Z" fill="#09090b"/>
+    </svg>
+  </div>
+
   <!-- Meet Nik - Founder -->
-  <section class="section-padding bg-dark-900">
-    <div class="container-custom">
+  <section class="pb-20 lg:pb-28 bg-surface-0 relative">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(6,182,212,0.06),transparent_50%)]"></div>
+    <div class="absolute -bottom-40 left-[30%] w-[500px] h-[500px] rounded-full bg-brand-500/4 blur-[140px] pointer-events-none"></div>
+
+    <div class="container-custom relative">
       <SectionHeading
         title="Meet Nik"
         subtitle="The builder behind Niks Consulting."
       />
 
-      <div class="max-w-4xl mx-auto">
-        <div class="glass-card p-8 lg:p-12 relative overflow-hidden">
-          <div class="absolute inset-0 opacity-10 bg-gradient-to-br from-primary-500 to-accent-500"></div>
-          <div class="relative flex flex-col md:flex-row gap-8 items-center md:items-start">
-            <div class="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shrink-0">
-              <span class="font-display font-bold text-4xl text-white">NT</span>
-            </div>
-            <div class="text-center md:text-left">
-              <h3 class="font-display font-bold text-2xl text-white mb-1">Nikhil Tiwari</h3>
-              <p class="text-primary-400 font-medium mb-2">Founder & Fractional CPO</p>
-              <p class="text-accent-400 text-sm font-medium mb-4">Agentic AI Builder | Xiaomi MiMo Grant Winner | PhD Candidate</p>
-              <p class="text-dark-300 leading-relaxed mb-4">
-                I build products with AI — not theory, working systems. 10+ years in product management. PhD candidate at Shizuoka University, Japan. I ship agentic AI systems using Claude Code, OpenCode, and autonomous workflow design. I architect AI for health tech: telehealth, remote patient monitoring, HIPAA. I publish on AI governance, algorithmic management, and ethical AI.
-              </p>
-              <p class="text-dark-300 leading-relaxed mb-6">
-                Previously at Expedia Group ($2M budget, 3K agents). Founder of MyTegami.win (5K users, NPS 72). Won the 2026 Xiaomi MiMo Builders Grant. I'm a builder, not a developer. I use AI tools daily to prototype, automate, and ship faster than any team waiting on a sprint cycle.
-              </p>
-              <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-6">
-                {['Agentic AI', 'Health Tech', 'Product Strategy', 'LLM Systems', 'Web3', 'PhD Research'].map((tag) => (
-                  <span class="px-3 py-1 text-xs font-medium rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-300">{tag}</span>
-                ))}
+      <div class="max-w-5xl mx-auto">
+        <div class="relative rounded-3xl border border-brand-500/20 overflow-hidden">
+          <!-- Gradient mesh background -->
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-500/8 via-transparent to-violet-500/8"></div>
+          <div class="absolute top-0 right-0 w-80 h-80 rounded-full bg-brand-500/8 blur-[120px]"></div>
+          <div class="absolute bottom-0 left-0 w-60 h-60 rounded-full bg-violet-500/6 blur-[100px]"></div>
+
+          <div class="relative p-10 lg:p-14">
+            <div class="flex flex-col md:flex-row gap-10 items-center md:items-start">
+              <div class="relative shrink-0">
+                <div class="w-36 h-36 rounded-3xl bg-gradient-to-br from-brand-500 to-violet-500 flex items-center justify-center shadow-lg shadow-brand-500/20">
+                  <span class="font-display font-extrabold text-4xl text-ink-100">NT</span>
+                </div>
+                <!-- Decorative ring -->
+                <div class="absolute -inset-2 rounded-3xl border border-brand-500/20 animate-glow-pulse"></div>
               </div>
-              <div class="flex gap-3 justify-center md:justify-start">
-                <a href="https://www.linkedin.com/in/ntiwari1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-dark-800 border border-dark-700 text-dark-300 hover:text-white hover:border-primary-500/50 transition-all text-sm">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                  LinkedIn
-                </a>
-                <a href="https://go.oncehub.com/nik4u" target="_blank" rel="noopener noreferrer" class="btn-primary text-sm">
-                  Book a Call
-                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                </a>
+              <div class="text-center md:text-left">
+                <h3 class="font-display font-extrabold text-3xl text-ink-100 mb-2">Nikhil Tiwari</h3>
+                <p class="text-brand-400 font-semibold text-lg mb-2">Founder & Fractional CPO</p>
+                <p class="text-violet-400 text-sm font-medium mb-5">Agentic AI Builder | Xiaomi MiMo Grant Winner | PhD Candidate</p>
+                <p class="text-ink-300 leading-relaxed mb-5 text-lg">
+                  I build products with AI — not theory, working systems. 10+ years in product management. PhD candidate at Shizuoka University, Japan. I ship agentic AI systems using Claude Code, OpenCode, and autonomous workflow design. I architect AI for health tech: telehealth, remote patient monitoring, HIPAA.
+                </p>
+                <p class="text-ink-300 leading-relaxed mb-8 text-lg">
+                  Previously at Expedia Group ($2M budget, 3K agents). Founder of MyTegami.win (5K users, NPS 72). Won the 2026 Xiaomi MiMo Builders Grant. I'm a builder, not a developer. I use AI tools daily to prototype, automate, and ship faster than any team waiting on a sprint cycle.
+                </p>
+                <div class="flex flex-wrap gap-2.5 justify-center md:justify-start mb-8">
+                  {['Agentic AI', 'Health Tech', 'Product Strategy', 'LLM Systems', 'Web3', 'PhD Research'].map((tag, i) => {
+                    const colors = ['bg-brand-500/10 border-brand-500/20 text-brand-300', 'bg-violet-500/10 border-violet-500/20 text-violet-300', 'bg-cyan-500/10 border-cyan-500/20 text-cyan-300', 'bg-amber-500/10 border-amber-500/20 text-amber-300', 'bg-pink-500/10 border-pink-500/20 text-pink-300', 'bg-indigo-500/10 border-indigo-500/20 text-indigo-300'];
+                    return (
+                      <span class:list={['px-4 py-1.5 text-xs font-medium rounded-full border', colors[i % colors.length]]}>{tag}</span>
+                    );
+                  })}
+                </div>
+                <div class="flex gap-4 justify-center md:justify-start">
+                  <a href="https://www.linkedin.com/in/ntiwari1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-surface-3 border border-surface-5 text-ink-200 hover:text-ink-100 hover:border-brand-500/50 transition-all text-sm font-medium">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                  </a>
+                  <a href="https://go.oncehub.com/nik4u" target="_blank" rel="noopener noreferrer" class="btn-primary text-sm">
+                    Book a Call
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -147,56 +217,83 @@ import { team } from '../data/team';
     </div>
   </section>
 
+  <!-- Curved divider -->
+  <div class="relative -mt-1">
+    <svg class="w-full h-20 lg:h-28" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 0C720 100 1440 0 1440 0L1440 100L0 100Z" fill="#0f0f13"/>
+    </svg>
+  </div>
+
   <!-- Team -->
-  <section class="section-padding bg-dark-800/30">
-    <div class="container-custom">
+  <section class="pb-20 lg:pb-28 bg-surface-1 relative">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.06),transparent_60%)]"></div>
+    <div class="container-custom relative">
       <SectionHeading
         title="Our Team"
         subtitle="The people driving AI innovation and digital transformation at Niks Consulting."
       />
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {team.filter((m) => m.name !== 'Nikhil Tiwari').map((member) => (
-          <div class="glass-card p-6 text-center group">
-            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center mx-auto mb-5">
-              <span class="font-display font-bold text-xl text-white">
-                {member.name.split(' ').map((n) => n[0]).join('')}
-              </span>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {team.filter((m) => m.name !== 'Nikhil Tiwari').map((member, i) => {
+          const color = teamColors[(i + 1) % teamColors.length];
+          return (
+            <div class="relative rounded-2xl border border-surface-4/40 overflow-hidden group hover:border-surface-5 transition-all duration-300 hover:-translate-y-1">
+              <!-- Gradient orb behind avatar -->
+              <div class:list={['absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 rounded-full blur-[80px] opacity-30 group-hover:opacity-50 transition-opacity']} style={`background: ${color.orb};`}></div>
+
+              <div class="relative p-8 text-center">
+                <div class:list={['w-24 h-24 rounded-3xl bg-gradient-to-br flex items-center justify-center mx-auto mb-6 shadow-lg', color.gradient]}>
+                  <span class="font-display font-bold text-2xl text-ink-100">
+                    {member.name.split(' ').map((n) => n[0]).join('')}
+                  </span>
+                </div>
+                <h3 class="font-display font-bold text-xl text-ink-100 mb-2">{member.name}</h3>
+                <p class:list={['text-sm font-semibold mb-4', color.text]}>{member.role}</p>
+                <p class="text-ink-400 text-sm leading-relaxed">{member.bio}</p>
+              </div>
             </div>
-            <h3 class="font-display font-semibold text-lg text-white mb-1">{member.name}</h3>
-            <p class="text-primary-400 text-sm font-medium mb-3">{member.role}</p>
-            <p class="text-dark-400 text-sm leading-relaxed">{member.bio}</p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>
 
+  <!-- Angled divider -->
+  <div class="relative -mt-1">
+    <svg class="w-full h-20 lg:h-28" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 80L1440 0L1440 100L0 100Z" fill="#09090b"/>
+    </svg>
+  </div>
+
   <!-- Certifications -->
-  <section class="section-padding bg-dark-800/30">
-    <div class="container-custom">
+  <section class="pb-24 lg:pb-32 bg-surface-0 relative">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(6,182,212,0.05),transparent_60%)]"></div>
+    <div class="container-custom relative">
       <SectionHeading
         title="Certifications & Expertise"
         subtitle="Backed by industry-recognized certifications and methodologies."
       />
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
         {[
-          { title: 'AI & Agentic AI', desc: 'Expertise in building autonomous AI agents, LLM-powered workflows, and intelligent decision systems.' },
-          { title: 'AI Automation', desc: 'Certified in designing and deploying AI-driven automation pipelines that streamline business operations.' },
-          { title: 'Agile Scrum', desc: 'Certified Scrum Master with hands-on experience leading agile teams and delivering iterative results.' },
-          { title: 'Digital Transformation', desc: 'End-to-end DX strategy from legacy modernization to AI-powered digital ecosystems.' },
-          { title: 'Product Management', desc: 'End-to-end product lifecycle management from ideation to launch and growth.' },
-          { title: 'Cloud & DevOps', desc: 'Experience with cloud infrastructure, CI/CD pipelines, and scalable deployment architectures.' },
+          { title: 'AI & Agentic AI', desc: 'Expertise in building autonomous AI agents, LLM-powered workflows, and intelligent decision systems.', color: 'from-violet-500/15 to-purple-500/10', border: 'border-violet-500/20', icon: 'text-violet-400', ring: 'bg-violet-500/15' },
+          { title: 'AI Automation', desc: 'Certified in designing and deploying AI-driven automation pipelines that streamline business operations.', color: 'from-cyan-500/15 to-blue-500/10', border: 'border-cyan-500/20', icon: 'text-cyan-400', ring: 'bg-cyan-500/15' },
+          { title: 'Agile Scrum', desc: 'Certified Scrum Master with hands-on experience leading agile teams and delivering iterative results.', color: 'from-amber-500/15 to-orange-500/10', border: 'border-amber-500/20', icon: 'text-amber-400', ring: 'bg-amber-500/15' },
+          { title: 'Digital Transformation', desc: 'End-to-end DX strategy from legacy modernization to AI-powered digital ecosystems.', color: 'from-brand-500/15 to-teal-500/10', border: 'border-brand-500/20', icon: 'text-brand-400', ring: 'bg-brand-500/15' },
+          { title: 'Product Management', desc: 'End-to-end product lifecycle management from ideation to launch and growth.', color: 'from-pink-500/15 to-rose-500/10', border: 'border-pink-500/20', icon: 'text-pink-400', ring: 'bg-pink-500/15' },
+          { title: 'Cloud & DevOps', desc: 'Experience with cloud infrastructure, CI/CD pipelines, and scalable deployment architectures.', color: 'from-indigo-500/15 to-blue-500/10', border: 'border-indigo-500/20', icon: 'text-indigo-400', ring: 'bg-indigo-500/15' },
         ].map((cert) => (
-          <div class="glass-card p-6 text-center">
-            <div class="w-12 h-12 rounded-xl bg-primary-500/10 flex items-center justify-center mx-auto mb-4">
-              <svg class="w-6 h-6 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-              </svg>
+          <div class:list={['relative rounded-2xl border overflow-hidden group hover:-translate-y-1 transition-all duration-300', cert.border]}>
+            <div class:list={['absolute inset-0 bg-gradient-to-br', cert.color]}></div>
+            <div class="relative p-8 text-center">
+              <div class:list={['w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-6', cert.ring]}>
+                <svg class:list={['w-7 h-7', cert.icon]} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                </svg>
+              </div>
+              <h3 class="font-display font-bold text-lg text-ink-100 mb-3">{cert.title}</h3>
+              <p class="text-sm text-ink-400 leading-relaxed">{cert.desc}</p>
             </div>
-            <h3 class="font-display font-semibold text-lg text-white mb-2">{cert.title}</h3>
-            <p class="text-sm text-dark-400 leading-relaxed">{cert.desc}</p>
           </div>
         ))}
       </div>

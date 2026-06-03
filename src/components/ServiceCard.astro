@@ -5,9 +5,14 @@ interface Props {
   icon: string;
   href: string;
   color: string;
+  reveal?: string;
+  delay?: number;
 }
 
-const { title, description, icon, href, color } = Astro.props;
+const { title, description, icon, href, color, reveal, delay } = Astro.props;
+const revealAttrs: Record<string, string> = {};
+if (reveal) revealAttrs['data-reveal'] = reveal;
+if (delay !== undefined) revealAttrs['data-delay'] = String(delay);
 
 const icons: Record<string, string> = {
   globe: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>',
@@ -20,27 +25,98 @@ const icons: Record<string, string> = {
   kanban: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>',
   blocks: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>',
 };
+
+// Each icon gets a unique gradient pair
+const gradientMap: Record<string, string> = {
+  globe: 'from-accent-cyan to-brand-400',
+  brain: 'from-accent-violet to-brand-500',
+  bot: 'from-accent-amber to-brand-400',
+  zap: 'from-accent-amber to-accent-cyan',
+  code: 'from-accent-cyan to-accent-violet',
+  'share-2': 'from-brand-400 to-accent-violet',
+  'trending-up': 'from-accent-cyan to-accent-amber',
+  kanban: 'from-accent-violet to-accent-cyan',
+  blocks: 'from-brand-500 to-accent-amber',
+};
+
+// Glow color for each icon
+const glowMap: Record<string, string> = {
+  globe: 'shadow-[0_0_24px_rgba(6,182,212,0.25)]',
+  brain: 'shadow-[0_0_24px_rgba(139,92,246,0.25)]',
+  bot: 'shadow-[0_0_24px_rgba(245,158,11,0.25)]',
+  zap: 'shadow-[0_0_24px_rgba(245,158,11,0.2)]',
+  code: 'shadow-[0_0_24px_rgba(6,182,212,0.2)]',
+  'share-2': 'shadow-[0_0_24px_rgba(139,92,246,0.2)]',
+  'trending-up': 'shadow-[0_0_24px_rgba(6,182,212,0.2)]',
+  kanban: 'shadow-[0_0_24px_rgba(139,92,246,0.2)]',
+  blocks: 'shadow-[0_0_24px_rgba(245,158,11,0.2)]',
+};
+
+const iconGradient = gradientMap[color] || gradientMap.globe;
+const iconGlow = glowMap[color] || glowMap.globe;
 ---
 
 <a
   href={href}
-  class="group glass-card-hover p-6 lg:p-8 block"
+  class="group magnetic-card icon-bounce-hover card-gradient-overlay btn-active-scale relative block overflow-hidden rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:-translate-y-1"
+  style="background: rgba(var(--card-bg), 0.6); backdrop-filter: blur(24px); border: 1px solid rgba(var(--card-border), 0.4);"
+  {...revealAttrs}
 >
-  <div class:list={[
-    'w-12 h-12 rounded-xl bg-gradient-to-br flex items-center justify-center mb-5',
-    color,
-  ]}>
-    <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" set:html={icons[icon] || icons.globe} />
+  {/* Gradient border on hover -- overlays the card edge */}
+  <div
+    class="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+    style="padding: 1px; background: linear-gradient(135deg, rgba(6,182,212,0.5), rgba(139,92,246,0.5), rgba(245,158,11,0.3)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude;"
+  ></div>
+
+  {/* Decorative dot pattern in top-right corner */}
+  <div class="pointer-events-none absolute -top-2 -right-2 opacity-[0.07] group-hover:opacity-[0.12] transition-opacity duration-500">
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <circle cx="10" cy="10" r="2" fill="currentColor" class="text-accent-cyan"/>
+      <circle cx="30" cy="10" r="2" fill="currentColor" class="text-accent-violet"/>
+      <circle cx="50" cy="10" r="2" fill="currentColor" class="text-accent-cyan"/>
+      <circle cx="70" cy="10" r="2" fill="currentColor" class="text-accent-violet"/>
+      <circle cx="10" cy="30" r="2" fill="currentColor" class="text-accent-violet"/>
+      <circle cx="30" cy="30" r="2" fill="currentColor" class="text-accent-cyan"/>
+      <circle cx="50" cy="30" r="2" fill="currentColor" class="text-accent-violet"/>
+      <circle cx="70" cy="30" r="2" fill="currentColor" class="text-accent-cyan"/>
+      <circle cx="10" cy="50" r="2" fill="currentColor" class="text-accent-cyan"/>
+      <circle cx="30" cy="50" r="2" fill="currentColor" class="text-accent-violet"/>
+      <circle cx="50" cy="50" r="2" fill="currentColor" class="text-accent-cyan"/>
+      <circle cx="70" cy="50" r="2" fill="currentColor" class="text-accent-violet"/>
+      <circle cx="10" cy="70" r="2" fill="currentColor" class="text-accent-violet"/>
+      <circle cx="30" cy="70" r="2" fill="currentColor" class="text-accent-cyan"/>
+      <circle cx="50" cy="70" r="2" fill="currentColor" class="text-accent-violet"/>
+      <circle cx="70" cy="70" r="2" fill="currentColor" class="text-accent-cyan"/>
+    </svg>
   </div>
-  <h3 class="font-display font-semibold text-xl text-white mb-3 group-hover:text-primary-300 transition-colors">
+
+  {/* Decorative abstract shape in bottom-left */}
+  <div class="pointer-events-none absolute -bottom-6 -left-6 w-24 h-24 rounded-full opacity-[0.06] group-hover:opacity-[0.12] transition-opacity duration-500 blur-xl bg-gradient-to-br from-accent-cyan to-accent-violet"></div>
+
+  {/* Cursor-following glow */}
+  <div class="cursor-glow" style={`background: radial-gradient(circle, ${color === 'globe' ? 'rgba(6,182,212,0.3)' : color === 'brain' ? 'rgba(139,92,246,0.3)' : color === 'bot' ? 'rgba(245,158,11,0.3)' : 'rgba(6,182,212,0.3)'}, transparent 70%);`}></div>
+
+  {/* Icon with unique gradient background and glow */}
+  <div class:list={[
+    'icon-bounce relative w-14 h-14 rounded-2xl bg-gradient-to-br flex items-center justify-center mb-5 transition-shadow duration-300',
+    iconGradient,
+    iconGlow,
+  ]}>
+    <svg class="w-7 h-7 text-ink-100 drop-shadow-md" fill="none" viewBox="0 0 24 24" stroke="currentColor" set:html={icons[icon] || icons.globe} />
+    {/* Small sparkle accent on icon */}
+    <div class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-white/30 group-hover:bg-white/50 transition-colors"></div>
+  </div>
+
+  <h3 class="font-display font-semibold text-xl text-ink-100 mb-3 group-hover:text-accent-cyan transition-colors duration-300">
     {title}
   </h3>
-  <p class="text-dark-400 text-sm leading-relaxed mb-4">
+  <p class="text-ink-400 text-sm leading-relaxed mb-5">
     {description}
   </p>
-  <span class="inline-flex items-center gap-1 text-sm text-primary-400 group-hover:text-primary-300 transition-colors">
+
+  <span class="inline-flex items-center gap-2 text-sm font-medium bg-gradient-to-r from-accent-cyan to-accent-violet bg-clip-text text-transparent group-hover:from-brand-300 group-hover:to-accent-cyan transition-all duration-300">
     Learn more
-    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg class="w-4 h-4 text-accent-cyan group-hover:translate-x-1.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
     </svg>
   </span>

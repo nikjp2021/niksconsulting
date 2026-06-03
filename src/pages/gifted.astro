@@ -1,0 +1,632 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+---
+
+<BaseLayout title="Gifted Internship Program — Niks Consulting" description="The Gifted Internship Program: 5 years of transforming students into industry leaders through real-world projects. Graduates from 8 countries.">
+  <!-- Hero -->
+  <section class="relative py-24 lg:py-36 overflow-hidden">
+    <div class="absolute inset-0 bg-hero-gradient"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(245,158,11,0.15),transparent_60%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(16,185,129,0.1),transparent_50%)]"></div>
+    <!-- Decorative orbs -->
+    <div class="absolute top-20 right-[10%] w-80 h-80 rounded-full bg-amber-500/8 blur-[120px] animate-glow-pulse"></div>
+    <div class="absolute bottom-10 left-[15%] w-64 h-64 rounded-full bg-emerald-500/8 blur-[100px] animate-glow-pulse" style="animation-delay: 2s;"></div>
+    <!-- Decorative shapes -->
+    <svg class="absolute top-24 left-[15%] w-14 h-14 text-amber-500/10 animate-float" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+      <polygon points="32,4 60,52 4,52"/>
+    </svg>
+    <svg class="absolute bottom-20 right-[20%] w-10 h-10 text-emerald-500/10 animate-float" style="animation-delay: 2s;" viewBox="0 0 64 64" fill="currentColor">
+      <circle cx="32" cy="32" r="10"/>
+    </svg>
+    <!-- Hero illustration background -->
+    <img src="/images/hero-gifted.svg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none" loading="eager" />
+
+    <div class="relative container-custom section-padding !py-0 text-center">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-sm font-medium mb-6">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        Since 2020 &bull; Japan
+      </span>
+      <h1 class="heading-display text-5xl sm:text-6xl lg:text-7xl text-ink-100 mb-8">
+        The <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-400 to-emerald-400">Gifted</span> Internship Program
+      </h1>
+      <p class="text-xl text-ink-300 max-w-3xl mx-auto leading-relaxed">
+        5 years of transforming students into <span class="text-ink-100 font-medium">industry leaders</span> through real-world projects and problem-solving.
+      </p>
+    </div>
+  </section>
+
+  <!-- Angled divider -->
+  <div class="relative -mt-1">
+    <svg class="w-full h-20 lg:h-28" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 0L1440 80L1440 100L0 100Z" fill="#09090b"/>
+    </svg>
+  </div>
+
+  <!-- Program Overview -->
+  <section class="pb-20 lg:pb-28 bg-surface-0 relative">
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-amber-500/4 blur-[160px] pointer-events-none"></div>
+    <div class="container-custom relative">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div data-reveal="fade-right">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-sm font-medium mb-6">
+            What is Gifted?
+          </span>
+          <h2 class="heading-display text-4xl sm:text-5xl text-ink-100 mb-8 leading-tight">
+            Hands-On Internships That <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-emerald-400">Build Careers</span>
+          </h2>
+          <div class="space-y-5 text-ink-300 text-lg leading-relaxed">
+            <p>
+              The Gifted Internship Program is a hands-on, project-based internship that connects university students with <strong class="text-ink-100">real business challenges</strong>. Running since 2020 from Shizuoka, Japan, the program has successfully trained students from 8 countries.
+            </p>
+            <p>
+              Participants work on <strong class="text-ink-100">actual client projects</strong>, receive mentorship from industry professionals, and graduate with a portfolio that demonstrates real-world impact — not simulations.
+            </p>
+            <p>
+              Countries represented: <strong class="text-amber-400">Vietnam</strong>, <strong class="text-emerald-400">Brazil</strong>, <strong class="text-brand-400">USA</strong>, <strong class="text-violet-400">Nigeria</strong>, <strong class="text-cyan-400">Indonesia</strong>, <strong class="text-pink-400">India</strong>, <strong class="text-orange-400">Philippines</strong>, and <strong class="text-amber-300">Japan</strong>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 gap-5" data-reveal="fade-left">
+          {[
+            { number: '5', label: 'Years Running', suffix: '+', color: 'from-amber-500/15 to-orange-500/15', border: 'border-amber-500/20', accent: 'text-amber-400' },
+            { number: '8', label: 'Countries Represented', suffix: '', color: 'from-emerald-500/15 to-teal-500/15', border: 'border-emerald-500/20', accent: 'text-emerald-400' },
+            { number: '20', label: 'Graduates', suffix: '+', color: 'from-brand-500/15 to-cyan-500/15', border: 'border-brand-500/20', accent: 'text-brand-400' },
+            { number: '100', label: 'Employment Rate', suffix: '%', color: 'from-violet-500/15 to-purple-500/15', border: 'border-violet-500/20', accent: 'text-violet-400' },
+          ].map((stat) => (
+            <div class:list={['relative rounded-2xl border p-7 text-center overflow-hidden', stat.border]}>
+              <div class:list={['absolute inset-0 bg-gradient-to-br', stat.color]}></div>
+              <div class="relative">
+                <div class:list={['font-display font-extrabold text-4xl mb-2', stat.accent]}>
+                  {stat.number}<span class="text-2xl">{stat.suffix}</span>
+                </div>
+                <p class="text-sm text-ink-400 font-medium">{stat.label}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curved divider -->
+  <div class="relative -mt-1">
+    <svg class="w-full h-20 lg:h-28" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 0C360 80 1080 80 1440 0L1440 100L0 100Z" fill="#0f0f13"/>
+    </svg>
+  </div>
+
+  <!-- How It Works -->
+  <section class="pb-20 lg:pb-28 bg-surface-1 relative">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(245,158,11,0.06),transparent_60%)]"></div>
+    <div class="container-custom relative">
+      <SectionHeading
+        title="How It Works"
+        subtitle="Four steps from application to graduation. No simulations — just real work."
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {[
+          { step: '01', title: 'Apply', desc: 'Submit your application with your background, skills, and goals.', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', color: 'from-amber-500/15 to-orange-500/10', border: 'border-amber-500/20', iconColor: 'text-amber-400', ring: 'bg-amber-500/15' },
+          { step: '02', title: 'Match', desc: 'We match you with a real-world project based on your skills and interests.', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z', color: 'from-emerald-500/15 to-teal-500/10', border: 'border-emerald-500/20', iconColor: 'text-emerald-400', ring: 'bg-emerald-500/15' },
+          { step: '03', title: 'Build', desc: 'Work on actual client projects with mentorship and guidance from professionals.', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z', color: 'from-brand-500/15 to-cyan-500/10', border: 'border-brand-500/20', iconColor: 'text-brand-400', ring: 'bg-brand-500/15' },
+          { step: '04', title: 'Graduate', desc: 'Complete the program with a portfolio, skills, and industry connections.', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z', color: 'from-violet-500/15 to-purple-500/10', border: 'border-violet-500/20', iconColor: 'text-violet-400', ring: 'bg-violet-500/15' },
+        ].map((item, i) => (
+          <div class:list={['relative rounded-2xl border overflow-hidden group hover:-translate-y-1 transition-all duration-300', item.border]} data-reveal="fade-up" data-delay={String(i * 100)}>
+            <div class:list={['absolute inset-0 bg-gradient-to-br', item.color]}></div>
+            <div class="relative p-8 text-center">
+              <div class="font-display font-extrabold text-5xl text-ink-500/30 mb-4">{item.step}</div>
+              <div class:list={['w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-6', item.ring]}>
+                <svg class:list={['w-7 h-7', item.iconColor]} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={item.icon} />
+                </svg>
+              </div>
+              <h3 class="font-display font-bold text-xl text-ink-100 mb-3">{item.title}</h3>
+              <p class="text-sm text-ink-400 leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Angled divider -->
+  <div class="relative -mt-1">
+    <svg class="w-full h-20 lg:h-28" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 80L1440 0L1440 100L0 100Z" fill="#09090b"/>
+    </svg>
+  </div>
+
+  <!-- Success Stories -->
+  <section class="pb-20 lg:pb-28 bg-surface-0 relative">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(245,158,11,0.06),transparent_50%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(16,185,129,0.06),transparent_50%)]"></div>
+    <div class="container-custom relative">
+      <SectionHeading
+        title="Success Stories"
+        subtitle="From interns to leaders. These are the people who started with Gifted and built extraordinary careers."
+      />
+
+      <div class="space-y-12">
+        <!-- Ebele -->
+        <div class="relative rounded-3xl border border-amber-500/20 overflow-hidden group hover:border-amber-500/40 transition-all duration-300" data-reveal="fade-up">
+          <!-- Gradient mesh background -->
+          <div class="absolute inset-0 bg-gradient-to-br from-amber-500/8 via-transparent to-emerald-500/5"></div>
+          <div class="absolute top-0 right-0 w-80 h-80 rounded-full bg-amber-500/8 blur-[120px]"></div>
+          <div class="absolute bottom-0 left-0 w-60 h-60 rounded-full bg-emerald-500/6 blur-[100px]"></div>
+
+          <div class="relative p-8 lg:p-12">
+            <div class="flex flex-col lg:flex-row gap-10 items-center lg:items-start">
+              <!-- Photo -->
+              <div class="relative shrink-0">
+                <!--
+                  REPLACE: Add actual photo of Ebele
+                  Replace the placeholder below with: <img src="/images/graduate-ebele.jpg" alt="Ebele Egbuna" class="w-44 h-44 rounded-3xl object-cover shadow-lg shadow-amber-500/20" />
+                -->
+                <div class="w-44 h-44 rounded-3xl bg-gradient-to-br from-amber-500 to-emerald-500 flex items-center justify-center shadow-lg shadow-amber-500/20">
+                  <span class="font-display font-extrabold text-5xl text-ink-100">EE</span>
+                </div>
+                <!-- Country badge -->
+                <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-violet-500/15 border border-violet-500/25 text-violet-300 text-xs font-semibold whitespace-nowrap">
+                  Nigeria
+                </div>
+                <!-- Decorative ring -->
+                <div class="absolute -inset-2 rounded-3xl border border-amber-500/20 animate-glow-pulse"></div>
+              </div>
+
+              <div class="text-center lg:text-left flex-1">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-semibold mb-4">
+                  Gifted Intern 2022
+                </span>
+                <h3 class="font-display font-extrabold text-3xl text-ink-100 mb-2">Ebele Egbuna</h3>
+                <p class="text-amber-400 font-semibold text-lg mb-1">From Intern to UI/UX Leader</p>
+                <p class="text-ink-400 text-sm font-medium mb-6">Now: UI/UX Designer at Niks Consulting</p>
+
+                <!-- Quote -->
+                <div class="relative mb-8">
+                  <svg class="absolute -top-3 -left-2 w-10 h-10 text-amber-500/20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                  </svg>
+                  <blockquote class="text-ink-200 leading-relaxed text-lg italic pl-8">
+                    "The Gifted program didn't just teach me design — it taught me how to solve real problems for real clients. The hands-on experience was invaluable. Today, I lead UI/UX projects and mentor the next generation of Gifted interns."
+                  </blockquote>
+                </div>
+
+                <!-- Skills gained -->
+                <div class="flex flex-wrap gap-2.5 justify-center lg:justify-start">
+                  {['UI/UX Design', 'Client Communication', 'Agile Methodology', 'Design Thinking'].map((skill, i) => {
+                    const colors = ['bg-amber-500/10 border-amber-500/20 text-amber-300', 'bg-emerald-500/10 border-emerald-500/20 text-emerald-300', 'bg-brand-500/10 border-brand-500/20 text-brand-300', 'bg-violet-500/10 border-violet-500/20 text-violet-300'];
+                    return (
+                      <span class:list={['px-4 py-1.5 text-xs font-medium rounded-full border', colors[i % colors.length]]}>{skill}</span>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pierre -->
+        <div class="relative rounded-3xl border border-emerald-500/20 overflow-hidden group hover:border-emerald-500/40 transition-all duration-300" data-reveal="fade-up">
+          <!-- Gradient mesh background -->
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/8 via-transparent to-brand-500/5"></div>
+          <div class="absolute top-0 left-0 w-80 h-80 rounded-full bg-emerald-500/8 blur-[120px]"></div>
+          <div class="absolute bottom-0 right-0 w-60 h-60 rounded-full bg-brand-500/6 blur-[100px]"></div>
+
+          <div class="relative p-8 lg:p-12">
+            <div class="flex flex-col lg:flex-row gap-10 items-center lg:items-start">
+              <!-- Photo -->
+              <div class="relative shrink-0">
+                <!--
+                  REPLACE: Add actual photo of Pierre
+                  Replace the placeholder below with: <img src="/images/graduate-pierre.jpg" alt="Pierre Lisboa de Carvalho" class="w-44 h-44 rounded-3xl object-cover shadow-lg shadow-emerald-500/20" />
+                -->
+                <div class="w-44 h-44 rounded-3xl bg-gradient-to-br from-emerald-500 to-brand-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+                  <span class="font-display font-extrabold text-5xl text-ink-100">PL</span>
+                </div>
+                <!-- Country badge -->
+                <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/25 text-emerald-300 text-xs font-semibold whitespace-nowrap">
+                  Brazil
+                </div>
+                <!-- Decorative ring -->
+                <div class="absolute -inset-2 rounded-3xl border border-emerald-500/20 animate-glow-pulse"></div>
+              </div>
+
+              <div class="text-center lg:text-left flex-1">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-semibold mb-4">
+                  Gifted Intern 2021
+                </span>
+                <h3 class="font-display font-extrabold text-3xl text-ink-100 mb-2">Pierre Lisboa de Carvalho</h3>
+                <p class="text-emerald-400 font-semibold text-lg mb-1">From Intern to DX Officer</p>
+                <p class="text-ink-400 text-sm font-medium mb-6">Now: DX Officer & Automation Engineer at Niks Consulting</p>
+
+                <!-- Quote -->
+                <div class="relative mb-8">
+                  <svg class="absolute -top-3 -left-2 w-10 h-10 text-emerald-500/20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                  </svg>
+                  <blockquote class="text-ink-200 leading-relaxed text-lg italic pl-8">
+                    "Working on real projects from day one accelerated my growth beyond what any classroom could. The Gifted program gave me the confidence and skills to lead digital transformation initiatives across multiple countries."
+                  </blockquote>
+                </div>
+
+                <!-- Skills gained -->
+                <div class="flex flex-wrap gap-2.5 justify-center lg:justify-start">
+                  {['Digital Transformation', 'AI Automation', 'Project Management', 'Client Relations'].map((skill, i) => {
+                    const colors = ['bg-emerald-500/10 border-emerald-500/20 text-emerald-300', 'bg-brand-500/10 border-brand-500/20 text-brand-300', 'bg-amber-500/10 border-amber-500/20 text-amber-300', 'bg-violet-500/10 border-violet-500/20 text-violet-300'];
+                    return (
+                      <span class:list={['px-4 py-1.5 text-xs font-medium rounded-full border', colors[i % colors.length]]}>{skill}</span>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curved divider -->
+  <div class="relative -mt-1">
+    <svg class="w-full h-20 lg:h-28" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 0C720 100 1440 0 1440 0L1440 100L0 100Z" fill="#0f0f13"/>
+    </svg>
+  </div>
+
+  <!-- Video Testimonials -->
+  <section class="pb-20 lg:pb-28 bg-surface-1 relative">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(245,158,11,0.06),transparent_60%)]"></div>
+    <div class="container-custom relative">
+      <SectionHeading
+        title="Hear from Our Graduates"
+        subtitle="Watch how the Gifted program transformed their careers."
+      />
+
+      <!--
+        REPLACE: Add YouTube embed URLs below.
+        For each video card, replace the placeholder thumbnail div with an iframe:
+        <iframe src="YOUTUBE_EMBED_URL" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { name: 'Ebele Egbuna', country: 'Nigeria', year: '2022', color: 'from-amber-500 to-orange-500' },
+          { name: 'Pierre Lisboa', country: 'Brazil', year: '2021', color: 'from-emerald-500 to-teal-500' },
+          { name: 'Graduate Name', country: 'Country', year: 'Year', color: 'from-brand-500 to-cyan-500' },
+          { name: 'Graduate Name', country: 'Country', year: 'Year', color: 'from-violet-500 to-purple-500' },
+        ].map((video, i) => (
+          <div class="glass-card overflow-hidden group" data-reveal="fade-up" data-delay={String(i * 100)}>
+            <div class="relative aspect-video bg-surface-3">
+              <!--
+                REPLACE: Replace the placeholder below with actual YouTube embed.
+                Example: <iframe src="https://www.youtube.com/embed/VIDEO_ID" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              -->
+              <div class:list={['absolute inset-0 bg-gradient-to-br opacity-30', video.color]}></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-16 h-16 rounded-full bg-amber-500/80 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-amber-500/30">
+                  <svg class="w-7 h-7 text-ink-100 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="font-semibold text-ink-100">{video.name}</p>
+              <p class="text-sm text-ink-400">{video.country} &bull; {video.year}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center text-ink-500 text-sm mt-6">
+        <!-- REPLACE: Update graduate names, countries, and years once videos are added -->
+        More video testimonials coming soon. Contact us to hear directly from our graduates.
+      </p>
+    </div>
+  </section>
+
+  <!-- Angled divider -->
+  <div class="relative -mt-1">
+    <svg class="w-full h-20 lg:h-28" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 80L1440 0L1440 100L0 100Z" fill="#09090b"/>
+    </svg>
+  </div>
+
+  <!-- Program Benefits -->
+  <section class="pb-20 lg:pb-28 bg-surface-0 relative">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(16,185,129,0.05),transparent_60%)]"></div>
+    <div class="container-custom relative">
+      <SectionHeading
+        title="Program Benefits"
+        subtitle="Everything you gain from the Gifted experience."
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+        {[
+          { title: 'Real-World Projects', desc: 'Work on actual client deliverables — not simulations or case studies. Every project has real impact.', icon: 'M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', color: 'from-amber-500/15 to-orange-500/10', border: 'border-amber-500/20', iconColor: 'text-amber-400', ring: 'bg-amber-500/15' },
+          { title: 'Expert Mentorship', desc: 'Learn directly from industry professionals who guide your growth every step of the way.', icon: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z', color: 'from-emerald-500/15 to-teal-500/10', border: 'border-emerald-500/20', iconColor: 'text-emerald-400', ring: 'bg-emerald-500/15' },
+          { title: 'Portfolio of Client Work', desc: 'Graduate with a portfolio showcasing real projects, real results, and real client testimonials.', icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10', color: 'from-brand-500/15 to-cyan-500/10', border: 'border-brand-500/20', iconColor: 'text-brand-400', ring: 'bg-brand-500/15' },
+          { title: 'Cross-Cultural Collaboration', desc: 'Work with team members from different countries and backgrounds. Build global perspective.', icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z', color: 'from-violet-500/15 to-purple-500/10', border: 'border-violet-500/20', iconColor: 'text-violet-400', ring: 'bg-violet-500/15' },
+          { title: 'Industry Connections', desc: 'Build a professional network that extends beyond the program. Connect with clients and collaborators.', icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1', color: 'from-pink-500/15 to-rose-500/10', border: 'border-pink-500/20', iconColor: 'text-pink-400', ring: 'bg-pink-500/15' },
+          { title: 'Certificate & Opportunity', desc: 'Receive a certificate of completion. Top performers may receive a full-time opportunity at Niks Consulting.', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z', color: 'from-amber-500/15 to-yellow-500/10', border: 'border-amber-500/20', iconColor: 'text-amber-400', ring: 'bg-amber-500/15' },
+        ].map((benefit, i) => (
+          <div class:list={['relative rounded-2xl border overflow-hidden group hover:-translate-y-1 transition-all duration-300', benefit.border]} data-reveal="fade-up" data-delay={String(i * 80)}>
+            <div class:list={['absolute inset-0 bg-gradient-to-br', benefit.color]}></div>
+            <div class="relative p-8">
+              <div class:list={['w-14 h-14 rounded-2xl flex items-center justify-center mb-6', benefit.ring]}>
+                <svg class:list={['w-7 h-7', benefit.iconColor]} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={benefit.icon} />
+                </svg>
+              </div>
+              <h3 class="font-display font-bold text-lg text-ink-100 mb-3">{benefit.title}</h3>
+              <p class="text-sm text-ink-400 leading-relaxed">{benefit.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Curved divider -->
+  <div class="relative -mt-1">
+    <svg class="w-full h-20 lg:h-28" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 0C360 80 1080 80 1440 0L1440 100L0 100Z" fill="#0f0f13"/>
+    </svg>
+  </div>
+
+  <!-- Who Should Apply -->
+  <section class="pb-20 lg:pb-28 bg-surface-1 relative">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(139,92,246,0.06),transparent_60%)]"></div>
+    <div class="container-custom relative">
+      <SectionHeading
+        title="Who Should Apply"
+        subtitle="The Gifted program is open to ambitious learners from any background."
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {[
+          { title: 'University Students', desc: 'Any year, any major — if you are interested in tech, design, or business, Gifted is for you.', icon: 'M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z', color: 'from-amber-500/15 to-orange-500/10', border: 'border-amber-500/20', iconColor: 'text-amber-400', ring: 'bg-amber-500/15' },
+          { title: 'Recent Graduates', desc: 'Looking for hands-on experience that bridges the gap between education and employment.', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4', color: 'from-emerald-500/15 to-teal-500/10', border: 'border-emerald-500/20', iconColor: 'text-emerald-400', ring: 'bg-emerald-500/15' },
+          { title: 'Career Changers', desc: 'Exploring AI, digital transformation, and modern tech careers. No prior experience required.', icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15', color: 'from-brand-500/15 to-cyan-500/10', border: 'border-brand-500/20', iconColor: 'text-brand-400', ring: 'bg-brand-500/15' },
+          { title: 'Global Applicants', desc: 'Students from any country are welcome. The program is remote-friendly with a Japan base.', icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z', color: 'from-violet-500/15 to-purple-500/10', border: 'border-violet-500/20', iconColor: 'text-violet-400', ring: 'bg-violet-500/15' },
+        ].map((item, i) => (
+          <div class:list={['relative rounded-2xl border overflow-hidden group hover:-translate-y-1 transition-all duration-300', item.border]} data-reveal="fade-up" data-delay={String(i * 100)}>
+            <div class:list={['absolute inset-0 bg-gradient-to-br', item.color]}></div>
+            <div class="relative p-8 flex gap-5 items-start">
+              <div class:list={['w-14 h-14 rounded-2xl flex items-center justify-center shrink-0', item.ring]}>
+                <svg class:list={['w-7 h-7', item.iconColor]} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={item.icon} />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-lg text-ink-100 mb-2">{item.title}</h3>
+                <p class="text-sm text-ink-400 leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Angled divider -->
+  <div class="relative -mt-1">
+    <svg class="w-full h-20 lg:h-28" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 80L1440 0L1440 100L0 100Z" fill="#09090b"/>
+    </svg>
+  </div>
+
+  <!-- Application Form -->
+  <section class="pb-20 lg:pb-28 bg-surface-0 relative">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(245,158,11,0.04),transparent_50%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(16,185,129,0.04),transparent_50%)]"></div>
+    <div class="container-custom relative">
+      <SectionHeading
+        title="Apply for Gifted"
+        subtitle="Take the first step toward a career-transforming internship experience."
+      />
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-14">
+        <!-- Form -->
+        <div class="lg:col-span-2" data-reveal="fade-right">
+          <div class="relative rounded-2xl border border-amber-500/20 overflow-hidden">
+            <!-- Gradient mesh background -->
+            <div class="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-emerald-500/5"></div>
+            <div class="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-amber-500/8 blur-[80px]"></div>
+            <div class="absolute -bottom-32 -left-32 w-64 h-64 rounded-full bg-emerald-500/6 blur-[80px]"></div>
+
+            <div class="relative p-8 lg:p-10">
+              <form id="gifted-form" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label for="full_name" class="block text-sm font-semibold text-ink-200 mb-2.5">Full Name *</label>
+                    <input type="text" id="full_name" name="full_name" required class="input-field" placeholder="Your full name" />
+                  </div>
+                  <div>
+                    <label for="email" class="block text-sm font-semibold text-ink-200 mb-2.5">Email *</label>
+                    <input type="email" id="email" name="email" required class="input-field" placeholder="you@example.com" />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label for="country" class="block text-sm font-semibold text-ink-200 mb-2.5">Country *</label>
+                    <input type="text" id="country" name="country" required class="input-field" placeholder="Your country" />
+                  </div>
+                  <div>
+                    <label for="affiliation" class="block text-sm font-semibold text-ink-200 mb-2.5">University / Current Affiliation</label>
+                    <input type="text" id="affiliation" name="affiliation" class="input-field" placeholder="University or company name" />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label for="year_of_study" class="block text-sm font-semibold text-ink-200 mb-2.5">Year of Study</label>
+                    <select id="year_of_study" name="year_of_study" class="input-field">
+                      <option value="">Select year...</option>
+                      <option value="1st-year">1st Year</option>
+                      <option value="2nd-year">2nd Year</option>
+                      <option value="3rd-year">3rd Year</option>
+                      <option value="4th-year">4th Year</option>
+                      <option value="graduate">Graduate</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="area_of_interest" class="block text-sm font-semibold text-ink-200 mb-2.5">Area of Interest</label>
+                    <select id="area_of_interest" name="area_of_interest" class="input-field">
+                      <option value="">Select area...</option>
+                      <option value="ui-ux-design">UI/UX Design</option>
+                      <option value="web-development">Web Development</option>
+                      <option value="ai-automation">AI & Automation</option>
+                      <option value="digital-marketing">Digital Marketing</option>
+                      <option value="project-management">Project Management</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="why_gifted" class="block text-sm font-semibold text-ink-200 mb-2.5">Why do you want to join Gifted? *</label>
+                  <textarea id="why_gifted" name="why_gifted" rows="5" required class="input-field resize-none" placeholder="Tell us about your motivation, goals, and what you hope to gain..."></textarea>
+                </div>
+
+                <div>
+                  <label for="portfolio_link" class="block text-sm font-semibold text-ink-200 mb-2.5">Portfolio / LinkedIn / GitHub <span class="text-ink-500 font-normal">(optional)</span></label>
+                  <input type="url" id="portfolio_link" name="portfolio_link" class="input-field" placeholder="https://..." />
+                </div>
+
+                <button type="submit" class="btn-primary w-full text-base py-4">
+                  Apply for Gifted Program
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="space-y-8" data-reveal="fade-left">
+          <!-- Application Timeline -->
+          <div class="relative rounded-2xl border border-amber-500/20 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-amber-500/8 to-orange-500/5"></div>
+            <div class="relative p-7">
+              <div class="w-12 h-12 rounded-xl bg-amber-500/15 flex items-center justify-center mb-5">
+                <svg class="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <h4 class="font-display font-bold text-lg text-ink-100 mb-3">Application Timeline</h4>
+              <!-- REPLACE: Update with actual cohort start date -->
+              <p class="text-ink-300 text-sm leading-relaxed mb-3">
+                Next cohort starts <strong class="text-amber-300">Q3 2026</strong>. Applications are reviewed on a rolling basis.
+              </p>
+              <p class="text-ink-400 text-xs">
+                Early applications receive priority review. Limited spots available.
+              </p>
+            </div>
+          </div>
+
+          <!-- Requirements -->
+          <div class="relative rounded-2xl border border-emerald-500/20 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/8 to-teal-500/5"></div>
+            <div class="relative p-7">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center mb-5">
+                <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h4 class="font-display font-bold text-lg text-ink-100 mb-3">Requirements</h4>
+              <ul class="space-y-2.5 text-sm text-ink-300">
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Laptop with reliable internet
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  10+ hours per week commitment
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Eagerness to learn and collaborate
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  English communication (bilingual a plus)
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- WhatsApp Quick Link -->
+          <a
+            href="https://wa.me/1234567890?text=Hi%2C%20I%27m%20interested%20in%20the%20Gifted%20Internship%20Program."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="relative rounded-2xl border border-brand-500/20 overflow-hidden group hover:border-brand-500/40 transition-all duration-300 block"
+          >
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-500/8 to-cyan-500/5"></div>
+            <div class="relative p-7 flex items-center gap-5">
+              <div class="w-12 h-12 rounded-xl bg-brand-500/15 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-display font-bold text-lg text-ink-100 mb-1">Questions?</h4>
+                <!-- REPLACE: Your actual WhatsApp number -->
+                <p class="text-ink-300 text-sm group-hover:text-brand-300 transition-colors">Chat with us on WhatsApp</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA with curved top -->
+  <section class="relative overflow-hidden">
+    <svg class="w-full h-20 lg:h-28 -mb-1" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+      <path d="M0 100L1440 20L1440 0L0 0Z" fill="#09090b"/>
+    </svg>
+    <div class="bg-surface-1 pb-24 lg:pb-32 relative">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.08),transparent_60%)]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(16,185,129,0.06),transparent_50%)]"></div>
+      <!-- Floating orbs -->
+      <div class="absolute top-0 right-[25%] w-60 h-60 rounded-full bg-amber-500/6 blur-[100px] animate-glow-pulse"></div>
+      <div class="absolute bottom-0 left-[25%] w-60 h-60 rounded-full bg-emerald-500/6 blur-[100px] animate-glow-pulse" style="animation-delay: 2s;"></div>
+
+      <div class="container-custom relative text-center section-padding !py-0">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-sm font-medium mb-6">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          Transform Your Career
+        </span>
+        <h2 class="heading-display text-4xl sm:text-5xl lg:text-6xl text-ink-100 mb-8">
+          Ready to Become <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-400 to-emerald-400">Gifted</span>?
+        </h2>
+        <p class="text-xl text-ink-300 max-w-2xl mx-auto mb-12 leading-relaxed">
+          Join 20+ graduates from 8 countries who launched their careers through real-world project experience.
+        </p>
+        <a href="#gifted-form" class="btn-primary text-lg px-10 py-5">
+          Apply Now
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('gifted-form');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // REPLACE: Add your form submission logic (e.g., Freshsales, email API, etc.)
+    alert('Thank you for your application! We will review it and get back to you within 5 business days.');
+  });
+</script>

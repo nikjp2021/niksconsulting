@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
+  <defs>
+    <radialGradient id="cs-bg" cx="60%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#030712" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="graph-line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="60%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <linearGradient id="graph-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="card1-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="card2-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <linearGradient id="card3-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <filter id="cs-glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="trail-glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <style>
+    @keyframes graph-draw { 0%{stroke-dashoffset:1200} 100%{stroke-dashoffset:0} }
+    @keyframes card-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    @keyframes card-float2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    @keyframes pulse-dot { 0%,100%{r:4;opacity:0.6} 50%{r:7;opacity:1} }
+    @keyframes arrow-up { 0%,100%{transform:translateY(0);opacity:0.5} 50%{transform:translateY(-8px);opacity:0.9} }
+    @keyframes sparkle { 0%,100%{opacity:0;transform:scale(0.5)} 50%{opacity:1;transform:scale(1)} }
+    @keyframes confetti { 0%{transform:translateY(0) rotate(0deg);opacity:0.8} 100%{transform:translateY(-30px) rotate(180deg);opacity:0} }
+    @keyframes trend-pulse { 0%,100%{opacity:0.4} 50%{opacity:0.8} }
+    .graph-line-anim { animation: graph-draw 3s ease-out forwards; stroke-dasharray: 1200; stroke-dashoffset: 1200; }
+    .card1-float { animation: card-float 7s ease-in-out infinite; }
+    .card2-float { animation: card-float2 8s ease-in-out infinite; }
+    .card3-float { animation: card-float 9s ease-in-out infinite; }
+    .dot-pulse { animation: pulse-dot 3s ease-in-out infinite; }
+    .arrow-anim { animation: arrow-up 3s ease-in-out infinite; }
+    .sparkle-anim { animation: sparkle 2s ease-in-out infinite; }
+    .trend-anim { animation: trend-pulse 2.5s ease-in-out infinite; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#030712"/>
+  <rect width="1200" height="600" fill="url(#cs-bg)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.03">
+    <pattern id="cs-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#8b5cf6" stroke-width="0.5"/>
+    </pattern>
+    <rect width="1200" height="600" fill="url(#cs-grid)"/>
+  </g>
+
+  <!-- Graph area fill -->
+  <path d="M100 480 Q200 460 300 420 Q400 370 500 340 Q600 300 700 250 Q800 200 900 160 Q1000 130 1100 100 L1100 500 L100 500 Z" fill="url(#graph-fill)" opacity="0.4"/>
+
+  <!-- Grid lines -->
+  <g opacity="0.06">
+    <line x1="100" y1="150" x2="1100" y2="150" stroke="#8b5cf6" stroke-width="0.5"/>
+    <line x1="100" y1="250" x2="1100" y2="250" stroke="#8b5cf6" stroke-width="0.5"/>
+    <line x1="100" y1="350" x2="1100" y2="350" stroke="#8b5cf6" stroke-width="0.5"/>
+    <line x1="100" y1="450" x2="1100" y2="450" stroke="#8b5cf6" stroke-width="0.5"/>
+    <line x1="250" y1="80" x2="250" y2="500" stroke="#06b6d4" stroke-width="0.3"/>
+    <line x1="450" y1="80" x2="450" y2="500" stroke="#06b6d4" stroke-width="0.3"/>
+    <line x1="650" y1="80" x2="650" y2="500" stroke="#06b6d4" stroke-width="0.3"/>
+    <line x1="850" y1="80" x2="850" y2="500" stroke="#06b6d4" stroke-width="0.3"/>
+  </g>
+
+  <!-- Axis lines -->
+  <line x1="100" y1="500" x2="1100" y2="500" stroke="#8b5cf6" stroke-width="1" opacity="0.15"/>
+  <line x1="100" y1="100" x2="100" y2="500" stroke="#06b6d4" stroke-width="1" opacity="0.1"/>
+
+  <!-- Graph line with glow trail -->
+  <path d="M100 480 Q200 460 300 420 Q400 370 500 340 Q600 300 700 250 Q800 200 900 160 Q1000 130 1100 100" stroke="url(#graph-line)" stroke-width="3" fill="none" stroke-linecap="round" class="graph-line-anim" filter="url(#trail-glow)"/>
+  <!-- Glow trail duplicate -->
+  <path d="M100 480 Q200 460 300 420 Q400 370 500 340 Q600 300 700 250 Q800 200 900 160 Q1000 130 1100 100" stroke="url(#graph-line)" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.15" class="graph-line-anim" style="animation-delay: 0.2s;"/>
+
+  <!-- Data points along the graph -->
+  <g>
+    <circle cx="100" cy="480" r="5" fill="#06b6d4" opacity="0.7" class="dot-pulse"/>
+    <circle cx="100" cy="480" r="12" stroke="#06b6d4" fill="none" opacity="0.2" class="dot-pulse" style="animation-delay: 0.5s;"/>
+  </g>
+  <g>
+    <circle cx="300" cy="420" r="5" fill="#06b6d4" opacity="0.7" class="dot-pulse" style="animation-delay: 0.5s;"/>
+    <circle cx="300" cy="420" r="10" stroke="#06b6d4" fill="none" opacity="0.15" class="dot-pulse" style="animation-delay: 1s;"/>
+  </g>
+  <g>
+    <circle cx="500" cy="340" r="5" fill="#8b5cf6" opacity="0.7" class="dot-pulse" style="animation-delay: 1s;"/>
+    <circle cx="500" cy="340" r="10" stroke="#8b5cf6" fill="none" opacity="0.15" class="dot-pulse" style="animation-delay: 1.5s;"/>
+  </g>
+  <g>
+    <circle cx="700" cy="250" r="5" fill="#8b5cf6" opacity="0.8" class="dot-pulse" style="animation-delay: 1.5s;"/>
+    <circle cx="700" cy="250" r="12" stroke="#8b5cf6" fill="none" opacity="0.2" class="dot-pulse" style="animation-delay: 2s;"/>
+  </g>
+  <g>
+    <circle cx="900" cy="160" r="6" fill="#a855f7" opacity="0.85" class="dot-pulse" style="animation-delay: 2s;" filter="url(#cs-glow)"/>
+    <circle cx="900" cy="160" r="14" stroke="#a855f7" fill="none" opacity="0.25" class="dot-pulse" style="animation-delay: 2.5s;"/>
+  </g>
+  <g>
+    <circle cx="1100" cy="100" r="7" fill="#a855f7" opacity="0.9" class="dot-pulse" style="animation-delay: 2.5s;" filter="url(#cs-glow)"/>
+    <circle cx="1100" cy="100" r="16" stroke="#a855f7" fill="none" opacity="0.3" class="dot-pulse" style="animation-delay: 3s;"/>
+  </g>
+
+  <!-- Floating case study cards -->
+  <!-- Card 1 -->
+  <g class="card1-float" opacity="0.7">
+    <rect x="200" y="280" width="160" height="100" rx="12" fill="#0f172a" stroke="url(#card1-border)" stroke-width="1.5"/>
+    <rect x="212" y="294" width="70" height="5" rx="2.5" fill="#06b6d4" opacity="0.5"/>
+    <rect x="212" y="306" width="50" height="4" rx="2" fill="#06b6d4" opacity="0.25"/>
+    <rect x="212" y="318" width="136" height="3" rx="1.5" fill="#3b82f6" opacity="0.12"/>
+    <rect x="212" y="326" width="110" height="3" rx="1.5" fill="#3b82f6" opacity="0.08"/>
+    <!-- Mini bar chart -->
+    <rect x="212" y="350" width="12" height="18" rx="2" fill="#06b6d4" opacity="0.3"/>
+    <rect x="230" y="342" width="12" height="26" rx="2" fill="#06b6d4" opacity="0.4"/>
+    <rect x="248" y="335" width="12" height="33" rx="2" fill="#3b82f6" opacity="0.5"/>
+    <!-- Arrow up -->
+    <g class="arrow-anim" style="animation-delay: 0s;">
+      <path d="M290 360 L300 345 L310 360" stroke="#06b6d4" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <line x1="300" y1="345" x2="300" y2="370" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Card 2 -->
+  <g class="card2-float" style="animation-delay: 2s;" opacity="0.65">
+    <rect x="520" y="180" width="170" height="110" rx="12" fill="#0f172a" stroke="url(#card2-border)" stroke-width="1.5"/>
+    <rect x="534" y="196" width="80" height="5" rx="2.5" fill="#8b5cf6" opacity="0.5"/>
+    <rect x="534" y="208" width="55" height="4" rx="2" fill="#8b5cf6" opacity="0.25"/>
+    <rect x="534" y="222" width="142" height="3" rx="1.5" fill="#a855f7" opacity="0.12"/>
+    <rect x="534" y="230" width="120" height="3" rx="1.5" fill="#a855f7" opacity="0.08"/>
+    <!-- Percentage indicator -->
+    <text x="560" y="268" fill="#8b5cf6" font-family="system-ui" font-size="28" font-weight="bold" opacity="0.7">+300%</text>
+    <rect x="534" y="276" width="142" height="2" rx="1" fill="#8b5cf6" opacity="0.15"/>
+  </g>
+
+  <!-- Card 3 -->
+  <g class="card3-float" style="animation-delay: 4s;" opacity="0.6">
+    <rect x="820" y="240" width="155" height="95" rx="12" fill="#0f172a" stroke="url(#card3-border)" stroke-width="1.5"/>
+    <rect x="834" y="254" width="65" height="5" rx="2.5" fill="#f59e0b" opacity="0.5"/>
+    <rect x="834" y="266" width="45" height="4" rx="2" fill="#f59e0b" opacity="0.25"/>
+    <rect x="834" y="280" width="127" height="3" rx="1.5" fill="#ef4444" opacity="0.12"/>
+    <rect x="834" y="288" width="105" height="3" rx="1.5" fill="#ef4444" opacity="0.08"/>
+    <!-- Trend line mini -->
+    <path d="M834 310 L854 302 L874 306 L894 295 L914 290 L934 282 L946 275" stroke="#f59e0b" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+    <circle cx="946" cy="275" r="3" fill="#f59e0b" opacity="0.7" class="dot-pulse" style="animation-delay: 3s;"/>
+  </g>
+
+  <!-- Upward arrows scattered -->
+  <g class="arrow-anim" opacity="0.3">
+    <path d="M380 450 L390 430 L400 450" stroke="#06b6d4" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <line x1="390" y1="430" x2="390" y2="460" stroke="#06b6d4" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  <g class="arrow-anim" style="animation-delay: 1s;" opacity="0.25">
+    <path d="M650 470 L660 450 L670 470" stroke="#8b5cf6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <line x1="660" y1="450" x2="660" y2="480" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  <g class="arrow-anim" style="animation-delay: 2s;" opacity="0.2">
+    <path d="M950 440 L960 420 L970 440" stroke="#f59e0b" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <line x1="960" y1="420" x2="960" y2="450" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Trend indicators -->
+  <g class="trend-anim" opacity="0.4">
+    <path d="M150 400 L180 380 L210 390 L240 370" stroke="#06b6d4" stroke-width="1" fill="none" stroke-dasharray="3 5"/>
+  </g>
+  <g class="trend-anim" style="animation-delay: 1s;" opacity="0.3">
+    <path d="M1000 350 L1030 330 L1060 340 L1090 320" stroke="#8b5cf6" stroke-width="1" fill="none" stroke-dasharray="3 5"/>
+  </g>
+
+  <!-- Sparkle/confetti particles around peak -->
+  <g>
+    <circle cx="1080" cy="85" r="2" fill="#f59e0b" class="sparkle-anim" style="animation-delay: 0s;"/>
+    <circle cx="1120" cy="110" r="1.5" fill="#8b5cf6" class="sparkle-anim" style="animation-delay: 0.5s;"/>
+    <circle cx="1060" cy="70" r="1.5" fill="#06b6d4" class="sparkle-anim" style="animation-delay: 1s;"/>
+    <circle cx="1140" cy="85" r="2" fill="#ec4899" class="sparkle-anim" style="animation-delay: 1.5s;"/>
+    <circle cx="1100" cy="60" r="1" fill="#10b981" class="sparkle-anim" style="animation-delay: 2s;"/>
+    <circle cx="1050" cy="105" r="1.5" fill="#f59e0b" class="sparkle-anim" style="animation-delay: 0.7s;"/>
+    <circle cx="1130" cy="70" r="1" fill="#06b6d4" class="sparkle-anim" style="animation-delay: 1.2s;"/>
+    <circle cx="1070" cy="120" r="1" fill="#8b5cf6" class="sparkle-anim" style="animation-delay: 1.8s;"/>
+  </g>
+
+  <!-- Small star sparkles -->
+  <g opacity="0.5">
+    <g class="sparkle-anim" style="animation-delay: 0.3s;" transform="translate(1090, 75)">
+      <line x1="-4" y1="0" x2="4" y2="0" stroke="#f59e0b" stroke-width="1.5"/>
+      <line x1="0" y1="-4" x2="0" y2="4" stroke="#f59e0b" stroke-width="1.5"/>
+    </g>
+    <g class="sparkle-anim" style="animation-delay: 1.3s;" transform="translate(1130, 95)">
+      <line x1="-3" y1="0" x2="3" y2="0" stroke="#8b5cf6" stroke-width="1.2"/>
+      <line x1="0" y1="-3" x2="0" y2="3" stroke="#8b5cf6" stroke-width="1.2"/>
+    </g>
+    <g class="sparkle-anim" style="animation-delay: 0.8s;" transform="translate(1050, 95)">
+      <line x1="-3" y1="0" x2="3" y2="0" stroke="#06b6d4" stroke-width="1.2"/>
+      <line x1="0" y1="-3" x2="0" y2="3" stroke="#06b6d4" stroke-width="1.2"/>
+    </g>
+  </g>
+
+  <!-- Ambient particles -->
+  <circle cx="150" cy="150" r="1.5" fill="#06b6d4" opacity="0.2">
+    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1050" cy="500" r="1.5" fill="#8b5cf6" opacity="0.2">
+    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="5s" repeatCount="indefinite" begin="1s"/>
+  </circle>
+  <circle cx="300" cy="550" r="1" fill="#f59e0b" opacity="0.15">
+    <animate attributeName="opacity" values="0.08;0.2;0.08" dur="3.5s" repeatCount="indefinite" begin="2s"/>
+  </circle>
+</svg>
