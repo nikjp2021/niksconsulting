@@ -207,6 +207,8 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Eliminate 300ms tap delay on mobile */
+    touch-action: manipulation;
   }
 
   body {
@@ -214,6 +216,31 @@
     color: var(--color-ink-200);
     font-family: var(--font-sans);
     transition: background-color 0.3s ease, color 0.3s ease;
+    /* Prevent horizontal scroll */
+    overflow-x: hidden;
+  }
+
+  /* Cursor pointer on all interactive elements */
+  a, button, [role="button"], input[type="submit"], label[for] {
+    cursor: pointer;
+  }
+
+  /* Touch-friendly: minimum 44px tap targets */
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Override min-size for inline links and small decorative elements */
+  a:not([class*="btn"]):not([class*="flex"]):not([class*="block"]) {
+    min-height: auto;
+    min-width: auto;
+  }
+
+  /* Ensure images don't overflow */
+  img, svg {
+    max-width: 100%;
+    height: auto;
   }
 
   ::selection {
