@@ -12,7 +12,7 @@ interface Props {
 
 const {
   title,
-  description = 'Niks Consulting — Pioneers in AI Solutions & Innovation. We deliver AI-powered solutions, agentic workflows, digital transformation, and automation for startups and SMEs.',
+  description = "Nik's Consulting — Pioneers in AI Solutions & Innovation. We deliver AI-powered solutions, agentic workflows, digital transformation, and automation for startups and SMEs.",
   ogImage = '/og-image.jpg',
 } = Astro.props;
 
@@ -39,7 +39,7 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://niksconsulting.com');
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:site_name" content="Niks Consulting" />
+    <meta property="og:site_name" content="Nik's Consulting" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -60,7 +60,7 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://niksconsulting.com');
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "name": "Niks Consulting",
+      "name": "Nik's Consulting",
       "url": "https://niksconsulting.com",
       "description": description,
       // REPLACE: Add your actual address, phone, email
