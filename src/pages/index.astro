@@ -9,12 +9,12 @@ import { caseStudies } from '../data/caseStudies';
 import { testimonials } from '../data/testimonials';
 
 const serviceGradients = [
-  'from-violet-500 via-purple-500 to-fuchsia-500',
-  'from-cyan-400 via-blue-500 to-indigo-500',
-  'from-amber-400 via-orange-500 to-red-500',
   'from-emerald-400 via-teal-500 to-cyan-500',
+  'from-cyan-400 via-blue-500 to-brand-500',
+  'from-amber-400 via-orange-500 to-red-500',
+  'from-brand-400 via-teal-500 to-emerald-500',
   'from-pink-400 via-rose-500 to-red-500',
-  'from-indigo-400 via-blue-500 to-cyan-500',
+  'from-brand-400 via-cyan-500 to-emerald-500',
 ];
 
 const serviceIcons: Record<string, string> = {
@@ -27,12 +27,12 @@ const serviceIcons: Record<string, string> = {
 };
 
 const serviceGlows = [
-  'hover:shadow-[0_0_40px_rgba(139,92,246,0.2)]',
+  'hover:shadow-[0_0_40px_rgba(16,185,129,0.2)]',
   'hover:shadow-[0_0_40px_rgba(6,182,212,0.2)]',
   'hover:shadow-[0_0_40px_rgba(245,158,11,0.2)]',
-  'hover:shadow-[0_0_40px_rgba(16,185,129,0.2)]',
+  'hover:shadow-[0_0_40px_rgba(20,184,166,0.2)]',
   'hover:shadow-[0_0_40px_rgba(236,72,153,0.2)]',
-  'hover:shadow-[0_0_40px_rgba(99,102,241,0.2)]',
+  'hover:shadow-[0_0_40px_rgba(20,184,166,0.2)]',
 ];
 ---
 
@@ -46,7 +46,7 @@ const serviceGlows = [
 
     <!-- Animated gradient orbs -->
     <div class="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-brand-500/15 via-cyan-500/10 to-transparent blur-[140px] animate-glow-pulse"></div>
-    <div class="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-violet-600/12 via-fuchsia-500/8 to-transparent blur-[120px] animate-glow-pulse" style="animation-delay: 2s;"></div>
+    <div class="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-accent-amber/10 via-orange-400/6 to-transparent blur-[120px] animate-glow-pulse" style="animation-delay: 2s;"></div>
     <div class="absolute top-1/3 left-1/2 w-[300px] h-[300px] rounded-full bg-accent-amber/6 blur-[100px] animate-glow-pulse" style="animation-delay: 4s;"></div>
 
     <!-- Decorative SVG shapes -->
@@ -54,7 +54,7 @@ const serviceGlows = [
       <circle cx="50" cy="50" r="48" stroke="currentColor" stroke-width="1" stroke-dasharray="6 6"/>
       <circle cx="50" cy="50" r="20" fill="currentColor" opacity="0.3"/>
     </svg>
-    <svg class="absolute bottom-[18%] left-[6%] w-16 h-16 text-violet-500/15 animate-float" style="animation-delay: 3s;" viewBox="0 0 60 60" fill="none">
+    <svg class="absolute bottom-[18%] left-[6%] w-16 h-16 text-emerald-400/15 animate-float" style="animation-delay: 3s;" viewBox="0 0 60 60" fill="none">
       <rect x="5" y="5" width="50" height="50" rx="8" stroke="currentColor" stroke-width="1.5" transform="rotate(15 30 30)"/>
     </svg>
     <svg class="absolute top-[45%] right-[5%] w-8 h-8 text-cyan-400/20 animate-float" style="animation-delay: 1.5s;" viewBox="0 0 32 32" fill="currentColor">
@@ -126,8 +126,8 @@ const serviceGlows = [
             <div class="absolute inset-[8%] rounded-full border border-surface-4/15 animate-spin" style="animation-duration: 24s; animation-direction: reverse;"></div>
 
             <!-- Central gradient blob -->
-            <div class="absolute inset-[15%] rounded-full bg-gradient-to-br from-brand-500/20 via-violet-500/15 to-cyan-500/10 blur-[2px]"></div>
-            <div class="absolute inset-[20%] rounded-full bg-gradient-to-tr from-brand-500/10 via-transparent to-violet-500/10 backdrop-blur-sm border border-surface-4/20"></div>
+            <div class="absolute inset-[15%] rounded-full bg-gradient-to-br from-brand-500/20 via-accent-amber/10 to-cyan-500/10 blur-[2px]"></div>
+            <div class="absolute inset-[20%] rounded-full bg-gradient-to-tr from-brand-500/10 via-transparent to-accent-amber/8 backdrop-blur-sm border border-surface-4/20"></div>
 
             <!-- Center icon -->
             <div class="absolute inset-[30%] flex items-center justify-center">
@@ -151,10 +151,10 @@ const serviceGlows = [
 
             <div class="absolute -bottom-4 -left-8 glass-card-vibrant p-5 w-52 animate-float z-10" style="animation-delay: 3s;">
               <div class="flex items-center gap-3 mb-2">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center">
                   <svg class="w-4 h-4 text-ink-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
-                <span class="text-2xl font-display font-bold text-accent-violet">15+</span>
+                <span class="text-2xl font-display font-bold text-emerald-400">15+</span>
               </div>
               <div class="text-xs text-ink-400">Countries served</div>
             </div>
@@ -217,7 +217,7 @@ const serviceGlows = [
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
         {[
           { value: 300, suffix: '%', label: 'Average Client ROI', gradient: 'from-emerald-400 to-teal-400' },
-          { value: 15, suffix: '+', label: 'Countries Served', gradient: 'from-violet-400 to-fuchsia-400' },
+          { value: 15, suffix: '+', label: 'Countries Served', gradient: 'from-emerald-400 to-teal-400' },
           { value: 50, suffix: '+', label: 'Projects Delivered', gradient: 'from-cyan-400 to-blue-400' },
           { value: 10, suffix: '+', label: 'Years of Experience', gradient: 'from-amber-400 to-orange-400' },
         ].map((stat) => (
@@ -244,7 +244,7 @@ const serviceGlows = [
   <!-- ===================== SERVICES ===================== -->
   <section class="section-padding bg-surface-0 relative overflow-hidden" id="services">
     <!-- Decorative orbs -->
-    <div class="absolute -top-20 -right-40 w-[500px] h-[500px] rounded-full bg-violet-500/5 blur-[120px]"></div>
+    <div class="absolute -top-20 -right-40 w-[500px] h-[500px] rounded-full bg-emerald-500/5 blur-[120px]"></div>
     <div class="absolute -bottom-20 -left-40 w-[400px] h-[400px] rounded-full bg-cyan-500/5 blur-[100px]"></div>
 
     <div class="container-custom relative">
@@ -298,7 +298,7 @@ const serviceGlows = [
 
     <!-- Decorative -->
     <div class="absolute top-20 right-10 w-20 h-20 rounded-full border border-brand-500/10 animate-spin" style="animation-duration: 20s;"></div>
-    <div class="absolute bottom-20 left-10 w-12 h-12 rounded-full border border-violet-500/10 animate-spin" style="animation-duration: 15s; animation-direction: reverse;"></div>
+    <div class="absolute bottom-20 left-10 w-12 h-12 rounded-full border border-emerald-500/10 animate-spin" style="animation-duration: 15s; animation-direction: reverse;"></div>
 
     <div class="container-custom relative">
       <SectionHeading
@@ -345,7 +345,7 @@ const serviceGlows = [
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" data-stagger="true">
         {[
           { step: '01', title: 'Discover', desc: 'We analyze your business, challenges, and goals. AI-powered research accelerates our understanding of your market.', color: 'from-cyan-400 to-blue-500', glow: 'rgba(6,182,212,0.15)' },
-          { step: '02', title: 'Strategize', desc: 'A tailored roadmap with data-driven insights, clear milestones, and measurable KPIs for your business.', color: 'from-violet-400 to-purple-500', glow: 'rgba(139,92,246,0.15)' },
+          { step: '02', title: 'Strategize', desc: 'A tailored roadmap with data-driven insights, clear milestones, and measurable KPIs for your business.', color: 'from-emerald-400 to-teal-500', glow: 'rgba(16,185,129,0.15)' },
           { step: '03', title: 'Build', desc: 'Our team builds, tests, and deploys using agile sprints and AI-assisted development for faster delivery.', color: 'from-amber-400 to-orange-500', glow: 'rgba(245,158,11,0.15)' },
           { step: '04', title: 'Scale', desc: 'AI-powered analytics monitor performance. We continuously optimize and scale for sustained growth.', color: 'from-emerald-400 to-teal-500', glow: 'rgba(16,185,129,0.15)' },
         ].map((item) => (
@@ -379,7 +379,7 @@ const serviceGlows = [
     <div class="absolute inset-0 bg-mesh-gradient opacity-25"></div>
 
     <!-- Decorative blobs -->
-    <div class="absolute -top-32 left-[20%] w-[400px] h-[400px] rounded-full bg-violet-500/[0.04] blur-[100px]"></div>
+    <div class="absolute -top-32 left-[20%] w-[400px] h-[400px] rounded-full bg-accent-amber/[0.04] blur-[100px]"></div>
     <div class="absolute -bottom-32 right-[20%] w-[300px] h-[300px] rounded-full bg-brand-500/[0.04] blur-[80px]"></div>
 
     <div class="container-custom relative">
@@ -393,7 +393,7 @@ const serviceGlows = [
         {testimonials.map((t, i) => {
           const accents = [
             { gradient: 'from-brand-500 to-cyan-500', glow: 'brand-500' },
-            { gradient: 'from-violet-500 to-fuchsia-500', glow: 'violet-500' },
+            { gradient: 'from-emerald-400 to-teal-500', glow: 'emerald-400' },
             { gradient: 'from-amber-500 to-orange-500', glow: 'amber-500' },
           ];
           const accent = accents[i % 3];
@@ -444,14 +444,14 @@ const serviceGlows = [
 
     <!-- Large decorative orbs -->
     <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-brand-500/10 blur-[150px] animate-glow-pulse"></div>
-    <div class="absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full bg-violet-500/10 blur-[150px] animate-glow-pulse" style="animation-delay: 2s;"></div>
+    <div class="absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full bg-accent-amber/10 blur-[150px] animate-glow-pulse" style="animation-delay: 2s;"></div>
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-cyan-500/5 blur-[100px]"></div>
 
     <!-- Decorative shapes -->
     <svg class="absolute top-[15%] left-[10%] w-20 h-20 text-brand-500/10 animate-float" viewBox="0 0 80 80" fill="none">
       <circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="1" stroke-dasharray="8 6"/>
     </svg>
-    <svg class="absolute bottom-[15%] right-[10%] w-16 h-16 text-violet-500/10 animate-float" style="animation-delay: 2s;" viewBox="0 0 60 60" fill="none">
+    <svg class="absolute bottom-[15%] right-[10%] w-16 h-16 text-accent-amber/10 animate-float" style="animation-delay: 2s;" viewBox="0 0 60 60" fill="none">
       <rect x="5" y="5" width="50" height="50" rx="6" stroke="currentColor" stroke-width="1.5" transform="rotate(20 30 30)"/>
     </svg>
     <svg class="absolute top-[30%] right-[20%] w-6 h-6 text-cyan-400/15" viewBox="0 0 24 24" fill="currentColor">

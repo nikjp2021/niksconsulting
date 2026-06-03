@@ -29,26 +29,26 @@ const icons: Record<string, string> = {
 // Each icon gets a unique gradient pair
 const gradientMap: Record<string, string> = {
   globe: 'from-accent-cyan to-brand-400',
-  brain: 'from-accent-violet to-brand-500',
+  brain: 'from-emerald-400 to-brand-500',
   bot: 'from-accent-amber to-brand-400',
   zap: 'from-accent-amber to-accent-cyan',
-  code: 'from-accent-cyan to-accent-violet',
-  'share-2': 'from-brand-400 to-accent-violet',
+  code: 'from-accent-cyan to-emerald-400',
+  'share-2': 'from-brand-400 to-emerald-400',
   'trending-up': 'from-accent-cyan to-accent-amber',
-  kanban: 'from-accent-violet to-accent-cyan',
+  kanban: 'from-emerald-400 to-accent-cyan',
   blocks: 'from-brand-500 to-accent-amber',
 };
 
 // Glow color for each icon
 const glowMap: Record<string, string> = {
   globe: 'shadow-[0_0_24px_rgba(6,182,212,0.25)]',
-  brain: 'shadow-[0_0_24px_rgba(139,92,246,0.25)]',
+  brain: 'shadow-[0_0_24px_rgba(16,185,129,0.25)]',
   bot: 'shadow-[0_0_24px_rgba(245,158,11,0.25)]',
   zap: 'shadow-[0_0_24px_rgba(245,158,11,0.2)]',
   code: 'shadow-[0_0_24px_rgba(6,182,212,0.2)]',
-  'share-2': 'shadow-[0_0_24px_rgba(139,92,246,0.2)]',
+  'share-2': 'shadow-[0_0_24px_rgba(16,185,129,0.2)]',
   'trending-up': 'shadow-[0_0_24px_rgba(6,182,212,0.2)]',
-  kanban: 'shadow-[0_0_24px_rgba(139,92,246,0.2)]',
+  kanban: 'shadow-[0_0_24px_rgba(16,185,129,0.2)]',
   blocks: 'shadow-[0_0_24px_rgba(245,158,11,0.2)]',
 };
 
@@ -65,33 +65,33 @@ const iconGlow = glowMap[color] || glowMap.globe;
   {/* Gradient border on hover -- overlays the card edge */}
   <div
     class="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-    style="padding: 1px; background: linear-gradient(135deg, rgba(6,182,212,0.5), rgba(139,92,246,0.5), rgba(245,158,11,0.3)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude;"
+    style="padding: 1px; background: linear-gradient(135deg, rgba(20,184,166,0.5), rgba(6,182,212,0.4), rgba(245,158,11,0.3)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude;"
   ></div>
 
   {/* Decorative dot pattern in top-right corner */}
   <div class="pointer-events-none absolute -top-2 -right-2 opacity-[0.07] group-hover:opacity-[0.12] transition-opacity duration-500">
     <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
       <circle cx="10" cy="10" r="2" fill="currentColor" class="text-accent-cyan"/>
-      <circle cx="30" cy="10" r="2" fill="currentColor" class="text-accent-violet"/>
+      <circle cx="30" cy="10" r="2" fill="currentColor" class="text-emerald-400"/>
       <circle cx="50" cy="10" r="2" fill="currentColor" class="text-accent-cyan"/>
-      <circle cx="70" cy="10" r="2" fill="currentColor" class="text-accent-violet"/>
-      <circle cx="10" cy="30" r="2" fill="currentColor" class="text-accent-violet"/>
+      <circle cx="70" cy="10" r="2" fill="currentColor" class="text-emerald-400"/>
+      <circle cx="10" cy="30" r="2" fill="currentColor" class="text-emerald-400"/>
       <circle cx="30" cy="30" r="2" fill="currentColor" class="text-accent-cyan"/>
-      <circle cx="50" cy="30" r="2" fill="currentColor" class="text-accent-violet"/>
+      <circle cx="50" cy="30" r="2" fill="currentColor" class="text-emerald-400"/>
       <circle cx="70" cy="30" r="2" fill="currentColor" class="text-accent-cyan"/>
       <circle cx="10" cy="50" r="2" fill="currentColor" class="text-accent-cyan"/>
-      <circle cx="30" cy="50" r="2" fill="currentColor" class="text-accent-violet"/>
+      <circle cx="30" cy="50" r="2" fill="currentColor" class="text-emerald-400"/>
       <circle cx="50" cy="50" r="2" fill="currentColor" class="text-accent-cyan"/>
-      <circle cx="70" cy="50" r="2" fill="currentColor" class="text-accent-violet"/>
-      <circle cx="10" cy="70" r="2" fill="currentColor" class="text-accent-violet"/>
+      <circle cx="70" cy="50" r="2" fill="currentColor" class="text-emerald-400"/>
+      <circle cx="10" cy="70" r="2" fill="currentColor" class="text-emerald-400"/>
       <circle cx="30" cy="70" r="2" fill="currentColor" class="text-accent-cyan"/>
-      <circle cx="50" cy="70" r="2" fill="currentColor" class="text-accent-violet"/>
+      <circle cx="50" cy="70" r="2" fill="currentColor" class="text-emerald-400"/>
       <circle cx="70" cy="70" r="2" fill="currentColor" class="text-accent-cyan"/>
     </svg>
   </div>
 
   {/* Decorative abstract shape in bottom-left */}
-  <div class="pointer-events-none absolute -bottom-6 -left-6 w-24 h-24 rounded-full opacity-[0.06] group-hover:opacity-[0.12] transition-opacity duration-500 blur-xl bg-gradient-to-br from-accent-cyan to-accent-violet"></div>
+  <div class="pointer-events-none absolute -bottom-6 -left-6 w-24 h-24 rounded-full opacity-[0.06] group-hover:opacity-[0.12] transition-opacity duration-500 blur-xl bg-gradient-to-br from-accent-cyan to-emerald-400"></div>
 
   {/* Cursor-following glow */}
   <div class="cursor-glow" style={`background: radial-gradient(circle, ${color === 'globe' ? 'rgba(6,182,212,0.3)' : color === 'brain' ? 'rgba(139,92,246,0.3)' : color === 'bot' ? 'rgba(245,158,11,0.3)' : 'rgba(6,182,212,0.3)'}, transparent 70%);`}></div>
@@ -114,7 +114,7 @@ const iconGlow = glowMap[color] || glowMap.globe;
     {description}
   </p>
 
-  <span class="inline-flex items-center gap-2 text-sm font-medium bg-gradient-to-r from-accent-cyan to-accent-violet bg-clip-text text-transparent group-hover:from-brand-300 group-hover:to-accent-cyan transition-all duration-300">
+  <span class="inline-flex items-center gap-2 text-sm font-medium text-brand-400 group-hover:text-brand-300 transition-colors duration-300">
     Learn more
     <svg class="w-4 h-4 text-accent-cyan group-hover:translate-x-1.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>

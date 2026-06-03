@@ -24,7 +24,7 @@ export const services: Service[] = [
       'AI-driven analytics & insights',
       'LLM integration & fine-tuning',
     ],
-    color: 'from-violet-500 to-purple-500',
+    color: 'from-emerald-500 to-teal-500',
   },
   {
     id: 'ai-automation',
@@ -109,6 +109,6 @@ export const services: Service[] = [
       'Process optimization',
       'Certified Scrum Master guidance',
     ],
-    color: 'from-indigo-500 to-blue-500',
+    color: 'from-brand-500 to-cyan-500',
   },
 ];

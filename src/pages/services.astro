@@ -4,12 +4,12 @@ import SectionHeading from '../components/SectionHeading.astro';
 import { services } from '../data/services';
 
 const serviceAccents = [
-  { bg: 'bg-violet-500/10', border: 'border-violet-500/20', text: 'text-violet-400', ring: 'bg-violet-500/20', gradient: 'from-violet-500 to-purple-600', orb: 'rgba(139,92,246,0.12)', badge: 'bg-violet-500/15 text-violet-300 border-violet-500/20' },
+  { bg: 'bg-emerald-500/10', border: 'border-emerald-500/20', text: 'text-emerald-400', ring: 'bg-emerald-500/20', gradient: 'from-emerald-500 to-teal-600', orb: 'rgba(16,185,129,0.12)', badge: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/20' },
   { bg: 'bg-cyan-500/10', border: 'border-cyan-500/20', text: 'text-cyan-400', ring: 'bg-cyan-500/20', gradient: 'from-cyan-500 to-blue-600', orb: 'rgba(6,182,212,0.12)', badge: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/20' },
   { bg: 'bg-amber-500/10', border: 'border-amber-500/20', text: 'text-amber-400', ring: 'bg-amber-500/20', gradient: 'from-amber-500 to-orange-600', orb: 'rgba(245,158,11,0.12)', badge: 'bg-amber-500/15 text-amber-300 border-amber-500/20' },
   { bg: 'bg-emerald-500/10', border: 'border-emerald-500/20', text: 'text-emerald-400', ring: 'bg-emerald-500/20', gradient: 'from-emerald-500 to-teal-600', orb: 'rgba(16,185,129,0.12)', badge: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/20' },
   { bg: 'bg-pink-500/10', border: 'border-pink-500/20', text: 'text-pink-400', ring: 'bg-pink-500/20', gradient: 'from-pink-500 to-rose-600', orb: 'rgba(236,72,153,0.12)', badge: 'bg-pink-500/15 text-pink-300 border-pink-500/20' },
-  { bg: 'bg-indigo-500/10', border: 'border-indigo-500/20', text: 'text-indigo-400', ring: 'bg-indigo-500/20', gradient: 'from-indigo-500 to-blue-600', orb: 'rgba(99,102,241,0.12)', badge: 'bg-indigo-500/15 text-indigo-300 border-indigo-500/20' },
+  { bg: 'bg-brand-500/10', border: 'border-brand-500/20', text: 'text-brand-400', ring: 'bg-brand-500/20', gradient: 'from-brand-500 to-cyan-600', orb: 'rgba(20,184,166,0.12)', badge: 'bg-brand-500/15 text-brand-300 border-brand-500/20' },
 ];
 ---
 
@@ -17,13 +17,13 @@ const serviceAccents = [
   <!-- Hero -->
   <section class="relative py-24 lg:py-36 overflow-hidden">
     <div class="absolute inset-0 bg-hero-gradient"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.15),transparent_60%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(245,158,11,0.1),transparent_60%)]"></div>
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(6,182,212,0.1),transparent_50%)]"></div>
     <!-- Decorative orbs -->
-    <div class="absolute top-20 left-[10%] w-72 h-72 rounded-full bg-violet-500/8 blur-[100px] animate-glow-pulse"></div>
+    <div class="absolute top-20 left-[10%] w-72 h-72 rounded-full bg-accent-amber/8 blur-[100px] animate-glow-pulse"></div>
     <div class="absolute bottom-10 right-[15%] w-64 h-64 rounded-full bg-cyan-500/8 blur-[100px] animate-glow-pulse" style="animation-delay: 2s;"></div>
     <!-- Decorative SVG shapes -->
-    <svg class="absolute top-16 right-[20%] w-16 h-16 text-violet-500/10 animate-float" viewBox="0 0 64 64" fill="currentColor"><circle cx="32" cy="32" r="8"/></svg>
+    <svg class="absolute top-16 right-[20%] w-16 h-16 text-accent-amber/10 animate-float" viewBox="0 0 64 64" fill="currentColor"><circle cx="32" cy="32" r="8"/></svg>
     <svg class="absolute bottom-24 left-[25%] w-12 h-12 text-cyan-500/10 animate-float" style="animation-delay: 3s;" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><rect x="12" y="12" width="40" height="40" rx="8" transform="rotate(15 32 32)"/></svg>
     <!-- Hero illustration background -->
     <img src="/images/hero-services.svg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none" loading="eager" />
@@ -174,10 +174,10 @@ const serviceAccents = [
       <path d="M0 100L1440 20L1440 0L0 0Z" fill="#09090b"/>
     </svg>
     <div class="bg-surface-1 pb-24 lg:pb-32 relative">
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.08),transparent_60%)]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.06),transparent_60%)]"></div>
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(6,182,212,0.06),transparent_50%)]"></div>
       <!-- Floating orbs -->
-      <div class="absolute top-0 left-[20%] w-60 h-60 rounded-full bg-violet-500/6 blur-[100px] animate-glow-pulse"></div>
+      <div class="absolute top-0 left-[20%] w-60 h-60 rounded-full bg-accent-amber/6 blur-[100px] animate-glow-pulse"></div>
       <div class="absolute bottom-0 right-[20%] w-60 h-60 rounded-full bg-cyan-500/6 blur-[100px] animate-glow-pulse" style="animation-delay: 2s;"></div>
 
     {/* Case Studies hint */}
