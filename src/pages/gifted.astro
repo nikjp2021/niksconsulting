@@ -3,7 +3,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 ---
 
-<BaseLayout title="Gifted Internship Program — Nik's Consulting" description="The Gifted Internship Program: 5 years of transforming students into industry leaders through real-world projects. Graduates from 8 countries.">
+<BaseLayout title="Gifted Internship Program | Real-World AI Projects" description="Join the Gifted Internship Program: 5 years of real-world AI projects, graduates from 8 countries, 100% employment rate. Apply now for the next cohort.">
+
+  <!-- Structured Data: EducationalOccupationalProgram -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "EducationalOccupationalProgram",
+    "name": "Gifted Internship Program",
+    "description": "Real-world project-based internship running since 2020 from Japan",
+    "provider": { "@type": "ProfessionalService", "name": "Nik's Consulting" },
+    "educationalProgramMode": "full-time",
+    "timeToComplete": "P3M",
+    "occupationalCategory": "AI, Digital Transformation, Web Development"
+  })} />
   <!-- Hero -->
   <section class="relative py-24 lg:py-36 overflow-hidden">
     <div class="absolute inset-0 bg-hero-gradient"></div>

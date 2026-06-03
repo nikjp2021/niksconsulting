@@ -13,7 +13,17 @@ const serviceAccents = [
 ];
 ---
 
-<BaseLayout title="Services — Nik's Consulting">
+<BaseLayout title="AI-Powered Services | Nik's Consulting" description="Explore our 6 AI-powered services: Agentic AI, automation, digital transformation, web development, AI social media, and agile project management for growing businesses.">
+
+  <!-- Structured Data: Service -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "AI Consulting",
+    "provider": { "@type": "ProfessionalService", "name": "Nik's Consulting" },
+    "areaServed": "Worldwide",
+    "description": "AI-powered solutions and digital transformation for startups and SMEs"
+  })} />
   <!-- Hero -->
   <section class="relative py-24 lg:py-36 overflow-hidden">
     <div class="absolute inset-0 bg-hero-gradient"></div>
@@ -87,7 +97,7 @@ const serviceAccents = [
 
                 <!-- Features list -->
                 <div class:list={['rounded-2xl border p-6 mb-8', accent.bg, accent.border]}>
-                  <h4 class:list={['text-sm font-semibold uppercase tracking-wider mb-4', accent.text]}>What's Included</h4>
+                  <h3 class:list={['text-sm font-semibold uppercase tracking-wider mb-4', accent.text]}>What's Included</h3>
                   <ul class="space-y-3">
                     {service.features.map((feature) => (
                       <li class="flex items-start gap-3">

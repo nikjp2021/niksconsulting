@@ -13,7 +13,7 @@ interface Props {
 const {
   title,
   description = "Nik's Consulting — Pioneers in AI Solutions & Innovation. We deliver AI-powered solutions, agentic workflows, digital transformation, and automation for startups and SMEs.",
-  ogImage = '/og-image.jpg',
+  ogImage = 'https://niksconsulting.com/og-image.jpg',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, 'https://niksconsulting.com');
@@ -30,6 +30,7 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://niksconsulting.com');
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#09090b" />
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -43,6 +44,8 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://niksconsulting.com');
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@niksconsulting" />
+    <meta name="twitter:creator" content="@niksconsulting" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
@@ -63,14 +66,14 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://niksconsulting.com');
       "name": "Nik's Consulting",
       "url": "https://niksconsulting.com",
       "description": description,
-      // REPLACE: Add your actual address, phone, email
+      // REPLACE: Update phone and email with actual contact details
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Your City",
-        "addressCountry": "Your Country"
+        "addressLocality": "Shizuoka",
+        "addressCountry": "JP"
       },
-      "telephone": "+1-234-567-890",
-      "email": "info@niksconsulting.com",
+      "telephone": "+1-234-567-890", // REPLACE: Add your actual phone number
+      "email": "info@niksconsulting.com", // REPLACE: Add your actual email if different
       "priceRange": "$$",
       "serviceType": ["AI Solutions", "Agentic AI", "AI Automation", "Digital Transformation", "Web Development", "AI-Powered Social Media", "Agile Project Management"]
     })} />

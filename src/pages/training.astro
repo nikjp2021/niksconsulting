@@ -86,7 +86,21 @@ const audiences = [
 ];
 ---
 
-<BaseLayout title="AI Training — Nik's Consulting" description="Hands-on AI training workshops, small group programs, and 1:1 coaching for teams and individuals. Master AI with practical, ship-ready skills.">
+<BaseLayout title="AI Training Workshops & Coaching | Nik's Consulting" description="Hands-on AI training: workshops for teams of 10-30, small group cohorts, and 1:1 coaching. Practical skills your team can apply the next day.">
+
+  <!-- Structured Data: Course -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "AI Training & Onboarding",
+    "description": "Hands-on AI training workshops, small group programs, and 1:1 coaching",
+    "provider": { "@type": "ProfessionalService", "name": "Nik's Consulting" },
+    "offers": [
+      { "@type": "Offer", "name": "AI Workshop", "price": "150000", "priceCurrency": "JPY" },
+      { "@type": "Offer", "name": "Small Group Cohort", "price": "280000", "priceCurrency": "JPY" },
+      { "@type": "Offer", "name": "1:1 Coaching", "price": "50000", "priceCurrency": "JPY" }
+    ]
+  })} />
   <!-- Hero -->
   <section class="relative py-24 lg:py-36 overflow-hidden">
     <div class="absolute inset-0 bg-hero-gradient"></div>

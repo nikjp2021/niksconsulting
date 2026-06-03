@@ -11,7 +11,26 @@ const teamColors = [
 ];
 ---
 
-<BaseLayout title="About Us — Nik's Consulting" description="Learn about Nik's Consulting — our mission, story, and commitment to helping businesses thrive through digital transformation.">
+<BaseLayout title="About Nik's Consulting | AI-First Digital Transformation" description="Meet the team behind Nik's Consulting. Founded by Nikhil Tiwari, we pioneer AI-first digital transformation from Japan. 5 years, 8 countries, real results.">
+
+  <!-- Structured Data: Organization -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Nik's Consulting",
+    "url": "https://niksconsulting.com",
+    "founder": {
+      "@type": "Person",
+      "name": "Nikhil Tiwari",
+      "jobTitle": "Founder & Fractional CPO",
+      "url": "https://www.linkedin.com/in/ntiwari1"
+    },
+    "employee": [
+      { "@type": "Person", "name": "Pierre Lisboa de Carvalho" },
+      { "@type": "Person", "name": "Ebele Egbuna" },
+      { "@type": "Person", "name": "Bintang Wijaya" }
+    ]
+  })} />
   <!-- Hero -->
   <section class="relative py-24 lg:py-36 overflow-hidden">
     <div class="absolute inset-0 bg-hero-gradient"></div>
