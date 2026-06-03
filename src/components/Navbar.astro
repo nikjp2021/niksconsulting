@@ -48,7 +48,7 @@ function isActiveLink(link: any): boolean {
     </a>
 
     {/* Desktop Nav */}
-    <div class="hidden md:flex items-center gap-1">
+    <div class="hidden lg:flex items-center gap-0.5">
       {navLinks.map((link) => {
         const active = isActiveLink(link);
 
@@ -57,7 +57,7 @@ function isActiveLink(link: any): boolean {
             <div class="relative group/dropdown">
               <button
                 class:list={[
-                  'relative flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300',
+                  'relative flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300',
                   active ? 'text-ink-100' : 'text-ink-400 hover:text-ink-100',
                 ]}
               >
@@ -100,7 +100,7 @@ function isActiveLink(link: any): boolean {
             target={link.external ? '_blank' : undefined}
             rel={link.external ? 'noopener noreferrer' : undefined}
             class:list={[
-              'relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300',
+              'relative px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300',
               active ? 'text-ink-100' : 'text-ink-400 hover:text-ink-100',
             ]}
           >
@@ -121,7 +121,7 @@ function isActiveLink(link: any): boolean {
     </div>
 
     {/* CTA + Theme Toggle */}
-    <div class="hidden md:flex items-center gap-3">
+    <div class="hidden lg:flex items-center gap-3">
       <button
         id="theme-toggle"
         class="p-2 rounded-lg text-ink-400 hover:text-ink-100 hover:bg-surface-3 transition-all duration-200"
@@ -142,7 +142,7 @@ function isActiveLink(link: any): boolean {
     {/* Mobile Menu Button */}
     <button
       id="mobile-menu-btn"
-      class="md:hidden p-2 text-ink-400 hover:text-ink-100 transition-colors"
+      class="lg:hidden p-2 text-ink-400 hover:text-ink-100 transition-colors"
       aria-label="Toggle menu"
     >
       <svg id="menu-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -155,7 +155,7 @@ function isActiveLink(link: any): boolean {
   </nav>
 
   {/* Mobile Menu */}
-  <div id="mobile-menu" class="hidden md:hidden" style="background: var(--mobile-menu-bg); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(var(--card-border), 0.4);">
+  <div id="mobile-menu" class="hidden lg:hidden" style="background: var(--mobile-menu-bg); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(var(--card-border), 0.4);">
     <div class="container-custom px-4 py-4 space-y-1">
       {navLinks.map((link) => {
         const active = isActiveLink(link);
