@@ -13,6 +13,7 @@
     "@tailwindcss/vite": "4.1.18",
     "astro": "^6.4.3",
     "lucide": "^1.17.0",
+    "motion": "^12.40.0",
     "tailwindcss": "4.1.18"
   },
   "devDependencies": {
