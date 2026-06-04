@@ -264,6 +264,12 @@
   ::-webkit-scrollbar-thumb:hover {
     background-color: var(--color-surface-5);
   }
+
+  @media (max-width: 640px) {
+    .animate-glow-pulse {
+      display: none;
+    }
+  }
 }
 
 /* Light mode selection: darker text for contrast */
@@ -747,7 +753,7 @@
   left: 0.75rem;
   font-size: 0.75rem;
   color: #06b6d4;
-  background: #0f0f13;
+  background: var(--color-surface-0);
 }
 
 /* --- Case Study Card Tags Slide Up --- */
